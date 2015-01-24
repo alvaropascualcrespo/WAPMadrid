@@ -28,8 +28,8 @@ public class RutasFragment extends Fragment implements  ActionBar.TabListener{
 		
         FragmentManager manager = getChildFragmentManager();
         manager.beginTransaction()
-        	    .add(R.id.rutasListTab, fragments[0])
-        	    .add(R.id.rutasListTab, fragments[1])
+        	    .add(R.id.rutasListLayout, fragments[0])
+        	    .add(R.id.rutasListLayout, fragments[1])
         	    .commit();	
         
         manager.beginTransaction().hide(fragments[1])

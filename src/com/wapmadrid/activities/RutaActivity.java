@@ -41,8 +41,8 @@ public class RutaActivity extends FragmentActivity implements ActionBar.TabListe
 		}
 		FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction()
-        	    .add(R.id.ruta_tabs, fragments[0])
-        	    .add(R.id.ruta_tabs, fragments[1])
+        	    .add(R.id.rutaLayout, fragments[0])
+        	    .add(R.id.rutaLayout, fragments[1])
         	    .commit();	
         
         manager.beginTransaction().hide(fragments[1])
@@ -50,25 +50,10 @@ public class RutaActivity extends FragmentActivity implements ActionBar.TabListe
         
         setContent(0);
 	}
-	
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.fragment_rutas, container, false);// -- linea original
+
+	private void setContent(int i) {
+		// TODO Auto-generated method stub
 		
-		
-		setHasOptionsMenu(true);
-		//setTabs();
-		
-        FragmentManager manager = getChildFragmentManager();
-        manager.beginTransaction()
-        	    .add(R.id.rutasListTab, fragments[0])
-        	    .add(R.id.rutasListTab, fragments[1])
-        	    .commit();	
-        
-        manager.beginTransaction().hide(fragments[1])
-				        		  .commit();
-		return view;
 	}
 
 	@Override
