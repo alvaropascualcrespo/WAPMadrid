@@ -1,6 +1,10 @@
 package com.wapmadrid.fragments;
 
 import com.wapmadrid.R;
+import com.wapmadrid.centroMedico.CentroMedicoDescripcionFragment;
+import com.wapmadrid.centroMedico.CentroMedicoEventosFragment;
+import com.wapmadrid.rutas.MapFragment;
+import com.wapmadrid.rutas.RutasListFragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,8 +17,8 @@ import android.view.ViewGroup;
 
 public class RutasFragment extends Fragment implements  ActionBar.TabListener{
 	
-	private Fragment[] fragments = new Fragment[]{ 	new MapFragment(),
-													new RutasListFragment()};
+	private Fragment[] fragments = new Fragment[]{ 	new RutasListFragment(),
+													new MapFragment()};
 	private int lastIndex = 0;	
 
 	@Override
@@ -28,8 +32,8 @@ public class RutasFragment extends Fragment implements  ActionBar.TabListener{
 		
         FragmentManager manager = getChildFragmentManager();
         manager.beginTransaction()
-        	    .add(R.id.rutasListLayout, fragments[0])
-        	    .add(R.id.rutasListLayout, fragments[1])
+        	    .add(R.id.rutasLayout, fragments[0])
+        	    .add(R.id.rutasLayout, fragments[1])
         	    .commit();	
         
         manager.beginTransaction().hide(fragments[1])
@@ -45,12 +49,12 @@ public class RutasFragment extends Fragment implements  ActionBar.TabListener{
 
 	    actionBar.addTab(
                 actionBar.newTab()
-                        .setText("Mapa")
+                        .setText("Lista")
                         .setTabListener(this));
         
         actionBar.addTab(
                 actionBar.newTab()
-                        .setText("Lista")
+                        .setText("Mapa")
                         .setTabListener(this));
 		
 	}
@@ -71,10 +75,10 @@ public class RutasFragment extends Fragment implements  ActionBar.TabListener{
 				.commit();
 		
 		if (index == 0){
-			((MapFragment)toShow).fill();
+			((RutasListFragment)toShow).fill();
 		}
 		if (index == 1) {
-			((RutasListFragment) toShow).fill();
+			((MapFragment) toShow).fill();
 		}
     }
 

@@ -64,15 +64,15 @@
             android:label="@string/title_activity_rutas_fragment" >
         </activity>
         <activity
-            android:name="com.wapmadrid.fragments.MapFragment"
+            android:name="com.wapmadrid.rutas.MapFragment"
             android:label="@string/title_activity_map_fragment" >
         </activity>
         <activity
-            android:name="com.wapmadrid.fragments.CentroMedicoFragment"
+            android:name="com.wapmadrid.centroMedico.CentroMedicoDescripcionFragment"
             android:label="@string/title_activity_centro_medico_fragment" >
         </activity>
         <activity
-            android:name="com.wapmadrid.fragments.RutasListFragment"
+            android:name="com.wapmadrid.rutas.RutasListFragment"
             android:label="@string/title_activity_rutasList_fragment" >
         </activity>
         <meta-data

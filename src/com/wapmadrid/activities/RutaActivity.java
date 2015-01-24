@@ -1,10 +1,10 @@
 package com.wapmadrid.activities;
 
 import com.wapmadrid.R;
-import com.wapmadrid.fragments.MapFragment;
-import com.wapmadrid.fragments.RutasListFragment;
-import com.wapmadrid.ruta.RutaDescripcionFragment;
-import com.wapmadrid.ruta.RutaMapFragment;
+import com.wapmadrid.rutaIndividual.RutaDescripcionFragment;
+import com.wapmadrid.rutaIndividual.RutaMapFragment;
+import com.wapmadrid.rutas.MapFragment;
+import com.wapmadrid.rutas.RutasListFragment;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
@@ -51,8 +51,24 @@ public class RutaActivity extends FragmentActivity implements ActionBar.TabListe
         setContent(0);
 	}
 
-	private void setContent(int i) {
-		// TODO Auto-generated method stub
+	private void setContent(int index) {
+		Fragment toHide = null;
+		Fragment toShow = null;
+		
+		toHide = fragments[lastIndex];
+		toShow =  fragments[index];
+		lastIndex = index;
+		
+		FragmentManager manager = getSupportFragmentManager();
+		
+		manager.beginTransaction()
+		.hide(toHide)
+		.show(toShow)
+		.commit();
+
+
+		if (index == 0) ((RutaDescripcionFragment) toShow).fill();
+		if (index == 1) ((RutaMapFragment) toShow).fill();
 		
 	}
 
@@ -63,8 +79,8 @@ public class RutaActivity extends FragmentActivity implements ActionBar.TabListe
 	}
 
 	@Override
-	public void onTabSelected(Tab arg0, FragmentTransaction arg1) {
-		// TODO Auto-generated method stub
+	public void onTabSelected(Tab tab, FragmentTransaction arg1) {
+		setContent(tab.getPosition());
 		
 	}
 

@@ -31,6 +31,10 @@
         <item>Inicio</item>
         <item>Rutas</item>
         <item>Centro Medico</item>
+        <item>Perfil</item>
+        <item>Amigos</item>
+        <item>Grupo</item>
+        <item>Capitan</item>
     </string-array>
     
     <string-array name="rutasListTab">

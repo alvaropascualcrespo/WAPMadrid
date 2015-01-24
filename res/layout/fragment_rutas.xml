@@ -5,7 +5,7 @@
     android:orientation="vertical" xmlns:tools="http://schemas.android.com/tools">
 
     <FrameLayout
-        android:id="@+id/rutasListLayout"
+        android:id="@+id/rutasLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
     
