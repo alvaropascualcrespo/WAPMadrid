@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/eventoLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="15dp"
+        android:layout_marginTop="106dp"
+        android:clickable="true"
+        android:padding="10dp" >
+
+        <TextView
+            android:id="@+id/txtNombreCentro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="NombreCentro"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <ImageView
+            android:id="@+id/pictureEvento"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/txtNombreCentro"
+            android:layout_marginTop="20dp"
+            android:adjustViewBounds="true"
+            android:cropToPadding="true"
+            android:scaleType="center" 
+            android:src="@drawable/logo_sanidad"/>
+
+        <TextView
+            android:id="@+id/txtTituloEvento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtNombreCentro"
+            android:layout_toRightOf="@+id/pictureEvento"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="5dp"
+            android:text="Event Title"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/txtTextoEvento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/txtTituloEvento"
+            android:layout_below="@+id/txtTituloEvento"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="5dp"
+            android:text="Event Text"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/txtFechaEvento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/txtTextoEvento"
+            android:layout_below="@+id/txtTextoEvento"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="5dp"
+            android:text="10/10/2015"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/txtHoraEvento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/txtFechaEvento"
+            android:layout_alignBottom="@+id/txtFechaEvento"
+            android:layout_toRightOf="@+id/txtFechaEvento"
+            android:layout_marginLeft="10dp"
+            android:text="14.00"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1536,7 +1536,7 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f08002b;
         public static final int action_menu_presenter=0x7f08002c;
         public static final int action_mode_close_button=0x7f080039;
-        public static final int action_settings=0x7f08007c;
+        public static final int action_settings=0x7f080083;
         public static final int activity_chooser_view_content=0x7f08003a;
         public static final int adjust_height=0x7f080002;
         public static final int adjust_width=0x7f080001;
@@ -1569,6 +1569,7 @@ containing a value of this type.
         public static final int etRegistroFechaNacimiento=0x7f08005a;
         public static final int etRegistroNombre=0x7f080058;
         public static final int etUsuario=0x7f08005e;
+        public static final int eventoLayout=0x7f080079;
         public static final int expand_activities_button=0x7f08003b;
         public static final int expanded_menu=0x7f080041;
         public static final int gotoInicio=0x7f080062;
@@ -1584,7 +1585,7 @@ containing a value of this type.
         public static final int imagePlano=0x7f080074;
         public static final int imageSanidad=0x7f080067;
         public static final int imageView1=0x7f080065;
-        public static final int imagenRuta=0x7f080079;
+        public static final int imagenRuta=0x7f080080;
         public static final int leftDrawer=0x7f080053;
         public static final int listMode=0x7f080017;
         public static final int list_item=0x7f08003e;
@@ -1601,6 +1602,7 @@ containing a value of this type.
         public static final int normal=0x7f080003;
         public static final int pgRegistro=0x7f080063;
         public static final int pgRutasList=0x7f080077;
+        public static final int pictureEvento=0x7f08007b;
         public static final int production=0x7f080009;
         public static final int progress_circular=0x7f08002d;
         public static final int progress_horizontal=0x7f08002e;
@@ -1644,8 +1646,13 @@ containing a value of this type.
         public static final int textTramoControl=0x7f080072;
         public static final int title=0x7f080040;
         public static final int top_action_bar=0x7f080035;
-        public static final int txtDescripcion=0x7f08007b;
-        public static final int txtNombre=0x7f08007a;
+        public static final int txtDescripcion=0x7f080082;
+        public static final int txtFechaEvento=0x7f08007e;
+        public static final int txtHoraEvento=0x7f08007f;
+        public static final int txtNombre=0x7f080081;
+        public static final int txtNombreCentro=0x7f08007a;
+        public static final int txtTextoEvento=0x7f08007d;
+        public static final int txtTituloEvento=0x7f08007c;
         public static final int up=0x7f080036;
         public static final int useLogo=0x7f080019;
         public static final int withText=0x7f080022;
@@ -1717,8 +1724,9 @@ containing a value of this type.
         public static final int fragment_ruta_map=0x7f030024;
         public static final int fragment_rutas=0x7f030025;
         public static final int fragment_rutas_list=0x7f030026;
-        public static final int item_rutas_list=0x7f030027;
-        public static final int support_simple_spinner_dropdown_item=0x7f030028;
+        public static final int item_evento=0x7f030027;
+        public static final int item_rutas_list=0x7f030028;
+        public static final int support_simple_spinner_dropdown_item=0x7f030029;
     }
     public static final class menu {
         public static final int home=0x7f0e0000;
