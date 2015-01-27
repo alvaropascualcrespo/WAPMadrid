@@ -2,6 +2,7 @@ package com.wapmadrid.activities;
 
 import com.wapmadrid.R;
 import com.wapmadrid.centroMedico.CentroMedicoDescripcionFragment;
+import com.wapmadrid.fragments.AmigosListFragment;
 import com.wapmadrid.fragments.CentroMedicoFragment;
 import com.wapmadrid.fragments.HomeFragment;
 import com.wapmadrid.fragments.PerfilFragment;
@@ -33,7 +34,8 @@ public class InicioActivity extends FragmentActivity {
 	private Fragment[] fragments = new Fragment[]{	new HomeFragment(),
 													new RutasFragment(),
 													new CentroMedicoFragment(),
-													new PerfilFragment()};
+													new PerfilFragment(),
+													new AmigosListFragment()};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -91,16 +93,16 @@ public class InicioActivity extends FragmentActivity {
         		.add(R.id.contentFrame, fragments[1])
         		.add(R.id.contentFrame, fragments[2])
         		.add(R.id.contentFrame, fragments[3])
-        		/*.add(R.id.contentFrame, fragments[4])
-        		.add(R.id.contentFrame, fragments[5])
+        		.add(R.id.contentFrame, fragments[4])
+        		/*.add(R.id.contentFrame, fragments[5])
         		.add(R.id.contentFrame, fragments[6])*/
         	    .commit();	
         
         manager.beginTransaction().hide(fragments[1])
         						  .hide(fragments[2])
         						  .hide(fragments[3])
-        						  /*.hide(fragments[4])
-        						  .hide(fragments[5])
+        						  .hide(fragments[4])
+        						  /*.hide(fragments[5])
         						  .hide(fragments[6])*/
 				        		  .commit();
         

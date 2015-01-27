@@ -88,7 +88,6 @@ public class AdapterItemRutas extends BaseAdapter{
 		public NetworkImageView picture;
 		public TextView txtname;
 		public TextView txtdescripcion;
-		public long id;
 	}
 
 }

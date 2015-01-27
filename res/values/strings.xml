@@ -46,5 +46,10 @@
         <item>Descripción</item>
         <item>Mapa</item>
     </string-array>
+    
+    <string-array name="amigo_tabs">
+        <item>Información</item>
+        <item>Actividad</item>
+    </string-array>
 
 </resources>
