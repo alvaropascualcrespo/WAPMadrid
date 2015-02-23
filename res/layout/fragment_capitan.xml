@@ -8,7 +8,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.wapmadrid.fragments.CapitanFragment" >
 
-    <MultilineText
+    <EditText
         android:id="@+id/txtMensaje"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,8 +16,9 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
-        android:ems="10" >
-    </MultilineText>
+        android:ems="10" 
+        android:inputType="textMultiLine">
+    </EditText>
 
     <Button
         android:id="@+id/btnEnviarMsg"
@@ -40,5 +41,17 @@
         android:numColumns="2" >
 
     </GridView>
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/gridViewCapitan"
+        android:layout_below="@+id/txtMensaje"
+        android:ems="10"
+        android:inputType="textMultiLine" >
+
+        <requestFocus />
+    </EditText>
         
 </RelativeLayout>
