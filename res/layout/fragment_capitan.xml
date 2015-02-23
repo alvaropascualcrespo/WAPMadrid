@@ -8,28 +8,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.wapmadrid.fragments.CapitanFragment" >
 
-    <EditText
-        android:id="@+id/txtMensaje"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:ems="10" 
-        android:inputType="textMultiLine">
-    </EditText>
-
-    <Button
-        android:id="@+id/btnEnviarMsg"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/txtMensaje"
-        android:layout_toRightOf="@+id/txtMensaje"
-        android:layout_marginLeft="5dp"
-        android:text="Btn" />
-
     <GridView
         android:id="@+id/gridViewCapitan"
         android:layout_width="match_parent"
@@ -39,19 +17,6 @@
         android:layout_below="@+id/btnEnviarMsg"
         android:layout_marginTop="25dp"
         android:numColumns="2" >
-
     </GridView>
-
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/gridViewCapitan"
-        android:layout_below="@+id/txtMensaje"
-        android:ems="10"
-        android:inputType="textMultiLine" >
-
-        <requestFocus />
-    </EditText>
         
 </RelativeLayout>

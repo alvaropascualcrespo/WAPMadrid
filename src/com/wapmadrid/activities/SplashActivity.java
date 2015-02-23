@@ -3,13 +3,15 @@ package com.wapmadrid.activities;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import com.wapmadrid.R;
-
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+
+import com.wapmadrid.R;
 
 public class SplashActivity extends Activity {
 
@@ -25,6 +27,19 @@ public class SplashActivity extends Activity {
 		getActionBar().hide();
 		act = this;
         splashTimer = new Timer();
+        
+        final ImageView splashImageView = (ImageView) findViewById(R.id.SplashImageView);
+		splashImageView.setImageResource(R.drawable.logo_animado);
+		
+		final AnimationDrawable frameAnimation = (AnimationDrawable) splashImageView.getDrawable();
+		
+		
+		splashImageView.post(new Runnable(){
+	            @Override
+	            public void run() {
+	                frameAnimation.start();                
+	            }            
+	        });
         
         splashTimer.schedule(new TimerTask()
         {
