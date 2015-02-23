@@ -1,0 +1,44 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.wapmadrid.fragments.CapitanFragment" >
+
+    <MultilineText
+        android:id="@+id/txtMensaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:ems="10" >
+    </MultilineText>
+
+    <Button
+        android:id="@+id/btnEnviarMsg"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/txtMensaje"
+        android:layout_toRightOf="@+id/txtMensaje"
+        android:layout_marginLeft="5dp"
+        android:text="Btn" />
+
+    <GridView
+        android:id="@+id/gridViewCapitan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtMensaje"
+        android:layout_alignRight="@+id/btnEnviarMsg"
+        android:layout_below="@+id/btnEnviarMsg"
+        android:layout_marginTop="25dp"
+        android:numColumns="2" >
+
+    </GridView>
+        
+</RelativeLayout>

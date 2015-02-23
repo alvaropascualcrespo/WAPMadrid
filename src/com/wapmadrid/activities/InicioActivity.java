@@ -3,7 +3,10 @@ package com.wapmadrid.activities;
 import com.wapmadrid.R;
 import com.wapmadrid.centroMedico.CentroMedicoDescripcionFragment;
 import com.wapmadrid.fragments.AmigosListFragment;
+import com.wapmadrid.fragments.CapitanFragment;
 import com.wapmadrid.fragments.CentroMedicoFragment;
+import com.wapmadrid.fragments.EnlacesFragment;
+import com.wapmadrid.fragments.GrupoFragment;
 import com.wapmadrid.fragments.HomeFragment;
 import com.wapmadrid.fragments.PerfilFragment;
 import com.wapmadrid.fragments.RutasFragment;
@@ -35,7 +38,10 @@ public class InicioActivity extends FragmentActivity {
 													new RutasFragment(),
 													new CentroMedicoFragment(),
 													new PerfilFragment(),
-													new AmigosListFragment()};
+													new AmigosListFragment(),
+													new GrupoFragment(),
+													new CapitanFragment(),
+													new EnlacesFragment()};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -94,16 +100,18 @@ public class InicioActivity extends FragmentActivity {
         		.add(R.id.contentFrame, fragments[2])
         		.add(R.id.contentFrame, fragments[3])
         		.add(R.id.contentFrame, fragments[4])
-        		/*.add(R.id.contentFrame, fragments[5])
-        		.add(R.id.contentFrame, fragments[6])*/
+        		.add(R.id.contentFrame, fragments[5])
+        		.add(R.id.contentFrame, fragments[6])
+        		.add(R.id.contentFrame, fragments[7])
         	    .commit();	
         
         manager.beginTransaction().hide(fragments[1])
         						  .hide(fragments[2])
         						  .hide(fragments[3])
         						  .hide(fragments[4])
-        						  /*.hide(fragments[5])
-        						  .hide(fragments[6])*/
+        						  .hide(fragments[5])
+        						  .hide(fragments[6])
+        						  .hide(fragments[7])
 				        		  .commit();
         
         setContent(option);
@@ -153,7 +161,7 @@ public class InicioActivity extends FragmentActivity {
 		drawerList.setItemChecked(index, true);
 	    drawerLayout.closeDrawer(drawerList);	
 	   
-	    if ((index == 0) || (index == 4)) {
+	    if ((index == 0) || (index == 4) || (index == 6) || (index == 7)) {
 	    	actionBar.setTitle("");
 	    }
 	    if (index == 1) {
@@ -167,6 +175,10 @@ public class InicioActivity extends FragmentActivity {
 	    if (index == 3) {
 	    	actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 	    	((PerfilFragment) toShow).setTabs();
+	    }
+	    if (index == 5) {
+	    	actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+	    	((GrupoFragment) toShow).setTabs();
 	    }
 	    
     }

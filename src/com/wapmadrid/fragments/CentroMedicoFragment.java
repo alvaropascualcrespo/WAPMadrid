@@ -3,8 +3,6 @@ package com.wapmadrid.fragments;
 import com.wapmadrid.R;
 import com.wapmadrid.centroMedico.CentroMedicoDescripcionFragment;
 import com.wapmadrid.centroMedico.CentroMedicoEventosFragment;
-import com.wapmadrid.rutas.MapFragment;
-import com.wapmadrid.rutas.RutasListFragment;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
