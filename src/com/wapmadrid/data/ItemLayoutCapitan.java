@@ -1,22 +1,25 @@
 package com.wapmadrid.data;
 
+import android.graphics.drawable.Drawable;
+import android.widget.ImageView;
+
 public class ItemLayoutCapitan extends Item{
 
-	protected String picture;
+	protected int picture;
 	protected String name;
 	
-	public ItemLayoutCapitan(String picture, String name, long id) {
+	public ItemLayoutCapitan(int imageView, String name, long id) {
 		super();
-		this.picture = picture;
+		this.picture = imageView;
 		this.name = name;
 		this.id = id;
 	}
 
-	public String getPicture() {
+	public int getPicture() {
 		return picture;
 	}
 
-	public void setPicture(String picture) {
+	public void setPicture(int picture) {
 		this.picture = picture;
 	}
 

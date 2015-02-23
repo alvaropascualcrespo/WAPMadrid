@@ -19,14 +19,11 @@ public class AdapterItemLayoutCapitan extends BaseAdapter{
 
 	protected Activity activity;
     protected ArrayList<ItemLayoutCapitan> items;
-    private Drawable image;
     
-    public AdapterItemLayoutCapitan(Activity activity, ArrayList<ItemLayoutCapitan> items,
-			Drawable image) {
+    public AdapterItemLayoutCapitan(Activity activity, ArrayList<ItemLayoutCapitan> items) {
 		super();
 		this.activity = activity;
 		this.items = items;
-        this.image = image;
 	}
 
     @Override
@@ -63,15 +60,10 @@ public class AdapterItemLayoutCapitan extends BaseAdapter{
  
         // Creamos un objeto ItemEvent
         ItemLayoutCapitan dir = items.get(position);
-        //Rellenamos la picturegrafía
-        if (!dir.getPicture().equals("") && !dir.getPicture().equals("null")){
-        	holder.imagen.setImageDrawable(image);
-
-        }else{
-        	holder.imagen.setImageDrawable(image); //FIXME
-        }
+        
         //Rellenamos
         holder.nombre.setText(dir.getName());
+        holder.imagen.setImageResource(dir.getPicture());
  
         // Retornamos la vista
         return v;

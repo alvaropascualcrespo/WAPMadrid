@@ -6,14 +6,23 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/black"
     tools:context="com.wapmadrid.activities.SplashActivity" >
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/SplashImageView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/logo_animado" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/SplashImageView"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/logo_splash" />
+        android:layout_marginBottom="30dp"
+        android:src="@drawable/logo_wap_blanco" />
 
 </RelativeLayout>
