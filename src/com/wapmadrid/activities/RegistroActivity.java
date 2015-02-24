@@ -1,7 +1,6 @@
 package com.wapmadrid.activities;
 
-import com.wapmadrid.R;
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,7 +10,9 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class RegistroActivity extends ActionBarActivity {
+import com.wapmadrid.R;
+
+public class RegistroActivity extends Activity {
 
 	private Button btnEnviar;
 	private TextView txtLogin;
@@ -20,7 +21,6 @@ public class RegistroActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_registro);
-		getActionBar().hide();
 		
 		btnEnviar = (Button)findViewById(R.id.btnEnviarEstado);
 		txtLogin = (TextView)findViewById(R.id.gotoInicio);

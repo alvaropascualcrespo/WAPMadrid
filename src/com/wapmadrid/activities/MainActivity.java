@@ -1,8 +1,6 @@
 package com.wapmadrid.activities;
 
-import com.wapmadrid.R;
-
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,7 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends ActionBarActivity {
+import com.wapmadrid.R;
+
+public class MainActivity extends Activity {
 	
 	private Button btnEntrar;
 	private EditText edtUsuario;
@@ -24,7 +24,6 @@ public class MainActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		getActionBar().hide();
 		
 		btnEntrar = (Button)findViewById(R.id.buttonEntrar);
 		edtUsuario = (EditText)findViewById(R.id.editUsuario);

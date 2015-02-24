@@ -1,7 +1,26 @@
 package com.wapmadrid.activities;
 
+import android.app.ActionBar;
+import android.content.Context;
+import android.content.res.Configuration;
+import android.os.Bundle;
+import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.widget.DrawerLayout;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+
 import com.wapmadrid.R;
-import com.wapmadrid.centroMedico.CentroMedicoDescripcionFragment;
 import com.wapmadrid.fragments.AmigosListFragment;
 import com.wapmadrid.fragments.CapitanFragment;
 import com.wapmadrid.fragments.CentroMedicoFragment;
@@ -10,21 +29,6 @@ import com.wapmadrid.fragments.GrupoFragment;
 import com.wapmadrid.fragments.HomeFragment;
 import com.wapmadrid.fragments.PerfilFragment;
 import com.wapmadrid.fragments.RutasFragment;
-
-import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.widget.DrawerLayout;
-import android.app.ActionBar;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.AbsListView;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 public class InicioActivity extends FragmentActivity {
 	
@@ -52,7 +56,8 @@ public class InicioActivity extends FragmentActivity {
         if (getIntent().hasExtra(OPTION)){
         	option = Integer.parseInt(getIntent().getStringExtra(OPTION));
         }
-		
+        
+        
 		//Menu lateral
 		drawerLayout = (DrawerLayout) this.findViewById(R.id.drawerLayout);
         drawerList = (ListView) this.findViewById(R.id.leftDrawer);
@@ -66,31 +71,34 @@ public class InicioActivity extends FragmentActivity {
         drawerList.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
         drawerList.setItemChecked(0, true);
         
-        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.drawable.ic_drawer, R.string.drawer_open, R.string.drawer_close){
+        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, 
+        											R.drawable.ic_drawer, 
+        											R.string.drawer_open, 
+        											R.string.drawer_close){
             
         	@Override
 			public void onDrawerClosed(View view) {
         		
             	invalidateOptionsMenu();
-            	getActionBar().setIcon(R.drawable.ic_launcher);
-            	if (lastIndex == 0 || lastIndex == 1){
+            	getActionBar().setIcon(R.drawable.action_bar_negro);
+            	if (lastIndex == 0){
             		getActionBar().setTitle("");
             	}else
             		getActionBar().setTitle(drawerOptions[lastIndex]);
-            	getActionBar().setSubtitle("");
             }
 
         	@Override
 			public void onDrawerOpened(View drawerView) {
             	invalidateOptionsMenu();
+            	getActionBar().setIcon(R.drawable.logo_wap_negro);
             	getActionBar().setTitle("");
-            	getActionBar().setSubtitle("");
-            //	getActionBar().setIcon(R.drawable.open_drawer);
             }
         };
         
-        drawerLayout.setDrawerListener(drawerToggle);
+        
         getActionBar().setDisplayHomeAsUpEnabled(true);
+        getActionBar().setHomeButtonEnabled(true);
+        drawerLayout.setDrawerListener(drawerToggle);
 		
         //Cambios de fragmento
 		FragmentManager manager = getSupportFragmentManager();
@@ -116,16 +124,31 @@ public class InicioActivity extends FragmentActivity {
         
         setContent(option);
         
-        getActionBar().setIcon(R.drawable.ic_launcher);
+        getActionBar().setIcon(R.drawable.action_bar_negro);
 	}
+	
+	
+	
+	 @Override
+	    protected void onPostCreate(Bundle savedInstanceState) {
+	        super.onPostCreate(savedInstanceState);
+	        // Sync the toggle state after onRestoreInstanceState has occurred.
+	        drawerToggle.syncState();
+	    }
 
+	    @Override
+	    public void onConfigurationChanged(Configuration newConfig) {
+	        super.onConfigurationChanged(newConfig);
+	        drawerToggle.onConfigurationChanged(newConfig);
+	    }
+/*
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.home, menu);
 		return true;
 	}
-
+*/
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle action bar item clicks here. The action bar will
@@ -138,6 +161,7 @@ public class InicioActivity extends FragmentActivity {
 		return super.onOptionsItemSelected(item);
 	}
 	
+	@SuppressWarnings("deprecation")
 	public void setContent(int index) {
 	    Fragment toHide = null;
 		Fragment toShow = null;

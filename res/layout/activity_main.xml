@@ -2,9 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="30dp"
     android:background="@color/black"
-    tools:context="com.wapmadrid.activities.MainActivity" >
+    android:padding="30dp"
+    tools:context=".activities.MainActivity" >
 
     <ImageView
 	        android:id="@+id/imSup"
@@ -22,11 +22,10 @@
 	        android:layout_below="@+id/editUsuario"
 	        android:layout_centerHorizontal="true"
 	        android:layout_marginTop="36dp"
-	        android:ems="10"
 	        android:inputType="textPassword" 
-	        android:textColor="@color/orange"
-	        android:textColorHint="@color/orange"
-	        android:textCursorDrawable="@null"
+	        
+	        style="@style/EditText.Orange"
+	        
 	        android:hint="@string/contrasena" />
 
 	    <Button
@@ -58,11 +57,8 @@
 	        android:layout_below="@id/imSup"
 	        android:layout_centerHorizontal="true"
 	        android:layout_marginTop="40dp"
-	        android:ems="10"
 	        android:inputType="textPersonName"
-	        android:textColor="@color/orange"
-	        android:textColorHint="@color/orange"
-	        android:textCursorDrawable="@null"
+	        style="@style/EditText.Orange"
         	android:hint="@string/usuario" >
 			
 	        <requestFocus />

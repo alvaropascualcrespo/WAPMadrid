@@ -85,7 +85,7 @@
 	        android:id="@+id/mapCentroMedico"
 	        android:name="com.google.android.gms.maps.SupportMapFragment"
 	        android:layout_width="wrap_content"
-	        android:layout_height="fill_parent"
+	        android:layout_height="300dp"
 	        android:layout_alignParentBottom="true"
 	        android:layout_below="@+id/textTelefono"
 	        android:layout_centerHorizontal="true"

@@ -1,22 +1,32 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:padding="30dp" 
+    android:background="@color/black">
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
+        
+        <ImageView
+	        android:id="@+id/imSup"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentTop="true"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginTop="10dp"
+	        android:src="@drawable/logo_wap_naranja" />
 
         <EditText
             android:id="@+id/etRegistroNombre"
+            android:layout_below="@+id/imSup"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:hint="@string/nombre"
             android:inputType="text"
-            android:padding="20dp" />
+            style="@style/EditText.Orange" />
 
         <EditText
             android:id="@+id/etRegistroApellidos"
@@ -24,11 +34,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/etRegistroNombre"
             android:layout_marginBottom="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:hint="@string/apellidos"
             android:inputType="text"
-            android:padding="20dp" />
+            style="@style/EditText.Orange" />
 
         <EditText
             android:id="@+id/etRegistroFechaNacimiento"
@@ -37,11 +45,9 @@
             android:layout_below="@id/etRegistroApellidos"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:hint="@string/fechaNacimiento"
             android:inputType="date"
-            android:padding="20dp"/>
+            style="@style/EditText.Orange"/>
         
         
         <RadioGroup
@@ -52,21 +58,24 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:layout_below="@+id/etRegistroFechaNacimiento"
-            android:orientation="horizontal" >
+            android:orientation="horizontal"
+             >
             
             <RadioButton
                 android:id="@+id/rdMujer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/mujer"
-                android:textSize="20sp" />
+                android:textSize="20sp" 
+                android:textColor="@color/orange" />
 
             <RadioButton
 	            android:id="@+id/rdHombre"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
 	            android:text="@string/hombre"
-	            android:textSize="20sp" />
+	            android:textSize="20sp"
+	            android:textColor="@color/orange" />
 
         </RadioGroup>
 
@@ -77,11 +86,9 @@
             android:layout_below="@id/rgGenero"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:hint="@string/usuario"
             android:inputType="textPersonName"
-            android:padding="20dp" />
+            style="@style/EditText.Orange" />
 
         <EditText
             android:id="@+id/etRegistroContrasena"
@@ -89,11 +96,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/etUsuario"
             android:layout_marginBottom="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:hint="@string/contrasena"
             android:inputType="textPassword"
-            android:padding="20dp" />
+            style="@style/EditText.Orange" />
         
         <EditText
             android:id="@+id/etRegistroContrasena2"
@@ -101,22 +106,20 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/etRegistroContrasena"
             android:layout_marginBottom="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:hint="@string/contrasena2"
             android:inputType="textPassword"
-            android:padding="20dp" />
+            style="@style/EditText.Orange" />
 
         <Button
             android:id="@+id/btnEnviarEstado"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/etRegistroContrasena2"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="20dip"
-            android:layout_marginTop="22dp"
-            android:padding="10dp" 
-            android:text="@string/enviar" />
+	        android:layout_width="match_parent"
+	        android:layout_height="40dp"
+	        android:layout_below="@+id/etRegistroContrasena2"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginTop="30dp"
+	        android:layout_marginBottom="30dp"
+	        android:background="@drawable/button_enter"
+	        android:text="@string/entrar" />
         
         <TextView
             android:id="@+id/gotoInicio"
@@ -127,7 +130,10 @@
             android:gravity="center"
             android:padding="10dp"
             android:text="@string/conCuenta"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:textColor="@color/orange"
+            android:layout_centerHorizontal="true"
+	        android:textAppearance="?android:attr/textAppearanceMedium" />
         
         <ProgressBar
             android:id="@+id/pgRegistro"
@@ -136,7 +142,7 @@
             android:layout_height="wrap_content"
             android:layout_alignRight="@+id/rgGenero"
             android:layout_alignTop="@+id/btnEnviarEstado"
-            android:layout_marginRight="38dp" />   
+            android:layout_centerHorizontal="true" />   
 
     </RelativeLayout>
 

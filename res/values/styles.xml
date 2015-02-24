@@ -21,16 +21,27 @@
     
      <style name="Animations.SplashScreen">
        <item name="android:windowEnterAnimation">@anim/appear</item>
-       <item name="android:windowExitAnimation">@anim/disappear</item> 
+       <item name="android:windowExitAnimation">@anim/zoomout</item> 
      </style>
-      	<style name="Animations.PopUp">
-       	<item name="android:windowEnterAnimation">@anim/bounce</item>
-   	</style> 
+     
+	<style name="Animations.PopUp">
+	   	<item name="android:windowEnterAnimation">@anim/bounce</item>
+	</style> 
+	<style name="Animations.Main">
+	   	<item name="android:windowEnterAnimation">@anim/down_from_top</item>
+	   	<item name="android:windowExitAnimation">@anim/disappear</item> 
+	</style> 
     
-    <style name="Theme.Transparent" parent="android:Theme.Holo.NoActionBar.Fullscreen">
-        <item name="android:windowNoTitle">true</item>
+    <style name="Theme.Transparent" parent="android:Theme.Holo.NoActionBar">
+        <item name="android:windowActionBar">false</item>
         <item name="android:windowAnimationStyle">@style/Animations.SplashScreen</item>
     </style>  
+    
+    <style name="Theme.Main" parent="android:Theme">
+        <item name="android:windowActionBar">false</item>
+	    <item name="android:windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@style/Animations.Main</item>
+    </style>
     
     <style name="Theme.PopUp" parent="android:Theme">
         <item name="android:windowIsTranslucent">true</item>
@@ -40,5 +51,48 @@
         <item name="android:windowIsFloating">true</item>
         <item name="android:windowAnimationStyle">@style/Animations.PopUp</item>
   </style>    
+  
+  <style name="EditText.Orange" parent="@android:attr/editTextStyle">
+      <item name="android:layout_width">match_parent</item>
+	  <item name="android:layout_height">wrap_content</item>
+	  <item name="android:padding">5dp</item>
+	  <item name="android:ems">10</item>
+	  
+	  <item name="android:textColor">@color/orange</item>
+	  <item name="android:textColorHint">@color/orange</item>
+	  <item name="android:textCursorDrawable">@null</item>
+	  <item name="android:background">@drawable/edittext_orange</item>
+	  <item name="android:gravity">center</item>
+	  
+  </style>
+  
+    <!-- the theme applied to the application or activity -->
+    <style name="CustomActionBarTheme" parent="@android:Theme.Holo">
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+        <item name="android:actionBarTabTextStyle">@style/MyActionBarTabText</item>
+        <item name="android:actionMenuTextColor">@color/black</item>
+       <item name="android:actionBarTabStyle">@style/MyActionBarTabs</item>
+    </style>
+
+    <!-- ActionBar tabs styles -->
+    <style name="MyActionBarTabs"
+           parent="@android:style/Widget.Holo.ActionBar.TabView">
+        <!-- tab indicator -->
+        <item name="android:background">@drawable/actionbar_tabs</item>
+    </style>
+
+    <!-- ActionBar styles -->
+    <style name="MyActionBar"
+           parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@drawable/actionbar</item>
+    </style>
+    
+    <style name="MyActionBarTitleText" >
+        <item name="android:textColor">@color/black</item>
+    </style>
+    
+    <style name="MyActionBarTabText" >
+        <item name="android:textColor">@color/black</item>
+    </style>
     
 </resources>
