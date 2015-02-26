@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 import com.wapmadrid.R;
 import com.wapmadrid.R.drawable;
-import com.wapmadrid.activities.capitan.CederCapitaniaViewActivity;
-import com.wapmadrid.activities.capitan.ComenzarRutaViewActivity;
-import com.wapmadrid.activities.capitan.CrearRutaViewActivity;
-import com.wapmadrid.activities.capitan.MensajesCapitanViewActivity;
 import com.wapmadrid.adapters.AdapterItemLayoutCapitan;
+import com.wapmadrid.capitan.CederCapitaniaViewActivity;
+import com.wapmadrid.capitan.ComenzarRutaViewActivity;
+import com.wapmadrid.capitan.CrearRutaViewActivity;
+import com.wapmadrid.capitan.MensajesCapitanViewActivity;
 import com.wapmadrid.data.ItemLayoutCapitan;
 
 import android.content.Intent;
@@ -70,13 +70,13 @@ public class CapitanFragment extends Fragment{
 	}
 
 	private void fill() {
-		ItemLayoutCapitan i1 = new ItemLayoutCapitan(R.drawable.ic_drawer,"Mensajes",0);
+		ItemLayoutCapitan i1 = new ItemLayoutCapitan(R.drawable.icono_mensajes,"Mensajes",0);
     	arraydir.add(i1);
-    	ItemLayoutCapitan i2 = new ItemLayoutCapitan(R.drawable.ic_drawer,"Comenzar Ruta",1);
+    	ItemLayoutCapitan i2 = new ItemLayoutCapitan(R.drawable.icono_empezar_ruta,"Comenzar Ruta",1);
     	arraydir.add(i2);
-    	ItemLayoutCapitan i3 = new ItemLayoutCapitan(R.drawable.ic_drawer,"Nueva Ruta",2);
+    	ItemLayoutCapitan i3 = new ItemLayoutCapitan(R.drawable.icono_crear_ruta,"Nueva Ruta",2);
     	arraydir.add(i3);
-    	ItemLayoutCapitan i4 = new ItemLayoutCapitan(R.drawable.ic_drawer,"Ceder Capitania",3);
+    	ItemLayoutCapitan i4 = new ItemLayoutCapitan(R.drawable.icono_ceder_capitania,"Ceder Capitania",3);
     	arraydir.add(i4);
     	adapter.notifyDataSetChanged();		
 	}

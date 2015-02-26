@@ -1,4 +1,4 @@
-package com.wapmadrid.activities.capitan;
+package com.wapmadrid.capitan;
 
 public class CederCapitaniaViewActivity {
 

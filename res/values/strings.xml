@@ -24,8 +24,10 @@
     <string name="title_activity_rutas_fragment">RutasFragment</string>
     <string name="title_activity_rutasList_fragment">RutasListFragment</string>
     <string name="title_activity_centro_medico_fragment">CentroMedicoFragment</string>
+    <string name="title_activity_comenzar_ruta">Nueva Ruta</string>
     <string name="drawer_open">Abrir</string>
     <string name="drawer_close">Cerrar</string>
+    <string name="terminarRuta">Terminar Ruta</string>
 
     <string-array name="drawer_options">
         <item>Inicio</item>
