@@ -3,25 +3,20 @@
     package="com.wapmadrid"
     android:versionCode="1"
     android:versionName="1.0" >
-    
+
     <permission
-	    android:name="com.wapmadrid.permission.MAPS_RECEIVE"
-	    android:protectionLevel="signature"/>
-	
-	<uses-permission
-	    android:name="com.wapmadrid.permission.MAPS_RECEIVE"/>
-	
-	<uses-permission
-	    android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
-	
-	
-	<uses-permission android:name="android.permission.INTERNET"/>
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-	
-	<uses-feature
+        android:name="com.wapmadrid.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.wapmadrid.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true" />
 
@@ -35,7 +30,7 @@
         android:label="@string/app_name"
         android:theme="@style/CustomActionBarTheme" >
         <activity
-            android:name="com.wapmadrid.activities.SplashActivity"
+            android:name=".activities.SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.Transparent" >
             <intent-filter>
@@ -45,48 +40,51 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.wapmadrid.activities.MainActivity"
+            android:name=".activities.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/Theme.Main" >
-            
         </activity>
         <activity
-            android:name="com.wapmadrid.activities.InicioActivity"
-            android:label="@string/title_activity_home" 
-			 >
+            android:name=".activities.InicioActivity"
+            android:label="@string/title_activity_home" >
         </activity>
         <activity
-            android:name="com.wapmadrid.fragments.HomeFragment"
+            android:name=".fragments.HomeFragment"
             android:label="@string/title_activity_home_fragment" >
         </activity>
         <activity
-            android:name="com.wapmadrid.activities.RegistroActivity"
+            android:name=".activities.RegistroActivity"
             android:label="@string/title_activity_registro"
             android:theme="@style/Theme.Transparent" >
         </activity>
         <activity
-            android:name="com.wapmadrid.fragments.RutasFragment"
+            android:name=".fragments.RutasFragment"
             android:label="@string/title_activity_rutas_fragment" >
         </activity>
         <activity
-            android:name="com.wapmadrid.rutas.MapFragment"
+            android:name=".rutas.MapFragment"
             android:label="@string/title_activity_map_fragment" >
         </activity>
         <activity
-            android:name="com.wapmadrid.centroMedico.CentroMedicoDescripcionFragment"
+            android:name=".centroMedico.CentroMedicoDescripcionFragment"
             android:label="@string/title_activity_centro_medico_fragment" >
         </activity>
         <activity
-            android:name="com.wapmadrid.rutas.RutasListFragment"
+            android:name=".rutas.RutasListFragment"
             android:label="@string/title_activity_rutasList_fragment" >
         </activity>
-        <meta-data
-    		android:name="com.google.android.gms.version"
-   			android:value="@integer/google_play_services_version"/>
 
-		<meta-data
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyDemOX_HM8WIkq838kN1GjfqT7hrxHOfZU"/>
+            android:value="AIzaSyDemOX_HM8WIkq838kN1GjfqT7hrxHOfZU" />
+
+        <activity
+            android:name=".DrawerActivity"
+            android:label="@string/title_activity_drawer" >
+        </activity>
     </application>
 
 </manifest>

@@ -26,7 +26,7 @@
     <string name="title_activity_centro_medico_fragment">CentroMedicoFragment</string>
     <string name="drawer_open">Abrir</string>
     <string name="drawer_close">Cerrar</string>
-    
+
     <string-array name="drawer_options">
         <item>Inicio</item>
         <item>Rutas</item>
@@ -36,20 +36,25 @@
         <item>Grupo</item>
         <item>Capitan</item>
     </string-array>
-    
     <string-array name="rutasListTab">
         <item>Mapa</item>
         <item>Lista</item>
     </string-array>
-    
     <string-array name="ruta_tabs">
         <item>Descripción</item>
         <item>Mapa</item>
     </string-array>
-    
     <string-array name="amigo_tabs">
         <item>Información</item>
         <item>Actividad</item>
     </string-array>
+
+    <string name="title_activity_drawer">DrawerActivity</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
 
 </resources>

@@ -1,7 +1,6 @@
 package com.wapmadrid.activities;
 
 import android.app.ActionBar;
-import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -9,17 +8,14 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 
+import com.wapmadrid.NavigationDrawerFragment;
 import com.wapmadrid.R;
 import com.wapmadrid.fragments.AmigosListFragment;
 import com.wapmadrid.fragments.CapitanFragment;
@@ -214,4 +210,5 @@ public class InicioActivity extends FragmentActivity {
 	    	setContent(position);
 	    }
 	}
+
 }

@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.wapmadrid.DrawerActivity;
 import com.wapmadrid.R;
 
 public class MainActivity extends Activity {
