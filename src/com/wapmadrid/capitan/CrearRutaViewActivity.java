@@ -23,6 +23,9 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.Toast;
 
 public class CrearRutaViewActivity extends MapActivity implements LocationListener {	
@@ -61,6 +64,16 @@ public class CrearRutaViewActivity extends MapActivity implements LocationListen
         LocationManager locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
         updateLocation(locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER));
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 6000, 50, this);
+        
+        Button finalizarRuta = (Button) findViewById(R.id.btnTerminarRuta);
+        finalizarRuta.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Mandar Datos al Servidor 
+				 
+			}
+		});
         
     }
 

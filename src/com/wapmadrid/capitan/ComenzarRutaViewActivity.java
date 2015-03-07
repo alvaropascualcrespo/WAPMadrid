@@ -1,6 +1,8 @@
 package com.wapmadrid.capitan;
 
-public class ComenzarRutaViewActivity{	
+import android.app.Activity;
+
+public class ComenzarRutaViewActivity extends Activity{	
  
 
 }

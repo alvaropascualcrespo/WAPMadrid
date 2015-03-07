@@ -1,5 +1,7 @@
 package com.wapmadrid.capitan;
 
-public class MensajesCapitanViewActivity {
+import android.app.Activity;
+
+public class MensajesCapitanViewActivity extends Activity{
 
 }

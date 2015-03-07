@@ -11,6 +11,7 @@ import com.wapmadrid.capitan.CrearRutaViewActivity;
 import com.wapmadrid.capitan.MensajesCapitanViewActivity;
 import com.wapmadrid.data.ItemLayoutCapitan;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -21,6 +22,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class CapitanFragment extends Fragment{
 
@@ -41,29 +43,36 @@ public class CapitanFragment extends Fragment{
         lista.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View view, int position, long arg3) {
-				Intent intent;
 				switch(position){
-				case 0:
-					intent = new Intent(getActivity(), MensajesCapitanViewActivity.class);
-	                //intent.putExtra(MensajesCapitanViewActivity.ID, String.valueOf(adapter.getItemId(position)));
-	                startActivity(intent);
-				
-				case 1:
-					intent = new Intent(getActivity(), ComenzarRutaViewActivity.class);
-	                //intent.putExtra(ComenzarRutaViewActivity.ID, String.valueOf(adapter.getItemId(position)));
-	                startActivity(intent);
-	                
-				case 2:
-					intent = new Intent(getActivity(), CrearRutaViewActivity.class);
-	                //intent.putExtra(CrearRutaViewActivity.ID, String.valueOf(adapter.getItemId(position)));
-	                startActivity(intent);
-	                
-				case 3:
-					intent = new Intent(getActivity(), CederCapitaniaViewActivity.class);
-	                //intent.putExtra(CederCapitaniaViewActivity.ID, String.valueOf(adapter.getItemId(position)));
-	                startActivity(intent);
+					case 0:
+						Intent intent1 = new Intent(getActivity(), MensajesCapitanViewActivity.class);
+		                //intent.putExtra(MensajesCapitanViewActivity.ID, String.valueOf(adapter.getItemId(position)));
+		                startActivity(intent1);
+		                break;
+					
+					case 1:
+						Intent intent2 = new Intent(getActivity(), ComenzarRutaViewActivity.class);
+		                //intent.putExtra(ComenzarRutaViewActivity.ID, String.valueOf(adapter.getItemId(position)));
+		                startActivity(intent2);
+		                break;
+		                
+					case 2:
+						Intent intent3 = new Intent(getActivity(), CrearRutaViewActivity.class);
+		                //intent.putExtra(CrearRutaViewActivity.ID, String.valueOf(adapter.getItemId(position)));
+		                startActivity(intent3);
+		                break;
+		                
+					case 3:
+						Intent intent4 = new Intent(getActivity(), CederCapitaniaViewActivity.class);
+		                //intent.putExtra(CederCapitaniaViewActivity.ID, String.valueOf(adapter.getItemId(position)));
+		                startActivity(intent4);
+		                break;
+		            
+		            default:
+		            	Toast.makeText(getActivity(), "Error en la posicion", Toast.LENGTH_LONG).show();
+		            	break;
 				}
-			}			
+			}		
 		});
         fill();		
 		return view;

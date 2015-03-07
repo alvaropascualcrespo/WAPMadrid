@@ -26,10 +26,12 @@
         android:targetSdkVersion="21" />
 
     <application
+        
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/CustomActionBarTheme" >
+        <uses-library android:name="com.google.android.maps" />
         <activity
             android:name=".activities.SplashActivity"
             android:label="@string/app_name"
@@ -68,7 +70,19 @@
         </activity>
         <activity
             android:name=".capitan.CrearRutaViewActivity"
+            android:label="@string/title_activity_crear_ruta" >
+        </activity>
+        <activity
+            android:name=".capitan.CederCapitaniaViewActivity"
+            android:label="@string/title_activity_ceder_capitania" >
+        </activity>
+        <activity
+            android:name=".capitan.ComenzarRutaViewActivity"
             android:label="@string/title_activity_comenzar_ruta" >
+        </activity>
+        <activity
+            android:name=".capitan.MensajesCapitanViewActivity"
+            android:label="@string/title_activity_mensajes_capitan" >
         </activity>
         <activity
             android:name=".centroMedico.CentroMedicoDescripcionFragment"
@@ -91,7 +105,7 @@
             android:label="@string/title_activity_drawer" >
         </activity>
         
-        <uses-library android:name="com.google.android.maps" />
+        
     </application>
 
 </manifest>
