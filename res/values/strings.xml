@@ -38,7 +38,7 @@
         <item>Centro Medico</item>
         <item>Perfil</item>
         <item>Amigos</item>
-        <item>Grupo</item>
+        <item>Grupos</item>
         <item>Capitán</item>
     </string-array>
     <string-array name="grupo_tabs">
