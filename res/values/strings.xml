@@ -9,7 +9,7 @@
     <string name="contrasena">Contraseña</string>
     <string name="contrasena2">Repita la contraseña</string>
     <string name="entrar">Entrar</string>
-    <string name="registrate">¿Aun no tienes usuario? ¡Registrate!</string>
+    <string name="registrate">¿Aun no tienes usuario?\n ¡Registrate!</string>
     <string name="nombre">Nombre</string>
     <string name="apellidos">Apellidos</string>
     <string name="fechaNacimiento">Fecha de nacimiento</string>
@@ -39,7 +39,13 @@
         <item>Perfil</item>
         <item>Amigos</item>
         <item>Grupo</item>
-        <item>Capitan</item>
+        <item>Capitán</item>
+    </string-array>
+    <string-array name="grupo_tabs">
+        <item>Características</item>
+        <item>Miembros</item>
+        <item>Fotos</item>
+        <item>Notas</item>
     </string-array>
     <string-array name="rutasListTab">
         <item>Mapa</item>
@@ -61,5 +67,6 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
+    <string name="title_activity_gupo">GupoActivity</string>
 
 </resources>

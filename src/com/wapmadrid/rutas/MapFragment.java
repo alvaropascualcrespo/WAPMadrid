@@ -26,7 +26,7 @@ public class MapFragment extends Fragment implements OnMapClickListener {
 
         View v = inflater.inflate(R.layout.fragment_map, container, false);
         
-        mapa = ((SupportMapFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
+        //mapa = ((SupportMapFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
         
         return v;
     }

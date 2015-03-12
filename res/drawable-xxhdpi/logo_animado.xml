@@ -4,8 +4,15 @@
     android:id="@+id/logoanim"
     android:oneshot="false" >
     
-    <item android:drawable="@drawable/logo_verde" android:duration="300" />
-    <item android:drawable="@drawable/logo_naranja" android:duration="300" />
-    <item android:drawable="@drawable/logo_azul" android:duration="300" />
+    <item android:drawable="@drawable/logo_a_mano_naranja_1_1_1" android:duration="300" />
+    <item android:drawable="@drawable/logo_a_mano_naranja_2_2_2" android:duration="300" />
+  <!--  <item android:drawable="@drawable/logo_a_mano_naranja_3_3" android:duration="300" />
+     <item android:drawable="@drawable/logo_a_mano_naranja_4" android:duration="150" />
+    <item android:drawable="@drawable/logo_a_mano_naranja_5" android:duration="150" />
+    <item android:drawable="@drawable/logo_a_mano_naranja_6" android:duration="150" />
+    <item android:drawable="@drawable/logo_a_mano_naranja_7" android:duration="150" />
+    <item android:drawable="@drawable/logo_a_mano_naranja_8" android:duration="150" />-->
+    <item android:drawable="@drawable/logo_a_mano_naranja_3_3_3" android:duration="300" /> 
+    <item android:drawable="@drawable/logo_a_mano_naranja_10" android:duration="500" /> 
     
 </animation-list> 

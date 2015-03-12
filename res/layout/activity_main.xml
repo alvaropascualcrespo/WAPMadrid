@@ -13,7 +13,7 @@
 	        android:layout_alignParentTop="true"
 	        android:layout_centerHorizontal="true"
 	        android:layout_marginTop="10dp"
-	        android:src="@drawable/logo_wap_naranja" />
+	        android:src="@drawable/logo_a_mano_naranja" />
     
 	    <EditText
 	        android:id="@+id/editContrasena"
@@ -37,6 +37,8 @@
 	        android:layout_marginTop="30dp"
 	        android:layout_marginBottom="30dp"
 	        android:background="@drawable/button_enter"
+	        style="@style/TextView.Black"
+	        android:textSize="18sp"
 	        android:text="@string/entrar" />
 
 	    <TextView
@@ -48,7 +50,8 @@
 	        android:layout_marginTop="30dp"
 	        android:text="@string/registrate"
 	        android:textColor="@color/orange"
-	        android:textAppearance="?android:attr/textAppearanceMedium" />
+	        android:gravity="center"
+	        android:textSize="20sp" />
 
 	    <EditText
 	        android:id="@+id/editUsuario"

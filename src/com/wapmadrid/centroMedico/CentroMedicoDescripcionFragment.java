@@ -28,7 +28,7 @@ public class CentroMedicoDescripcionFragment extends Fragment implements OnMapCl
 
         View v = inflater.inflate(R.layout.fragment_centro_medico_descripcion, container, false);
         pgCMDescripcion = (ProgressBar) v.findViewById(R.id.pgCMDescripcion);
-        mapa = ((SupportMapFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.mapCentroMedico)).getMap();
+       // mapa = ((SupportMapFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.mapCentroMedico)).getMap();
         
         return v;
     }

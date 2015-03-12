@@ -1,9 +1,20 @@
-package com.wapmadrid.fragments;
+package com.wapmadrid.activities;
 
 import java.util.ArrayList;
 
+import android.app.ActionBar;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.GridView;
+import android.widget.Toast;
+
 import com.wapmadrid.R;
-import com.wapmadrid.R.drawable;
 import com.wapmadrid.adapters.AdapterItemLayoutCapitan;
 import com.wapmadrid.capitan.CederCapitaniaViewActivity;
 import com.wapmadrid.capitan.ComenzarRutaViewActivity;
@@ -11,71 +22,61 @@ import com.wapmadrid.capitan.CrearRutaViewActivity;
 import com.wapmadrid.capitan.MensajesCapitanViewActivity;
 import com.wapmadrid.data.ItemLayoutCapitan;
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.Toast;
-
-public class CapitanFragment extends Fragment{
+public class CapitanActivity extends Activity{
 
 	ArrayList<ItemLayoutCapitan> arraydir;
 	AdapterItemLayoutCapitan adapter;
 	GridView lista;
 	
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.fragment_capitan, container, false);// -- linea original
-		setHasOptionsMenu(true);
-		
-		lista = (GridView) view.findViewById(R.id.gridViewCapitan);
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_capitan);
+		final ActionBar actionBar = getActionBar();
+		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+		actionBar.setHomeButtonEnabled(true);
+		actionBar.setHomeButtonEnabled(true);
+		actionBar.setIcon(R.drawable.action_bar_negro);
+		lista = (GridView) findViewById(R.id.gridViewCapitan);
         arraydir = new ArrayList<ItemLayoutCapitan>();       
-	    adapter = new AdapterItemLayoutCapitan(getActivity(), arraydir);
+	    adapter = new AdapterItemLayoutCapitan(this, arraydir);
         lista.setAdapter(adapter);
         lista.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View view, int position, long arg3) {
 				switch(position){
 					case 0:
-						Intent intent1 = new Intent(getActivity(), MensajesCapitanViewActivity.class);
+						Intent intent1 = new Intent(getApplicationContext(), MensajesCapitanViewActivity.class);
 		                //intent.putExtra(MensajesCapitanViewActivity.ID, String.valueOf(adapter.getItemId(position)));
 		                startActivity(intent1);
 		                break;
 					
 					case 1:
-						Intent intent2 = new Intent(getActivity(), ComenzarRutaViewActivity.class);
+						Intent intent2 = new Intent(getApplicationContext(), ComenzarRutaViewActivity.class);
 		                //intent.putExtra(ComenzarRutaViewActivity.ID, String.valueOf(adapter.getItemId(position)));
 		                startActivity(intent2);
 		                break;
 		                
 					case 2:
-						Intent intent3 = new Intent(getActivity(), CrearRutaViewActivity.class);
+						Intent intent3 = new Intent(getApplicationContext(), CrearRutaViewActivity.class);
 		                //intent.putExtra(CrearRutaViewActivity.ID, String.valueOf(adapter.getItemId(position)));
 		                startActivity(intent3);
 		                break;
 		                
 					case 3:
-						Intent intent4 = new Intent(getActivity(), CederCapitaniaViewActivity.class);
+						Intent intent4 = new Intent(getApplicationContext(), CederCapitaniaViewActivity.class);
 		                //intent.putExtra(CederCapitaniaViewActivity.ID, String.valueOf(adapter.getItemId(position)));
 		                startActivity(intent4);
 		                break;
 		            
 		            default:
-		            	Toast.makeText(getActivity(), "Error en la posicion", Toast.LENGTH_LONG).show();
+		            	Toast.makeText(getApplicationContext(), "Error en la posicion", Toast.LENGTH_LONG).show();
 		            	break;
 				}
 			}		
 		});
         fill();		
-		return view;
 	}
 
 	private void fill() {

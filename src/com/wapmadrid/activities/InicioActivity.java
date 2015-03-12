@@ -18,10 +18,10 @@ import android.widget.ListView;
 import com.wapmadrid.NavigationDrawerFragment;
 import com.wapmadrid.R;
 import com.wapmadrid.fragments.AmigosListFragment;
-import com.wapmadrid.fragments.CapitanFragment;
+import com.wapmadrid.fragments.CapitanListFragment;
 import com.wapmadrid.fragments.CentroMedicoFragment;
 import com.wapmadrid.fragments.EnlacesFragment;
-import com.wapmadrid.fragments.GrupoFragment;
+import com.wapmadrid.fragments.GrupoListFragment;
 import com.wapmadrid.fragments.HomeFragment;
 import com.wapmadrid.fragments.PerfilFragment;
 import com.wapmadrid.fragments.RutasFragment;
@@ -39,8 +39,8 @@ public class InicioActivity extends FragmentActivity {
 													new CentroMedicoFragment(),
 													new PerfilFragment(),
 													new AmigosListFragment(),
-													new GrupoFragment(),
-													new CapitanFragment(),
+													new GrupoListFragment(),
+													new CapitanListFragment(),
 													new EnlacesFragment()};
 
 	@Override
@@ -195,10 +195,6 @@ public class InicioActivity extends FragmentActivity {
 	    if (index == 3) {
 	    	actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 	    	((PerfilFragment) toShow).setTabs();
-	    }
-	    if (index == 5) {
-	    	actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-	    	((GrupoFragment) toShow).setTabs();
 	    }
 	    
     }

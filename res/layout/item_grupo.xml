@@ -1,0 +1,43 @@
+<com.wapmadrid.utilities.NowLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    
+    <RelativeLayout
+        android:id="@+id/eventoLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        style="@style/nowCardStyle"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp" >
+    
+    <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/imagenCapitan"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:adjustViewBounds="true"
+            android:layout_margin="5dp" />
+
+        <TextView
+            android:id="@+id/txtNombreGrupo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/imagenCapitan"
+            android:text="Friend Name"
+            style="@style/TextView.Black"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/txtNombreRuta"
+            style="@style/TextView.Black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/txtNombreGrupo"
+            android:layout_below="@+id/txtNombreGrupo"
+            android:text="Nombre Ruta"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+	</RelativeLayout>
+	
+</com.wapmadrid.utilities.NowLayout>

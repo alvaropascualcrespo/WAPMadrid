@@ -28,8 +28,7 @@ public class AdapterItemAmigo extends BaseAdapter{
     protected ArrayList<ItemAmigo> items;
     private ImageLoader imageLoader;
     
-    public AdapterItemAmigo(Activity activity, ArrayList<ItemAmigo> items,
-			ImageLoader imageLoader) {
+    public AdapterItemAmigo(Activity activity, ArrayList<ItemAmigo> items) {
 		super();
 		this.activity = activity;
 		this.items = items;
