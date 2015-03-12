@@ -21,7 +21,7 @@ public class AmigosListFragment extends Fragment{
 
 	ArrayList<ItemAmigo> arraydir;
 	AdapterItemAmigo adapter;
-    private ProgressBar pgLocalsList;
+    private ProgressBar pgAmigosList;
     private ListView list;
 	
 	@Override
@@ -30,7 +30,7 @@ public class AmigosListFragment extends Fragment{
 
         View v = inflater.inflate(R.layout.fragment_amigos_list, container, false);
         list = (ListView) v.findViewById(R.id.listaAmigos);
-		pgLocalsList = (ProgressBar) v.findViewById(R.id.pgAmigosList);
+        pgAmigosList = (ProgressBar) v.findViewById(R.id.pgAmigosList);
 		list.setOnItemClickListener(rutasListClickListener());
         return v;
     }

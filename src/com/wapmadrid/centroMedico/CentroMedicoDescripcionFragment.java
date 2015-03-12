@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -19,13 +20,14 @@ public class CentroMedicoDescripcionFragment extends Fragment implements OnMapCl
 
 	private GoogleMap mapa;
 	LatLng position;
+	private ProgressBar pgCMDescripcion;
 
     @Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_centro_medico_descripcion, container, false);
-        
+        pgCMDescripcion = (ProgressBar) v.findViewById(R.id.pgCMDescripcion);
         mapa = ((SupportMapFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.mapCentroMedico)).getMap();
         
         return v;

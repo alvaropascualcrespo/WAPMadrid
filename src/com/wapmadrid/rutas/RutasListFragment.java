@@ -19,7 +19,7 @@ public class RutasListFragment extends Fragment {
 
 	ArrayList<ItemRutasList> arraydir;
 	AdapterItemRutas adapter;
-    private ProgressBar pgLocalsList;
+    private ProgressBar pgRutasList;
     private ListView list;
 	
 	@Override
@@ -28,7 +28,7 @@ public class RutasListFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_rutas_list, container, false);
         list = (ListView) v.findViewById(R.id.listaRutas);
-		pgLocalsList = (ProgressBar) v.findViewById(R.id.pgRutasList);
+		pgRutasList = (ProgressBar) v.findViewById(R.id.pgRutasList);
 		list.setOnItemClickListener(rutasListClickListener());
         return v;
     }
