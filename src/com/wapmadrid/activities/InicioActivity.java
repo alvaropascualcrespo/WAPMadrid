@@ -53,7 +53,8 @@ public class InicioActivity extends FragmentActivity {
         	option = Integer.parseInt(getIntent().getStringExtra(OPTION));
         }
         
-        
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getActionBar().setHomeButtonEnabled(true);
 		//Menu lateral
 		drawerLayout = (DrawerLayout) this.findViewById(R.id.drawerLayout);
         drawerList = (ListView) this.findViewById(R.id.leftDrawer);

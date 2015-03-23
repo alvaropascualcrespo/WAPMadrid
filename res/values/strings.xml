@@ -40,6 +40,7 @@
         <item>Amigos</item>
         <item>Grupos</item>
         <item>Capitán</item>
+        <item>Enlaces</item>
     </string-array>
     <string-array name="grupo_tabs">
         <item>Características</item>

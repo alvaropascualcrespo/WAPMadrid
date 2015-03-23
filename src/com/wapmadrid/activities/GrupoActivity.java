@@ -47,7 +47,7 @@ public class GrupoActivity extends FragmentActivity  {
 		final ActionBar actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		actionBar.setHomeButtonEnabled(true);
-		actionBar.setHomeButtonEnabled(true);
+		actionBar.setTitle("Equipo A");		
 		actionBar.setIcon(R.drawable.action_bar_negro);
 		// Create the adapter that will return a fragment for each of the three
 		// primary sections of the activity.

@@ -17,7 +17,7 @@ import com.wapmadrid.grupo.GrupoRutaFragment;
 public class GrupoPageAdapter extends FragmentStatePagerAdapter {
 	
 	private Fragment[] fragments = new Fragment[]{ 	new GrupoCaracteristicasFragment(),
-			new GrupoRutaFragment(), new GrupoMiembrosFragment(), new GrupoFotosFragment(),
+			 new GrupoMiembrosFragment(), new GrupoFotosFragment(),
 			new GrupoNotasFragment()};
 	private String[] grupo_navigation;
 

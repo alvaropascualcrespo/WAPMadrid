@@ -11,6 +11,7 @@ import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
 import com.wapmadrid.R;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -57,7 +58,9 @@ public class CrearRutaViewActivity extends MapActivity implements LocationListen
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_capitan_crear_ruta);
-        
+        final ActionBar actionBar = getActionBar();
+		actionBar.setHomeButtonEnabled(true);
+		actionBar.setIcon(R.drawable.action_bar_negro);
         MapView mapView = (MapView) findViewById(R.id.mapNuevaRuta);
         mapView.setBuiltInZoomControls(true);
         
@@ -100,6 +103,7 @@ public class CrearRutaViewActivity extends MapActivity implements LocationListen
 	public void onProviderEnabled(String provider) {}
 	
 	protected void updateLocation(Location location){
+	try{
 		MapView mapView = (MapView) findViewById(R.id.mapNuevaRuta);
         MapController mapController = mapView.getController();
         GeoPoint point = new GeoPoint((int) (location.getLatitude() * 1E6), (int) (location.getLongitude() * 1E6));
@@ -130,6 +134,11 @@ public class CrearRutaViewActivity extends MapActivity implements LocationListen
         MyOverlay marker = new MyOverlay(point);
         mapOverlays.add(marker);  
         mapView.invalidate();		
+		}
+	
+		catch (Exception e){
+			
+		}
 	}
 
 }

@@ -1,7 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:background="@color/black" >
 
 	<RelativeLayout
 	    android:layout_width="match_parent"
@@ -22,40 +23,19 @@
 	
 	    <ImageView
 	        android:id="@+id/imageSanidad"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_centerHorizontal="true"
-	        android:src="@drawable/madrid_salud_logo" />
-	
-	    <TextView
-	        android:id="@+id/textNombreCentro"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_below="@+id/imageSanidad"
-	        android:layout_centerHorizontal="true"
-	        android:layout_marginTop="20dp"
-	        android:text="NombreCentro"
-	        android:textAppearance="?android:attr/textAppearanceLarge" />
-	
-	    <TextView
-	        android:id="@+id/textDireccionCentro"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_below="@+id/textNombreCentro"
-	        android:layout_centerHorizontal="true"
-	        android:layout_marginTop="20dp"
-	        android:text="DireccionCentro"
-	        android:textAppearance="?android:attr/textAppearanceMedium" />
+	        android:layout_width="120dp"
+	        android:layout_height="120dp"
+	        android:layout_alignParentLeft="true"
+	        android:src="@drawable/avatar_sanblas" />
 	
 	    <TextView
 	        android:id="@+id/textPoblacion"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:layout_alignLeft="@+id/imageSanidad"
+	        android:layout_alignLeft="@+id/textDireccionCentro"
 	        android:layout_below="@+id/textDireccionCentro"
-	        android:layout_marginLeft="20dp"
-	        android:layout_marginTop="20dp"
-	        android:text="Poblacion"
+	        android:layout_marginTop="10dp"
+	        android:text="Madrid"
 	        android:textAppearance="?android:attr/textAppearanceSmall" />
 	
 	    <TextView
@@ -63,31 +43,11 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_below="@+id/textDireccionCentro"
-	        android:layout_marginTop="20dp"
-	        android:layout_alignRight="@+id/imageSanidad"
+	        android:layout_marginTop="10dp"
+	        android:layout_alignRight="@+id/textDireccionCentro"
 	        android:layout_marginRight="20dp"
-	        android:text="CodigoPostal"
+	        android:text="28037"
 	        android:textAppearance="?android:attr/textAppearanceSmall" />
-	
-	    <TextView
-	        android:id="@+id/textHorario"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_centerHorizontal="true"
-	        android:layout_below="@+id/textCP"
-	        android:layout_marginTop="20dp"
-	        android:text="Horario"
-	        android:textAppearance="?android:attr/textAppearanceMedium" />
-	
-	    <TextView
-	        android:id="@+id/textTelefono"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_centerHorizontal="true"
-	        android:layout_below="@+id/textHorario"
-	        android:layout_marginTop="20dp"
-	        android:text="Telefono"
-	        android:textAppearance="?android:attr/textAppearanceMedium" />
 	
 	    <fragment
 	        android:id="@+id/mapCentroMedico"
@@ -100,8 +60,47 @@
 	        android:layout_marginTop="15dp"
 	        android:layout_marginBottom="15dp"
 	        class="com.google.android.gms.maps.SupportMapFragment" >
-
 	     </fragment>
+
+	    <TextView
+	        android:id="@+id/textNombreCentro"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_toRightOf="@+id/imageSanidad"
+	        android:layout_marginLeft="15dp"
+	        android:layout_alignTop="@+id/imageSanidad"
+	        android:text="CMS San Blas"
+	        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+	    <TextView
+	        android:id="@+id/textDireccionCentro"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/textNombreCentro"
+	        android:layout_alignLeft="@+id/textNombreCentro"
+	        android:text="Calle de Amposta"
+	        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+	    <TextView
+	        android:id="@+id/textHorario"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/imageSanidad"
+	        android:layout_below="@+id/imageSanidad"
+	        android:layout_marginTop="5dp"
+	        android:text="Horario: 9 a 20h"
+	        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+	    <TextView
+	        android:id="@+id/textTelefono"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/textHorario"
+	        android:layout_below="@+id/textHorario"
+	        android:text="91 760 96 47"
+	        android:layout_marginTop="5dp"
+	        android:textAppearance="?android:attr/textAppearanceMedium" />
+
 	
 	</RelativeLayout>
 

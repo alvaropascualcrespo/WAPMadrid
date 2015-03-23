@@ -9,8 +9,8 @@ import android.widget.ProgressBar;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.GoogleMap.OnMapClickListener;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -28,8 +28,9 @@ public class CentroMedicoDescripcionFragment extends Fragment implements OnMapCl
 
         View v = inflater.inflate(R.layout.fragment_centro_medico_descripcion, container, false);
         pgCMDescripcion = (ProgressBar) v.findViewById(R.id.pgCMDescripcion);
-       // mapa = ((SupportMapFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.mapCentroMedico)).getMap();
-        
+        try{
+        	mapa = ((SupportMapFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.mapCentroMedico)).getMap();
+        } catch(Exception e){}
         return v;
     }
 	

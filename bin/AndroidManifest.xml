@@ -69,18 +69,22 @@
         </activity>
         <activity
             android:name=".capitan.CrearRutaViewActivity"
+            android:parentActivityName="com.wapmadrid.activities.CapitanActivity"
             android:label="@string/title_activity_crear_ruta" >
         </activity>
         <activity
             android:name=".capitan.CederCapitaniaViewActivity"
+            android:parentActivityName="com.wapmadrid.activities.CapitanActivity"
             android:label="@string/title_activity_ceder_capitania" >
         </activity>
         <activity
             android:name=".capitan.ComenzarRutaViewActivity"
+            android:parentActivityName="com.wapmadrid.activities.CapitanActivity"
             android:label="@string/title_activity_comenzar_ruta" >
         </activity>
         <activity
             android:name=".capitan.MensajesCapitanViewActivity"
+            android:parentActivityName="com.wapmadrid.activities.CapitanActivity"
             android:label="@string/title_activity_mensajes_capitan" >
         </activity>
         <activity
@@ -105,10 +109,17 @@
         </activity>
         <activity
             android:name=".activities.CapitanActivity"
+            android:parentActivityName="com.wapmadrid.activities.InicioActivity"
             android:label="@string/title_activity_main" >
         </activity>
         <activity
             android:name="com.wapmadrid.activities.GrupoActivity"
+            android:parentActivityName="com.wapmadrid.activities.InicioActivity"
+            android:label="@string/title_activity_gupo" >
+        </activity>
+        <activity
+            android:name="com.wapmadrid.activities.AmigoActivity"
+            android:parentActivityName="com.wapmadrid.activities.InicioActivity"
             android:label="@string/title_activity_gupo" >
         </activity>
     </application>

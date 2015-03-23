@@ -2,16 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" 
-    android:layout_marginLeft="10dp">
+    android:layout_height="match_parent"
+    android:layout_marginTop="10dp" >
 
-    <com.android.volley.toolbox.NetworkImageView
-       android:id="@+id/imgAmigo"
-       android:layout_width="150dp"
-       android:layout_height="150dp"
-       android:layout_alignParentLeft="true"
-       android:layout_alignParentTop="true"
-       android:layout_marginTop="15dp" />
+  <!--    <com.android.volley.toolbox.NetworkImageView-->
     
    <ProgressBar
        android:id="@+id/pgAmigoView"
@@ -21,32 +15,17 @@
        android:layout_below="@+id/imgAmigo"
        android:layout_centerHorizontal="true"
        android:layout_marginBottom="20dp"
-       android:layout_marginTop="5dp" />
-
-   <TextView
-       android:id="@+id/txtNombreyApellidos"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_below="@+id/pgAmigoView"
-       android:layout_centerHorizontal="true"
-       android:text="TextView" />
-   
-   <TextView
-       android:id="@+id/txtCumpleanos"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_below="@+id/txtNombreyApellidos"
-       android:layout_centerHorizontal="true"
-       android:text="TextView" />
+       android:layout_marginTop="5dp"
+       android:visibility="gone" />
    
    <TextView
        android:id="@+id/txtCiudad"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:layout_below="@+id/txtCumpleanos"
+       android:layout_below="@+id/txtNombreyApellidos"
        android:layout_centerHorizontal="true"
-       android:text="TextView" />
-
+       android:text="Madrid" />
+   
    <TextView
        android:id="@+id/txtSobreMi"
        android:layout_width="wrap_content"
@@ -55,15 +34,36 @@
        android:layout_below="@+id/txtCiudad"
        android:layout_marginLeft="15dp"
        android:layout_marginRight="15dp"
-       android:text="TextView" />
+       android:layout_marginTop="10dp"
+       android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus cursus felis leo, in volutpat elit lacinia non. Morbi non maximus elit. Proin ac consequat nibh. Aenean posuere nisl fermentum risus tincidunt consequat. Vestibulum aliquet in felis ut fermentum. Cras ullamcorper massa mattis, eleifend erat id massa nunc." />
 
    <Button
        android:id="@+id/btnMessage"
+       style="@style/TextView.Black"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:layout_alignBottom="@+id/imgAmigo"
-       android:layout_alignParentRight="true"
-       android:layout_marginBottom="46dp"
-       android:text="Mensaje nuevo" />
+       android:layout_alignParentBottom="true"
+       android:layout_centerHorizontal="true"
+       android:layout_marginBottom="19dp"
+       android:background="@drawable/button_enter"
+       android:text="Mensaje nuevo"
+       android:visibility="visible" />
+
+   <ImageView
+       android:id="@+id/imgAmigo"
+       android:layout_width="150dp"
+       android:layout_height="150dp"
+       android:layout_centerHorizontal="true"
+       android:src="@drawable/profile" />
+
+   <TextView
+       android:id="@+id/txtNombreyApellidos"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_centerHorizontal="true"
+       android:layout_below="@+id/imgAmigo"
+       android:layout_marginTop="10dp"
+       android:textSize="18sp"
+       android:text="Ismael Requena Andreu" />
 
 </RelativeLayout>

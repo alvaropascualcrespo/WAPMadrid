@@ -5,6 +5,4 @@
     android:layout_height="match_parent"
     android:name="com.google.android.gms.maps.SupportMapFragment"
 	class="com.google.android.gms.maps.SupportMapFragment" >
-    
-
 </fragment>

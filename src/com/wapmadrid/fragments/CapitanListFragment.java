@@ -31,10 +31,8 @@ public class CapitanListFragment extends Fragment {
 		
 		arraydir = new ArrayList<ItemGrupo>();
 		list = (ListView) view.findViewById(R.id.listaGrupos);
-		arraydir.add(new ItemGrupo("https://lh3.googleusercontent.com/-2_grrZEzMTk/AAAAAAAAAAI/AAAAAAAAABI/6XQWT20qEBs/photo.jpg", "Lobos de Pensilvania", "Ruta Centro", 1));
-        arraydir.add(new ItemGrupo("https://lh3.googleusercontent.com/-2_grrZEzMTk/AAAAAAAAAAI/AAAAAAAAABI/6XQWT20qEBs/photo.jpg", "Equipo A","Ruta Centro", 1));
-        arraydir.add(new ItemGrupo("https://lh3.googleusercontent.com/-2_grrZEzMTk/AAAAAAAAAAI/AAAAAAAAABI/6XQWT20qEBs/photo.jpg", "Vallecanos","Ruta Vallevcas", 1));
-        arraydir.add(new ItemGrupo("https://lh3.googleusercontent.com/-2_grrZEzMTk/AAAAAAAAAAI/AAAAAAAAABI/6XQWT20qEBs/photo.jpg", "SanSe","Ruta San Sebastián", 1));
+		arraydir.add(new ItemGrupo("https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xaf1/v/t1.0-9/1016554_10202866548402024_914065242_n.jpg?oh=766c0e283f4d2500159244643f568a64&oe=5572D01E&__gda__=1434315669_7ff7c2debd16b966f820c54a155d13cf", "Vallecanos","Ruta Vallevcas", 1));
+        arraydir.add(new ItemGrupo("https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xaf1/v/t1.0-9/1016554_10202866548402024_914065242_n.jpg?oh=766c0e283f4d2500159244643f568a64&oe=5572D01E&__gda__=1434315669_7ff7c2debd16b966f820c54a155d13cf", "SanSe","Ruta San Sebastián", 1));
 		adapter = new AdapterItemGrupo(getActivity(), arraydir);
 		list.setAdapter(adapter);
 		list.setOnItemClickListener(new OnItemClickListener() {

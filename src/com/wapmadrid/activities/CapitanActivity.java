@@ -34,10 +34,11 @@ public class CapitanActivity extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_capitan);
 		final ActionBar actionBar = getActionBar();
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		actionBar.setHomeButtonEnabled(true);
-		actionBar.setHomeButtonEnabled(true);
+		actionBar.setDisplayHomeAsUpEnabled(true);
 		actionBar.setIcon(R.drawable.action_bar_negro);
+		actionBar.setTitle("Equipo A");
+		
 		lista = (GridView) findViewById(R.id.gridViewCapitan);
         arraydir = new ArrayList<ItemLayoutCapitan>();       
 	    adapter = new AdapterItemLayoutCapitan(this, arraydir);

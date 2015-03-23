@@ -29,6 +29,7 @@ private int lastIndex = 0;
 		final ActionBar actionBar = getActionBar();
         actionBar.setIcon(R.drawable.ic_launcher);
         actionBar.setHomeButtonEnabled(true);
+        actionBar.setTitle("Ismael Requena");
         actionBar.setDisplayHomeAsUpEnabled(true);
 		for (int i = 0; i</*tabs.length*/2; i++){
 	        actionBar.addTab(
