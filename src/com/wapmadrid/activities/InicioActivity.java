@@ -28,6 +28,9 @@ import com.wapmadrid.fragments.RutasFragment;
 
 public class InicioActivity extends FragmentActivity {
 	
+	protected static final String ID = "id";
+	protected static final String TOKEN = "token";
+	protected static final String USUARIO = "usuario";
 	private ListView drawerList;
     private String[] drawerOptions;
     private DrawerLayout drawerLayout;

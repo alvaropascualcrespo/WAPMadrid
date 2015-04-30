@@ -2,14 +2,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.wapmadrid.DrawerActivity" >
 
-    <item
-        android:id="@+id/action_example"
-        android:showAsAction="withText|ifRoom"
-        android:title="@string/action_example"/>
+    
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
-        android:showAsAction="never"
+        android:showAsAction="always"
         android:title="@string/action_settings"/>
+    
+    <item 	
+        android:id="@+id/action_editar_perfil"
+   		android:icon="@drawable/ic_menu_edit"
+	    android:showAsAction="always"
+	    android:actionViewClass="android.widget.EditView"
+	    android:title="@string/action_edit_profile"/>
 
 </menu>

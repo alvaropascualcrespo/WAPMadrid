@@ -1545,47 +1545,48 @@ containing a value of this type.
         public static final int edittext_orange=0x7f02007a;
         public static final int ic_drawer=0x7f02007b;
         public static final int ic_launcher=0x7f02007c;
-        public static final int ic_plusone_medium_off_client=0x7f02007d;
-        public static final int ic_plusone_small_off_client=0x7f02007e;
-        public static final int ic_plusone_standard_off_client=0x7f02007f;
-        public static final int ic_plusone_tall_off_client=0x7f020080;
-        public static final int icono_ceder_capitania=0x7f020081;
-        public static final int icono_crear_ruta=0x7f020082;
-        public static final int icono_empezar_ruta=0x7f020083;
-        public static final int icono_mensajes=0x7f020084;
-        public static final int logo_a_mano_naranja=0x7f020085;
-        public static final int logo_a_mano_naranja_1=0x7f020086;
-        public static final int logo_a_mano_naranja_10=0x7f020087;
-        public static final int logo_a_mano_naranja_1_1=0x7f020088;
-        public static final int logo_a_mano_naranja_1_1_1=0x7f020089;
-        public static final int logo_a_mano_naranja_2=0x7f02008a;
-        public static final int logo_a_mano_naranja_2_2=0x7f02008b;
-        public static final int logo_a_mano_naranja_2_2_2=0x7f02008c;
-        public static final int logo_a_mano_naranja_3=0x7f02008d;
-        public static final int logo_a_mano_naranja_3_3=0x7f02008e;
-        public static final int logo_a_mano_naranja_3_3_3=0x7f02008f;
-        public static final int logo_a_mano_naranja_4=0x7f020090;
-        public static final int logo_a_mano_naranja_5=0x7f020091;
-        public static final int logo_a_mano_naranja_6=0x7f020092;
-        public static final int logo_a_mano_naranja_7=0x7f020093;
-        public static final int logo_a_mano_naranja_8=0x7f020094;
-        public static final int logo_a_mano_naranja_9=0x7f020095;
-        public static final int logo_a_mano_naranja_9_4=0x7f020096;
-        public static final int logo_animado=0x7f020097;
-        public static final int logo_azul=0x7f020098;
-        public static final int logo_naranja=0x7f020099;
-        public static final int logo_verde=0x7f02009a;
-        public static final int logo_wap_blanco=0x7f02009b;
-        public static final int logo_wap_naranja=0x7f02009c;
-        public static final int logo_wap_negro=0x7f02009d;
-        public static final int madrid_salud_logo=0x7f02009e;
-        public static final int powered_by_google_dark=0x7f02009f;
-        public static final int powered_by_google_light=0x7f0200a0;
-        public static final int profile=0x7f0200a1;
-        public static final int tab_selected=0x7f0200a2;
-        public static final int tab_selected_pressed=0x7f0200a3;
-        public static final int tab_unselected=0x7f0200a4;
-        public static final int tab_unselected_pressed=0x7f0200a5;
+        public static final int ic_menu_edit=0x7f02007d;
+        public static final int ic_plusone_medium_off_client=0x7f02007e;
+        public static final int ic_plusone_small_off_client=0x7f02007f;
+        public static final int ic_plusone_standard_off_client=0x7f020080;
+        public static final int ic_plusone_tall_off_client=0x7f020081;
+        public static final int icono_ceder_capitania=0x7f020082;
+        public static final int icono_crear_ruta=0x7f020083;
+        public static final int icono_empezar_ruta=0x7f020084;
+        public static final int icono_mensajes=0x7f020085;
+        public static final int logo_a_mano_naranja=0x7f020086;
+        public static final int logo_a_mano_naranja_1=0x7f020087;
+        public static final int logo_a_mano_naranja_10=0x7f020088;
+        public static final int logo_a_mano_naranja_1_1=0x7f020089;
+        public static final int logo_a_mano_naranja_1_1_1=0x7f02008a;
+        public static final int logo_a_mano_naranja_2=0x7f02008b;
+        public static final int logo_a_mano_naranja_2_2=0x7f02008c;
+        public static final int logo_a_mano_naranja_2_2_2=0x7f02008d;
+        public static final int logo_a_mano_naranja_3=0x7f02008e;
+        public static final int logo_a_mano_naranja_3_3=0x7f02008f;
+        public static final int logo_a_mano_naranja_3_3_3=0x7f020090;
+        public static final int logo_a_mano_naranja_4=0x7f020091;
+        public static final int logo_a_mano_naranja_5=0x7f020092;
+        public static final int logo_a_mano_naranja_6=0x7f020093;
+        public static final int logo_a_mano_naranja_7=0x7f020094;
+        public static final int logo_a_mano_naranja_8=0x7f020095;
+        public static final int logo_a_mano_naranja_9=0x7f020096;
+        public static final int logo_a_mano_naranja_9_4=0x7f020097;
+        public static final int logo_animado=0x7f020098;
+        public static final int logo_azul=0x7f020099;
+        public static final int logo_naranja=0x7f02009a;
+        public static final int logo_verde=0x7f02009b;
+        public static final int logo_wap_blanco=0x7f02009c;
+        public static final int logo_wap_naranja=0x7f02009d;
+        public static final int logo_wap_negro=0x7f02009e;
+        public static final int madrid_salud_logo=0x7f02009f;
+        public static final int powered_by_google_dark=0x7f0200a0;
+        public static final int powered_by_google_light=0x7f0200a1;
+        public static final int profile=0x7f0200a2;
+        public static final int tab_selected=0x7f0200a3;
+        public static final int tab_selected_pressed=0x7f0200a4;
+        public static final int tab_unselected=0x7f0200a5;
+        public static final int tab_unselected_pressed=0x7f0200a6;
     }
     public static final class id {
         public static final int SplashImageView=0x7f0c0070;
@@ -1597,11 +1598,11 @@ containing a value of this type.
         public static final int action_bar_subtitle=0x7f0c0038;
         public static final int action_bar_title=0x7f0c0037;
         public static final int action_context_bar=0x7f0c0032;
-        public static final int action_example=0x7f0c00b3;
+        public static final int action_editar_perfil=0x7f0c00b4;
         public static final int action_menu_divider=0x7f0c0002;
         public static final int action_menu_presenter=0x7f0c0003;
         public static final int action_mode_close_button=0x7f0c0039;
-        public static final int action_settings=0x7f0c00b4;
+        public static final int action_settings=0x7f0c00b3;
         public static final int activity_chooser_view_content=0x7f0c003a;
         public static final int adjust_height=0x7f0c0006;
         public static final int adjust_width=0x7f0c0007;
@@ -1915,7 +1916,7 @@ containing a value of this type.
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f07002e;
         public static final int accept=0x7f070002;
-        public static final int action_example=0x7f070054;
+        public static final int action_edit_profile=0x7f070054;
         public static final int action_settings=0x7f070032;
         public static final int apellidos=0x7f07003a;
         public static final int app_name=0x7f070030;
@@ -3901,7 +3902,7 @@ containing a value of this type.
          */
         public static final int[] MenuView = {
             0x010100ae, 0x0101012c, 0x0101012d, 0x0101012e,
-            0x0101012f, 0x01010130, 0x01010131, 0x0101052f
+            0x0101012f, 0x01010130, 0x01010131, 0x01010438
         };
         /**
           <p>
