@@ -5,6 +5,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="email">Email</string>
     <string name="usuario">Usuario</string>
     <string name="contrasena">Contraseña</string>
     <string name="contrasena2">Repita la contraseña</string>
@@ -28,6 +29,7 @@
     <string name="title_activity_ceder_capitania">Ceder Capitania</string>
     <string name="title_activity_comenzar_ruta">Comenzar Ruta</string>
     <string name="title_activity_mensajes_capitan">Mensajes</string>
+    <string name="title_activity_peticiones">Peticiones de Amistad</string>
     <string name="drawer_open">Abrir</string>
     <string name="drawer_close">Cerrar</string>
     <string name="terminarRuta">Terminar Ruta</string>

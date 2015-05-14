@@ -1,6 +1,7 @@
 package com.wapmadrid.activities;
 
 import android.app.ActionBar;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -28,8 +29,8 @@ import com.wapmadrid.fragments.RutasFragment;
 
 public class InicioActivity extends FragmentActivity {
 	
-	protected static final String ID = "id";
-	protected static final String TOKEN = "token";
+	public static final String ID = "id";
+	public static final String TOKEN = "token";
 	protected static final String USUARIO = "usuario";
 	private ListView drawerList;
     private String[] drawerOptions;

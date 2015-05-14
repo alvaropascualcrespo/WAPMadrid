@@ -38,7 +38,7 @@
             android:inputType="text"
             style="@style/EditText.Orange" />
 
-        <EditText
+        <DatePicker
             android:id="@+id/etRegistroFechaNacimiento"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -46,6 +46,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="10dp"
             android:hint="@string/fechaNacimiento"
+            android:calendarViewShown="false"
             android:inputType="date"
             style="@style/EditText.Orange"/>
         
@@ -80,10 +81,21 @@
         </RadioGroup>
 
         <EditText
-            android:id="@+id/etUsuario"
+            android:id="@+id/etEmail"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/rgGenero"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            style="@style/EditText.Orange" />
+        
+        <EditText
+            android:id="@+id/etUsuario"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etEmail"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:hint="@string/usuario"

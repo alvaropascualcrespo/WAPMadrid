@@ -1,10 +1,16 @@
 package com.wapmadrid.fragments;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,16 +19,26 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.wapmadrid.R;
 import com.wapmadrid.activities.CapitanActivity;
+import com.wapmadrid.activities.InicioActivity;
 import com.wapmadrid.adapters.AdapterItemGrupo;
 import com.wapmadrid.data.ItemGrupo;
+import com.wapmadrid.utilities.DataManager;
+import com.wapmadrid.utilities.Helper;
 
 public class CapitanListFragment extends Fragment {
 	ArrayList<ItemGrupo> arraydir;
 	AdapterItemGrupo adapter;
     private ProgressBar pgAmigosList;
     private ListView list;
+    private RequestQueue requestQueue;
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -31,8 +47,6 @@ public class CapitanListFragment extends Fragment {
 		
 		arraydir = new ArrayList<ItemGrupo>();
 		list = (ListView) view.findViewById(R.id.listaGrupos);
-		arraydir.add(new ItemGrupo("https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xaf1/v/t1.0-9/1016554_10202866548402024_914065242_n.jpg?oh=766c0e283f4d2500159244643f568a64&oe=5572D01E&__gda__=1434315669_7ff7c2debd16b966f820c54a155d13cf", "Vallecanos","Ruta Vallevcas", 1));
-        arraydir.add(new ItemGrupo("https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xaf1/v/t1.0-9/1016554_10202866548402024_914065242_n.jpg?oh=766c0e283f4d2500159244643f568a64&oe=5572D01E&__gda__=1434315669_7ff7c2debd16b966f820c54a155d13cf", "SanSe","Ruta San Sebastián", 1));
 		adapter = new AdapterItemGrupo(getActivity(), arraydir);
 		list.setAdapter(adapter);
 		list.setOnItemClickListener(new OnItemClickListener() {
@@ -55,7 +69,63 @@ public class CapitanListFragment extends Fragment {
 		
 
 		public void fill() {
-			// TODO Auto-generated method stub
-			
+			requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
+			final DataManager dm = new DataManager(getActivity().getApplicationContext());
+			String[] cred = dm.getCred(); 
+			String url = Helper.getGruposUrl(cred[0]);
+
+
+			Response.Listener<String> succeedListener = new Response.Listener<String>() 
+					{
+				@Override
+				public void onResponse(String response) {
+					// response
+					Log.e("Response", response);
+					try {
+						JSONObject root = new JSONObject(response);
+						String error = root.getString("error");
+						if (error.equals("0")){
+							JSONArray array = root.getJSONArray("groups");
+							for (int i = 0; i < array.length(); i++){
+								JSONObject auxArray = array.getJSONObject(i);
+								String capitan = auxArray.getString("rol");
+								if (capitan.equals("captain")){
+									JSONObject aux = auxArray.getJSONObject("groupID");
+									String picture = aux.getString("image");
+									String ruta = aux.getString("route");
+									long idProfile = Long.valueOf(aux.getString("_id"));
+									String name = aux.getString("name");
+									ItemGrupo grupo = new ItemGrupo(picture,name,ruta,idProfile);
+									arraydir.add(grupo);
+								}
+							}
+						}
+						pgAmigosList.setVisibility(View.GONE);
+						adapter.notifyDataSetChanged();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			};
+			Response.ErrorListener errorListener = new Response.ErrorListener() 
+			{
+				@Override
+				public void onErrorResponse(VolleyError error) {
+					// error
+					Log.e("Error.Response", error.toString());
+				}
+			};
+
+			StringRequest request = new StringRequest(Request.Method.POST, url, succeedListener, errorListener) 
+			{     
+				    @Override
+				    protected Map<String, String> getParams() 
+				    {  
+				    	HashMap<String, String> params = new HashMap<String, String>();
+						params.put("token", InicioActivity.TOKEN);
+						return params;
+				    }
+			}; 
+			requestQueue.add(request);
 		}
 }

@@ -122,6 +122,11 @@
             android:parentActivityName="com.wapmadrid.activities.InicioActivity"
             android:label="@string/title_activity_gupo" >
         </activity>
+        <activity
+            android:name="com.wapmadrid.activities.AmigoPeticionActivity"
+            android:parentActivityName="com.wapmadrid.activities.InicioActivity"
+            android:label="@string/title_activity_peticiones" >
+        </activity>
     </application>
 
 </manifest>

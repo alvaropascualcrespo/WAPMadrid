@@ -17,10 +17,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -30,7 +30,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.wapmadrid.R;
-import com.wapmadrid.utilities.DataManager;
 import com.wapmadrid.utilities.Helper;
 
 public class RegistroActivity extends Activity {
@@ -40,7 +39,8 @@ public class RegistroActivity extends Activity {
 	private ProgressBar pgRegistro;
 	private EditText etRegistroNombre;
 	private EditText etRegistroApellidos;
-	private EditText etRegistroFechaNacimiento;
+	private EditText etEmail;
+	private DatePicker etRegistroFechaNacimiento;
 	private RadioButton rdMujer;
 	private RadioButton rdHombre;
 	private EditText etUsuario;
@@ -50,6 +50,7 @@ public class RegistroActivity extends Activity {
 	private String nombre;
 	private String apellidos;
 	private String fechaNacimiento;
+	private String email;
 	private String usuario;
 	private String contrasena1;
 	private String contrasena2;
@@ -68,7 +69,8 @@ public class RegistroActivity extends Activity {
 		pgRegistro = (ProgressBar)findViewById(R.id.pgRegistro);
 		etRegistroNombre = (EditText)findViewById(R.id.etRegistroNombre);
 		etRegistroApellidos = (EditText)findViewById(R.id.etRegistroApellidos);
-		etRegistroFechaNacimiento = (EditText)findViewById(R.id.etRegistroFechaNacimiento);
+		etRegistroFechaNacimiento = (DatePicker)findViewById(R.id.etRegistroFechaNacimiento);
+		etEmail = (EditText)findViewById(R.id.etEmail);
 		etUsuario = (EditText)findViewById(R.id.etUsuario);
 		etRegistroContrasena = (EditText)findViewById(R.id.etRegistroContrasena);
 		etRegistroContrasena2 = (EditText)findViewById(R.id.etRegistroContrasena2);
@@ -85,7 +87,11 @@ public class RegistroActivity extends Activity {
 					btnEnviarEstado.setEnabled(false);
 					nombre = etRegistroNombre.getText().toString();
 					apellidos = etRegistroApellidos.getText().toString();
-					fechaNacimiento = etRegistroFechaNacimiento.getText().toString();
+					String anyo = ((Integer)(etRegistroFechaNacimiento.getYear())).toString();
+					String mes = ((Integer)(etRegistroFechaNacimiento.getMonth())).toString();
+					String dia = ((Integer)(etRegistroFechaNacimiento.getDayOfMonth())).toString();
+					fechaNacimiento = anyo + "-" + mes + "-" + dia;
+					email = etEmail.getText().toString();
 					usuario = etUsuario.getText().toString();
 					contrasena1 = etRegistroContrasena.getText().toString();
 					contrasena2 = etRegistroContrasena2.getText().toString();
@@ -187,16 +193,22 @@ private boolean checkFields() {
 	            	pgRegistro.setVisibility(View.GONE);
 	            	btnEnviarEstado.setEnabled(true);
 		            respuesta = new JSONObject(response);
-					String token = respuesta.getString("token");
-					String idProfile = respuesta.getString("_id");
-					String error = respuesta.getString("error");
-					if ((error.equals("0")) || (!(token.equals("0")))){
-						//dm.login(usuario,idProfile,token,"-1");
-						Intent i = new Intent(RegistroActivity.this, InicioActivity.class);
-						i.putExtra(InicioActivity.USUARIO, usuario);
-						i.putExtra(InicioActivity.ID, idProfile);
-						i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-						startActivity(i);
+		            String error = respuesta.getString("error");
+		            if (error.equals("0")) {
+		            	String token = respuesta.getString("token");
+		            	String idProfile = respuesta.getString("_id");
+		            	if (!(token.equals("0"))){
+							//dm.login(usuario,idProfile,token,"-1");
+							Intent i = new Intent(RegistroActivity.this, InicioActivity.class);
+							i.putExtra(InicioActivity.USUARIO, usuario);
+							i.putExtra(InicioActivity.ID, idProfile);
+							i.putExtra(InicioActivity.TOKEN, token);
+							i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+							startActivity(i);
+		            	}
+		            	else{
+		            		setErrorMsg("Fallo en el token");
+		            	}
 					}else{
 						String error_message = respuesta.getString("error_message");
 						setErrorMsg(error_message);
@@ -226,7 +238,8 @@ private boolean checkFields() {
 					params.put("firstname", nombre);
 					params.put("lastname", apellidos);
 					params.put("birthDate", fechaNacimiento);
-					params.put("sex", new Boolean(genero).toString());
+					params.put("sex", Boolean.valueOf(genero).toString());
+					params.put("email", email);
 					return params;
 			    }
 		};

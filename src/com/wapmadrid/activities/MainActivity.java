@@ -25,7 +25,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.wapmadrid.DrawerActivity;
+import com.android.volley.toolbox.Volley;
 import com.wapmadrid.R;
 import com.wapmadrid.utilities.DataManager;
 import com.wapmadrid.utilities.Helper;
@@ -91,6 +91,7 @@ public class MainActivity extends Activity {
 	
 	private void login(){
 		String url = Helper.getLoginUrl();
+		requestQueue = Volley.newRequestQueue(getApplicationContext());
 		final String usuario = edtUsuario.getText().toString();
 		final String contrasena = edtContrasena.getText().toString();
 		
@@ -101,19 +102,23 @@ public class MainActivity extends Activity {
 	            Log.e("Response", response);
 	            try {
 		            respuesta = new JSONObject(response);
-					String id = respuesta.getString("_id");
-					String token = respuesta.getString("token");
-					String error = respuesta.getString("error");
-					
-					if ((error.equals("0")) || (!(token.equals("0")))){
-						DataManager dm = new DataManager(getApplicationContext());
-						dm.login(usuario,id,token,"-1");
-						Intent i = new Intent(getApplicationContext(), InicioActivity.class);
-						i.putExtra(InicioActivity.ID, id);
-						i.putExtra(InicioActivity.TOKEN, token);
-						i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-						startActivity(i);
-					}
+		            String error = respuesta.getString("error");
+		            if (error.equals("0")){
+		            	String id = respuesta.getString("_id");
+		            	String token = respuesta.getString("token");
+		            	if (!(token.equals("0"))){
+							DataManager dm = new DataManager(getApplicationContext());
+							dm.login(usuario,id,token,"-1");
+							Intent i = new Intent(getApplicationContext(), InicioActivity.class);
+							i.putExtra(InicioActivity.ID, id);
+							i.putExtra(InicioActivity.TOKEN, token);
+							i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+							startActivity(i);
+		            	}
+		            	else{
+							muestraError("Fallo en el token");
+		            	}
+		            }
 					else{
 						String error_message = respuesta.getString("error_message");
 						muestraError(error_message);									

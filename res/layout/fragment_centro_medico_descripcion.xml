@@ -21,12 +21,11 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true" />
 	
-	    <ImageView
+	    <com.android.volley.toolbox.NetworkImageView
 	        android:id="@+id/imageSanidad"
 	        android:layout_width="120dp"
 	        android:layout_height="120dp"
-	        android:layout_alignParentLeft="true"
-	        android:src="@drawable/avatar_sanblas" />
+	        android:layout_alignParentLeft="true" />
 	
 	    <TextView
 	        android:id="@+id/textPoblacion"
@@ -46,7 +45,6 @@
 	        android:layout_marginTop="10dp"
 	        android:layout_alignRight="@+id/textDireccionCentro"
 	        android:layout_marginRight="20dp"
-	        android:text="28037"
 	        android:textAppearance="?android:attr/textAppearanceSmall" />
 	
 	    <fragment
@@ -69,7 +67,6 @@
 	        android:layout_toRightOf="@+id/imageSanidad"
 	        android:layout_marginLeft="15dp"
 	        android:layout_alignTop="@+id/imageSanidad"
-	        android:text="CMS San Blas"
 	        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 	    <TextView
@@ -78,7 +75,6 @@
 	        android:layout_height="wrap_content"
 	        android:layout_below="@+id/textNombreCentro"
 	        android:layout_alignLeft="@+id/textNombreCentro"
-	        android:text="Calle de Amposta"
 	        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 	    <TextView
@@ -88,7 +84,6 @@
 	        android:layout_alignLeft="@+id/imageSanidad"
 	        android:layout_below="@+id/imageSanidad"
 	        android:layout_marginTop="5dp"
-	        android:text="Horario: 9 a 20h"
 	        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 	    <TextView
@@ -97,10 +92,8 @@
 	        android:layout_height="wrap_content"
 	        android:layout_alignLeft="@+id/textHorario"
 	        android:layout_below="@+id/textHorario"
-	        android:text="91 760 96 47"
 	        android:layout_marginTop="5dp"
 	        android:textAppearance="?android:attr/textAppearanceMedium" />
-
 	
 	</RelativeLayout>
 
