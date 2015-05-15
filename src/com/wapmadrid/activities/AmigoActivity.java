@@ -16,6 +16,7 @@ import android.support.v4.app.FragmentManager;
 
 public class AmigoActivity extends FragmentActivity implements ActionBar.TabListener{
 	
+	public static final String ID = "id";
 	private Fragment[] fragments = new Fragment[]{ 	new MiPerfilInfoFragment(),
 			new MiPerfilActividadFragment()};
 

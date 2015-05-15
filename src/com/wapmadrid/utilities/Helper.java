@@ -21,7 +21,7 @@ public class Helper {
 	}
 	
 	public static String getReadUrl(String id){
-		return BASE_API_URL + "walkers/read:" + id;
+		return BASE_API_URL + "walkers/read/" + id;
 	}
 	
 	public static String getCMSUrl(String id){
@@ -29,7 +29,7 @@ public class Helper {
 	}
 
 	public static String getMiPerfilUrl(String id) {
-		return BASE_API_URL + "walkers/read:" + id;
+		return BASE_API_URL + "walkers/read/" + id;
 	}
 
 	public static String getMessage() {

@@ -56,6 +56,7 @@ public class AmigosListFragment extends Fragment{
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				Intent i = new Intent(getActivity().getApplicationContext(), AmigoActivity.class);
+				i.putExtra(AmigoActivity.ID, arraydir.get(position).getId());
 				startActivity(i);
 			}
         });

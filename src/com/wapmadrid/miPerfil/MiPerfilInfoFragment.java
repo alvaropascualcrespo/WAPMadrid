@@ -43,6 +43,8 @@ public class MiPerfilInfoFragment extends Fragment{
 	private Button btnMessage;
 	private NetworkImageView imgAmigo;
 	private ImageLoader imageLoader;
+	private Button btnAceptar;
+	private Button btnRechazar;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,6 +57,24 @@ public class MiPerfilInfoFragment extends Fragment{
         txtNombreyApellidos = (TextView)v.findViewById(R.id.txtNombreyApellidos);
         btnMessage = (Button)v.findViewById(R.id.btnMessage);
         btnMessage.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+        btnAceptar = (Button)v.findViewById(R.id.btnAceptar);
+        btnAceptar.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+        btnRechazar = (Button)v.findViewById(R.id.btnRechazar);
+        btnRechazar.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
