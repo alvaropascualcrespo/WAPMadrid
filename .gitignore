@@ -42,3 +42,12 @@ Network Trash Folder
 Temporary Items
 .apdisk
 project.properties
+
+WAPMadrid/bin/
+WAPMadrid/.gradle/
+WAPMadrid/facebookSDK/
+WAPMadrid/.idea/
+WAPMadrid/app/build/
+WAPMadrid/app/app.iml
+WAPMadrid/local.properties
+WAPMadrid/build/
