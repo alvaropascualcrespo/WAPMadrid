@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.wapmadrid"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.0">
 
     <permission
         android:name="com.wapmadrid.permission.MAPS_RECEIVE"
@@ -22,19 +23,19 @@
 
     <uses-sdk
         android:minSdkVersion="14"
-        android:targetSdkVersion="21" />
+        android:targetSdkVersion="22" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/CustomActionBarTheme" >
+        android:theme="@style/CustomActionBarTheme">
         <uses-library android:name="com.google.android.maps" />
 
         <activity
             android:name=".activities.SplashActivity"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Transparent" >
+            android:theme="@style/Theme.Transparent">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -44,57 +45,45 @@
         <activity
             android:name=".activities.MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/Theme.Main" >
-        </activity>
+            android:theme="@style/Theme.Main"></activity>
         <activity
             android:name=".activities.InicioActivity"
-            android:label="@string/title_activity_home" >
-        </activity>
+            android:label="@string/title_activity_home"></activity>
         <activity
-            android:name=".fragments.HomeFragment"
-            android:label="@string/title_activity_home_fragment" >
-        </activity>
+            android:name="com.wapmadrid.fragments.HomeFragment"
+            android:label="@string/title_activity_home_fragment"></activity>
         <activity
             android:name=".activities.RegistroActivity"
             android:label="@string/title_activity_registro"
-            android:theme="@style/Theme.Transparent" >
-        </activity>
+            android:theme="@style/Theme.Transparent"></activity>
         <activity
             android:name=".fragments.RutasFragment"
-            android:label="@string/title_activity_rutas_fragment" >
-        </activity>
+            android:label="@string/title_activity_rutas_fragment"></activity>
         <activity
             android:name=".rutas.MapFragment"
-            android:label="@string/title_activity_map_fragment" >
-        </activity>
+            android:label="@string/title_activity_map_fragment"></activity>
         <activity
             android:name=".capitan.CrearRutaViewActivity"
-            android:parentActivityName="com.wapmadrid.activities.CapitanActivity"
-            android:label="@string/title_activity_crear_ruta" >
-        </activity>
+            android:label="@string/title_activity_crear_ruta"
+            android:parentActivityName="com.wapmadrid.activities.CapitanActivity"></activity>
         <activity
             android:name=".capitan.CederCapitaniaViewActivity"
-            android:parentActivityName="com.wapmadrid.activities.CapitanActivity"
-            android:label="@string/title_activity_ceder_capitania" >
-        </activity>
+            android:label="@string/title_activity_ceder_capitania"
+            android:parentActivityName="com.wapmadrid.activities.CapitanActivity"></activity>
         <activity
             android:name=".capitan.ComenzarRutaViewActivity"
-            android:parentActivityName="com.wapmadrid.activities.CapitanActivity"
-            android:label="@string/title_activity_comenzar_ruta" >
-        </activity>
+            android:label="@string/title_activity_comenzar_ruta"
+            android:parentActivityName="com.wapmadrid.activities.CapitanActivity"></activity>
         <activity
             android:name=".capitan.MensajesCapitanViewActivity"
-            android:parentActivityName="com.wapmadrid.activities.CapitanActivity"
-            android:label="@string/title_activity_mensajes_capitan" >
-        </activity>
+            android:label="@string/title_activity_mensajes_capitan"
+            android:parentActivityName="com.wapmadrid.activities.CapitanActivity"></activity>
         <activity
             android:name=".centroMedico.CentroMedicoDescripcionFragment"
-            android:label="@string/title_activity_centro_medico_fragment" >
-        </activity>
+            android:label="@string/title_activity_centro_medico_fragment"></activity>
         <activity
             android:name=".rutas.RutasListFragment"
-            android:label="@string/title_activity_rutasList_fragment" >
-        </activity>
+            android:label="@string/title_activity_rutasList_fragment"></activity>
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -105,28 +94,23 @@
 
         <activity
             android:name=".DrawerActivity"
-            android:label="@string/title_activity_drawer" >
-        </activity>
+            android:label="@string/title_activity_drawer"></activity>
         <activity
             android:name=".activities.CapitanActivity"
-            android:parentActivityName="com.wapmadrid.activities.InicioActivity"
-            android:label="@string/title_activity_main" >
-        </activity>
+            android:label="@string/title_activity_main"
+            android:parentActivityName="com.wapmadrid.activities.InicioActivity"></activity>
         <activity
             android:name="com.wapmadrid.activities.GrupoActivity"
-            android:parentActivityName="com.wapmadrid.activities.InicioActivity"
-            android:label="@string/title_activity_gupo" >
-        </activity>
+            android:label="@string/title_activity_gupo"
+            android:parentActivityName="com.wapmadrid.activities.InicioActivity"></activity>
         <activity
             android:name="com.wapmadrid.activities.AmigoActivity"
-            android:parentActivityName="com.wapmadrid.activities.InicioActivity"
-            android:label="@string/title_activity_gupo" >
-        </activity>
+            android:label="@string/title_activity_gupo"
+            android:parentActivityName="com.wapmadrid.activities.InicioActivity"></activity>
         <activity
             android:name="com.wapmadrid.activities.AmigoPeticionActivity"
-            android:parentActivityName="com.wapmadrid.activities.InicioActivity"
-            android:label="@string/title_activity_peticiones" >
-        </activity>
+            android:label="@string/title_activity_peticiones"
+            android:parentActivityName="com.wapmadrid.activities.InicioActivity"></activity>
     </application>
 
 </manifest>

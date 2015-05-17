@@ -41,7 +41,8 @@
         android:layout_width="wrap_content"
         android:layout_below="@+id/textTramo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/abc_ab_bottom_solid_dark_holo" />
+        android:layout_marginTop="20dp" />
+       <!-- android:src="@drawable/abc_ab_bottom_solid_dark_holo" -->
+
 
 </RelativeLayout>

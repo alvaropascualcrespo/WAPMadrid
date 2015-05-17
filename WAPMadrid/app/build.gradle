@@ -7,7 +7,7 @@ android {
     defaultConfig {
         applicationId "com.wapmadrid"
         minSdkVersion 14
-        targetSdkVersion 21
+        targetSdkVersion 22
     }
 
     buildTypes {
@@ -19,9 +19,9 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:21.0.3'
-    compile 'com.android.support:appcompat-v7:20.0.0'
     compile 'com.google.android.gms:play-services:+'
     compile files('libs/volley.jar')
     compile 'com.android.support:support-v13:22.1.1'
+    compile 'com.android.support:support-v4:22.1.1'
+    compile 'com.android.support:appcompat-v7:22.1.1'
 }

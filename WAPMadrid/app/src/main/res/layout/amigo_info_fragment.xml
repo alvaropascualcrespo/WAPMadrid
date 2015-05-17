@@ -3,51 +3,77 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="10dp" >
+    android:layout_marginTop="10dp">
 
-   <ProgressBar
-       android:id="@+id/pgAmigoView"
-       style="?android:attr/progressBarStyleLarge"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_below="@+id/imgAmigo"
-       android:layout_centerHorizontal="true"
-       android:layout_marginBottom="20dp"
-       android:layout_marginTop="5dp"
-       android:visibility="gone" />
-   
-   <TextView
-       android:id="@+id/txtCiudad"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_below="@+id/txtNombreyApellidos"
-       android:layout_centerHorizontal="true"
-       android:text="Madrid" />
-   
-   <TextView
-       android:id="@+id/txtSobreMi"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_alignParentLeft="true"
-       android:layout_below="@+id/txtCiudad"
-       android:layout_marginLeft="15dp"
-       android:layout_marginRight="15dp"
-       android:layout_marginTop="10dp"
-       android:layout_marginBottom="10dp"
-       android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus cursus felis leo, in volutpat elit lacinia non. Morbi non maximus elit. Proin ac consequat nibh. Aenean posuere nisl fermentum risus tincidunt consequat.." />
+    <ProgressBar
+        android:id="@+id/pgAmigoView"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgAmigo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="5dp"
+        android:visibility="gone" />
 
-   <Button
-       android:id="@+id/btnMessage"
-       style="@style/TextView.Black"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_alignParentBottom="true"
-       android:layout_centerHorizontal="true"
-       android:layout_marginBottom="19dp"
-       android:background="@drawable/button_enter"
-       android:text="Mensaje nuevo"
-       android:visibility="visible" />
-   
+    <TextView
+        android:id="@+id/txtNombreyApellidos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgAmigo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Ismael Requena Andreu"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/txtCiudad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtNombreyApellidos"
+        android:layout_centerHorizontal="true"
+        android:text="Madrid" />
+
+    <TextView
+        android:id="@+id/txtPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtCiudad"
+        android:layout_centerHorizontal="true"
+        android:text="673863954" />
+
+    <TextView
+        android:id="@+id/txtEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtPhone"
+        android:layout_centerHorizontal="true"
+        android:text="isma@isma.com" />
+
+    <TextView
+        android:id="@+id/txtSobreMi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txtEmail"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus cursus felis leo, in volutpat elit lacinia non. Morbi non maximus elit. Proin ac consequat nibh. Aenean posuere nisl fermentum risus tincidunt consequat.." />
+
+    <Button
+        android:id="@+id/btnMessage"
+        style="@style/TextView.Black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="19dp"
+        android:background="@drawable/button_enter"
+        android:text="Mensaje nuevo"
+        android:visibility="visible" />
+
     <Button
         android:id="@+id/btnAceptar"
         style="@style/TextView.Black"
@@ -60,35 +86,36 @@
         android:background="@drawable/button_enter"
         android:text="Aceptar"
         android:visibility="visible" />
-    
-     <Button
-         android:id="@+id/btnRechazar"
-         style="@style/TextView.Black"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignParentRight="true"
-         android:layout_below="@+id/txtSobreMi"
-         android:layout_marginRight="15dp"
-         android:layout_toRightOf="@+id/txtCiudad"
-         android:background="@drawable/button_enter"
-         android:text="Rechazar"
-         android:visibility="visible" />
 
-   <com.android.volley.toolbox.NetworkImageView
-       android:id="@+id/imgAmigo"
-       android:layout_width="150dp"
-       android:layout_height="150dp"
-       android:layout_centerHorizontal="true"
-       android:src="@drawable/profile" />
+    <Button
+        android:id="@+id/btnRechazar"
+        style="@style/TextView.Black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/txtSobreMi"
+        android:layout_marginRight="15dp"
+        android:layout_toRightOf="@+id/txtCiudad"
+        android:background="@drawable/button_enter"
+        android:text="Rechazar"
+        android:visibility="visible" />
 
-   <TextView
-       android:id="@+id/txtNombreyApellidos"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_centerHorizontal="true"
-       android:layout_below="@+id/imgAmigo"
-       android:layout_marginTop="10dp"
-       android:textSize="18sp"
-       android:text="Ismael Requena Andreu" />
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/imgAmigo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/profile" />
+
+    <Button
+        android:id="@+id/btnEditProfile"
+        style="@style/TextView.Black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_enter"
+        android:text="Editar Perfil"
+        android:visibility="visible" />
 
 </RelativeLayout>
