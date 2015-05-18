@@ -94,23 +94,28 @@
 
         <activity
             android:name=".DrawerActivity"
-            android:label="@string/title_activity_drawer"></activity>
+            android:label="@string/title_activity_drawer"/>
         <activity
             android:name=".activities.CapitanActivity"
             android:label="@string/title_activity_main"
-            android:parentActivityName="com.wapmadrid.activities.InicioActivity"></activity>
+            android:parentActivityName="com.wapmadrid.activities.InicioActivity"/>
         <activity
             android:name="com.wapmadrid.activities.GrupoActivity"
             android:label="@string/title_activity_gupo"
-            android:parentActivityName="com.wapmadrid.activities.InicioActivity"></activity>
+            android:parentActivityName="com.wapmadrid.activities.InicioActivity"/>
         <activity
             android:name="com.wapmadrid.activities.AmigoActivity"
             android:label="@string/title_activity_gupo"
-            android:parentActivityName="com.wapmadrid.activities.InicioActivity"></activity>
+            android:parentActivityName="com.wapmadrid.activities.InicioActivity"/>
         <activity
             android:name="com.wapmadrid.activities.AmigoPeticionActivity"
             android:label="@string/title_activity_peticiones"
-            android:parentActivityName="com.wapmadrid.activities.InicioActivity"></activity>
+            android:parentActivityName="com.wapmadrid.activities.InicioActivity"/>
+        <activity
+            android:name=".miPerfil.cuestionario.CuestionarioActivity"
+            android:label="@string/title_activity_cuestionario"
+            android:theme="@style/Theme.PopUp"
+            android:parentActivityName="com.wapmadrid.activities.InicioActivity"/>
     </application>
 
 </manifest>

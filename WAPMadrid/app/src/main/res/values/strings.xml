@@ -72,4 +72,65 @@
     <string name="action_edit_profile">Editar Perfil</string>
     <string name="title_activity_gupo">GupoActivity</string>
 
+
+    <string name="altura">Altura: %1$s cm</string>
+    <string name="peso">Peso: %1$s kg</string>
+    <string name="fumador">Fumador: %1$s</string>
+    <string name="alcohol">Consumo de alcohol: %1$s</string>
+    <string name="imc">IMC</string>
+    <string name="nuevoCuestionario">Nuevo cuestionario</string>
+    <string name="title_activity_cuestionario">Nuevo Cuestionario</string>
+
+    <string-array name="cuestionario_preguntas">
+        <item>¿Usa usted el aceite de oliva como principal grasa para cocinar?</item>
+        <item>¿Cuánto aceite de oliva consume en total al día (incluyendo el usado para freír, comidas fuera de casa, ensaladas, etc...)?</item>
+        <item>¿Cuántas verduras y hortalizas consume al día? (1 ración 200g)</item>
+        <item>¿Cuántas piezas de fruta consume al día? (Incluyendo zumo natural)</item>
+        <item>¿Cuántas raciones de carnes rojas, hamburguesas, salchichas o embutidos consume al día? (1 ración 100/150g)</item>
+        <item>¿Cuántas raciones de mantequilla, margarina o nata consume al día? (Porción individual 12g)</item>
+        <item>¿Cuántas bebidas carbonadas y/o azucaradas (refrescos, colas, bitter) consume al día?</item>
+        <item>¿Bebe usted vino? ¿Cuánto consume a la semana?</item>
+        <item>¿Cuántas raciones de legumbres consume a la semana? (1 plato ración de 150g)</item>
+        <item>¿Cuántas raciones de  pescado-mariscos consume a la semana? (1 ración de pescado 150g, 1 ración de marisco 200g)</item>
+        <item>¿Cuántas veces consume repostería comercial (no casera) como galletas, flanes, dulce o pasteles a la semana?</item>
+        <item>¿Cuántas veces consume frutos secos a la semana? (1 ración 30g)</item>
+        <item>¿Consume usted preferentemente carne de pollo, pavo o conejo en vez de ternera, cerdo, hamburguesas o salchichas?</item>
+        <item>¿Cuántas veces a la semana consume los vegetales cocinados, la pasta, arroz u otros platos aderezados con salsa de tomate, ajo, cebolla o puerro elaborado a fuego lento con aceite de oliva (sofrito)?</item>
+    </string-array>
+
+    <string-array name="cuestionario_respuestas0">
+        <item>Si</item>
+        <item>Tres o menos cucharadas</item>
+        <item>Una o menos</item>
+        <item>Dos o menos al día</item>
+        <item>Menos de uno al día</item>
+        <item>Menos de una al día</item>
+        <item>Menos de una al día</item>
+        <item>Seis o menos vasos a la semana</item>
+        <item>Dos o menos a la semana</item>
+        <item>Dos o menos a la semana</item>
+        <item>Menos de dos a la semana</item>
+        <item>Menos de tres a la semana</item>
+        <item>Si</item>
+        <item>Menos de dos a la semana</item>
+    </string-array>
+
+    <string-array name="cuestionario_respuestas1">
+        <item>No</item>
+        <item>Cuatro o más cucharadas</item>
+        <item>Dos o más</item>
+        <item>Tres o más al día</item>
+        <item>Uno o más al día</item>
+        <item>Una o más al día</item>
+        <item>Una o más al día</item>
+        <item>Siete o más vasos a la semana</item>
+        <item>Tres o más a la semana</item>
+        <item>Tres o más a la semana</item>
+        <item>Dos o más a la semana</item>
+        <item>Tres o más a la semana</item>
+        <item>No</item>
+        <item>Dos o más a la semana</item>
+    </string-array>
+
+
 </resources>

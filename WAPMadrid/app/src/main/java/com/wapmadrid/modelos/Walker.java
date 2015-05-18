@@ -3,6 +3,8 @@ package com.wapmadrid.modelos;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.wapmadrid.utilities.Constants;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -58,11 +60,10 @@ public class Walker implements Parcelable {
             about = walker.getString("about");
             email = walker.getString("email");
             telephone = walker.getString("telephone");
-
             birthDate = setDate(walker.getString("birthDate"));
             height = walker.getString("height");
-            smoker = walker.getString("alcohol");
-            alcohol = walker.getString("alcohol");
+            smoker = Constants.getSmoker(walker.getInt("smoker"));
+            alcohol = Constants.getAlcohol(walker.getInt("alcohol"));
             JSONArray weight_array = new JSONArray(walker.getString("weight"));
             JSONArray diet_array = new JSONArray(walker.getString("diet"));
             JSONArray exercise_array = new JSONArray(walker.getString("exercise"));

@@ -12,6 +12,7 @@ import com.wapmadrid.centroMedico.CentroMedicoDescripcionFragment;
 import com.wapmadrid.centroMedico.CentroMedicoEventosFragment;
 import com.wapmadrid.miPerfil.MiPerfilActividadFragment;
 import com.wapmadrid.miPerfil.MiPerfilDietaFragment;
+import com.wapmadrid.miPerfil.MiPerfilEstadoFragment;
 import com.wapmadrid.miPerfil.MiPerfilInfoFragment;
 import com.wapmadrid.modelos.Walker;
 import com.wapmadrid.utilities.BitmapLRUCache;
@@ -37,6 +38,7 @@ import java.util.Map;
 public class PerfilFragment extends Fragment implements ActionBar.TabListener {
 
     private Fragment[] fragments = new Fragment[]{new MiPerfilInfoFragment(),
+            new MiPerfilEstadoFragment(),
             new MiPerfilDietaFragment(),
             new MiPerfilActividadFragment()};
     private int lastIndex = 0;
@@ -53,10 +55,12 @@ public class PerfilFragment extends Fragment implements ActionBar.TabListener {
                 .add(R.id.perfilLayout, fragments[0])
                 .add(R.id.perfilLayout, fragments[1])
                 .add(R.id.perfilLayout, fragments[2])
+                .add(R.id.perfilLayout, fragments[3])
                 .commit();
 
         manager.beginTransaction().hide(fragments[1])
                 .hide(fragments[2])
+                .hide(fragments[3])
                 .commit();
 
         fill();
@@ -72,6 +76,10 @@ public class PerfilFragment extends Fragment implements ActionBar.TabListener {
         actionBar.addTab(
                 actionBar.newTab()
                         .setText("Información")
+                        .setTabListener(this));
+        actionBar.addTab(
+                actionBar.newTab()
+                        .setText("Estado")
                         .setTabListener(this));
 
         actionBar.addTab(
@@ -140,8 +148,9 @@ public class PerfilFragment extends Fragment implements ActionBar.TabListener {
                         JSONObject walker_json = root.getJSONObject("walker");
                         Walker walker = new Walker(walker_json);
                         ((MiPerfilInfoFragment) fragments[0]).setWalker(walker);
-                        ((MiPerfilDietaFragment) fragments[1]).setWalker(walker);
-                        ((MiPerfilInfoFragment) fragments[2]).setWalker(walker);
+                        ((MiPerfilEstadoFragment) fragments[1]).setWalker(walker);
+                        ((MiPerfilDietaFragment) fragments[2]).setWalker(walker);
+                        ((MiPerfilInfoFragment) fragments[3]).setWalker(walker);
                     } else {
                         //TODO
                     }

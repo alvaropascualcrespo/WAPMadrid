@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="orange">#F05800</color>
+    <color name="orange">#E25303</color>
+    <color name="orange_wap">#E25303</color>
     <color name="black">#000000</color>
+    <color name="textColor">#000000</color>
+    <color name="background">#F5F5DC</color>
     <color name="defaultBackground">#000000</color>
     <color name="white">#FFFFFF</color>
     <color name="transparente">#00000000</color>
