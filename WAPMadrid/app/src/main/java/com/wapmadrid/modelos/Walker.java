@@ -21,6 +21,7 @@ public class Walker implements Parcelable {
     private String displayName;
     private boolean sex;
     private String city;
+    private String address;
     private String about;
     private String email;
     private String telephone;
@@ -59,6 +60,7 @@ public class Walker implements Parcelable {
             city = walker.getString("city");
             about = walker.getString("about");
             email = walker.getString("email");
+            address = walker.getString("address");
             telephone = walker.getString("telephone");
             birthDate = setDate(walker.getString("birthDate"));
             height = walker.getString("height");
@@ -115,6 +117,7 @@ public class Walker implements Parcelable {
         dest.writeString(displayName);
         dest.writeString(Boolean.toString(sex));
         dest.writeString(city);
+        dest.writeString(address);
         dest.writeString(about);
         dest.writeString(email);
         dest.writeString(telephone);
@@ -135,12 +138,23 @@ public class Walker implements Parcelable {
     }
 
     public void readFromParcel(Parcel in) {
+        weight_value = new ArrayList<>();
+        weight_date = new ArrayList<>();
+        weight_imc = new ArrayList<>();
+        diet_value = new ArrayList<>();
+        diet_date = new ArrayList<>();
+        exercise_value = new ArrayList<>();
+        exercise_date = new ArrayList<>();
+        stats_distance = new ArrayList<>();
+        stats_date = new ArrayList<>();
+        stats_kcal = new ArrayList<>();
         profileImage = in.readString();
         firstName = in.readString();
         lastName = in.readString();
         displayName = in.readString();
         sex = Boolean.getBoolean(in.readString());
         city = in.readString();
+        address = in.readString();
         about = in.readString();
         email = in.readString();
         telephone = in.readString();
@@ -159,6 +173,17 @@ public class Walker implements Parcelable {
         in.readList(stats_distance, null);
         in.readList(stats_kcal, null);
     }
+
+    public static final Parcelable.Creator<Walker> CREATOR
+            = new Parcelable.Creator<Walker>() {
+        public Walker createFromParcel(Parcel in) {
+            return new Walker(in);
+        }
+
+        public Walker[] newArray(int size) {
+            return new Walker[size];
+        }
+    };
 
     public String getProfileImage() {
         return profileImage;
@@ -351,5 +376,11 @@ public class Walker implements Parcelable {
     }
 
 
+    public String getAddress() {
+        return address;
+    }
 
+    public void setAddress(String address) {
+        this.address = address;
+    }
 }

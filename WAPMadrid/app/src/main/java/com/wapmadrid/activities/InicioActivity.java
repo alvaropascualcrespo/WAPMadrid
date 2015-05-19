@@ -1,6 +1,7 @@
 package com.wapmadrid.activities;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -26,6 +27,11 @@ import com.wapmadrid.fragments.GrupoListFragment;
 import com.wapmadrid.fragments.HomeFragment;
 import com.wapmadrid.fragments.PerfilFragment;
 import com.wapmadrid.fragments.RutasFragment;
+import com.wapmadrid.utilities.Constants;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class InicioActivity extends FragmentActivity {
 	
@@ -112,7 +118,7 @@ public class InicioActivity extends FragmentActivity {
         		.add(R.id.contentFrame, fragments[5])
         		.add(R.id.contentFrame, fragments[6])
         		.add(R.id.contentFrame, fragments[7])
-        	    .commit();	
+        	    .commitAllowingStateLoss();
         
         manager.beginTransaction().hide(fragments[1])
         						  .hide(fragments[2])
@@ -121,7 +127,7 @@ public class InicioActivity extends FragmentActivity {
         						  .hide(fragments[5])
         						  .hide(fragments[6])
         						  .hide(fragments[7])
-				        		  .commit();
+				        		  .commitAllowingStateLoss();
         
         setContent(option);
         
@@ -179,7 +185,7 @@ public class InicioActivity extends FragmentActivity {
 		manager.beginTransaction()
 				.hide(toHide)
 				.show(toShow)
-				.commit();
+				.commitAllowingStateLoss();
 		
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 		actionBar.setTitle(drawerOptions[index]);
@@ -212,4 +218,17 @@ public class InicioActivity extends FragmentActivity {
 	    }
 	}
 
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (resultCode == Activity.RESULT_OK){
+			if (requestCode == Constants.RESULT_EDIT){
+				setContent(3);
+				((PerfilFragment) fragments[3]).fill();
+			}
+		}
+	}
+
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+	}
 }

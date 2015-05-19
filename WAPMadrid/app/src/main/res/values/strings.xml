@@ -73,14 +73,26 @@
     <string name="title_activity_gupo">GupoActivity</string>
 
 
-    <string name="altura">Altura: %1$s cm</string>
+    <string-array name="smoker_array">
+        <item>No</item>
+        <item>Si</item>
+    </string-array>
+
+    <string-array name="alcohol_array">
+        <item>No</item>
+        <item>Moderadamente</item>
+        <item>Con Frecuencia</item>
+    </string-array>
+
+    <string name="altura">Altura: %1$s m</string>
     <string name="peso">Peso: %1$s kg</string>
     <string name="fumador">Fumador: %1$s</string>
     <string name="alcohol">Consumo de alcohol: %1$s</string>
     <string name="imc">IMC</string>
     <string name="nuevoCuestionario">Nuevo cuestionario</string>
     <string name="title_activity_cuestionario">Nuevo Cuestionario</string>
-
+    <string name="medidaDieta">Entre 11 y 14 puntos, excelente adherencia a la dieta mediterránea\nEntre 8 y 10, buena adherencia a la dieta mediterránea\nEntre 5 y 7,  baja adherencia a la dieta mediterránea\nMenos de 5, muy baja adherencia a la dieta mediterránea </string>
+    <string name="medidaIMC">Normopeso: IMC 18,5 - 24,9 Kg/m2\nSobrepeso: IMC 25 -29,9 Kg/m2\nObesidad grado I con IMC 30-34,9 Kg/m2\nObesidad grado II con IMC 35-39,9 Kg/m2\nObesidad grado III con IMC >= 40 Kg/m2</string>
     <string-array name="cuestionario_preguntas">
         <item>¿Usa usted el aceite de oliva como principal grasa para cocinar?</item>
         <item>¿Cuánto aceite de oliva consume en total al día (incluyendo el usado para freír, comidas fuera de casa, ensaladas, etc...)?</item>
@@ -99,38 +111,48 @@
     </string-array>
 
     <string-array name="cuestionario_respuestas0">
-        <item>Si</item>
+        <item>No</item>
         <item>Tres o menos cucharadas</item>
         <item>Una o menos</item>
         <item>Dos o menos al día</item>
-        <item>Menos de uno al día</item>
-        <item>Menos de una al día</item>
-        <item>Menos de una al día</item>
+        <item>Uno o más al día</item>
+        <item>Una o más al día</item>
+        <item>Una o más al día</item>
         <item>Seis o menos vasos a la semana</item>
         <item>Dos o menos a la semana</item>
         <item>Dos o menos a la semana</item>
-        <item>Menos de dos a la semana</item>
-        <item>Menos de tres a la semana</item>
-        <item>Si</item>
+        <item>Dos o más a la semana</item>
+        <item>Tres o más a la semana</item>
+        <item>No</item>
         <item>Menos de dos a la semana</item>
     </string-array>
 
     <string-array name="cuestionario_respuestas1">
-        <item>No</item>
+        <item>Si</item>
         <item>Cuatro o más cucharadas</item>
         <item>Dos o más</item>
         <item>Tres o más al día</item>
-        <item>Uno o más al día</item>
-        <item>Una o más al día</item>
-        <item>Una o más al día</item>
+        <item>Menos de uno al día</item>
+        <item>Menos de una al día</item>
+        <item>Menos de una al día</item>
         <item>Siete o más vasos a la semana</item>
         <item>Tres o más a la semana</item>
         <item>Tres o más a la semana</item>
-        <item>Dos o más a la semana</item>
-        <item>Tres o más a la semana</item>
-        <item>No</item>
+        <item>Menos de dos a la semana</item>
+        <item>Menos de tres a la semana</item>
+        <item>Si</item>
         <item>Dos o más a la semana</item>
     </string-array>
+    <string name="title_activity_edit_info">Editar Información</string>
+    <string name="title_activity_edit_status">Editar Estado</string>
+    <string name="telephone">Teléfono</string>
+    <string name="address">Dirección</string>
+    <string name="city">Ciudad</string>
+    <string name="title_activity_new_group">NewGroupActivity</string>
+    <string name="nombreGrupo">Nombre del grupo</string>
+    <string name="horarioHint">Horario: Ej. L-X-V 16:00</string>
+    <string name="nivelHint">Nivel de esfuerzo de 1 a 5</string>
+    <string name="selectRoute">Selecciona la ruta</string>
 
 
 </resources>

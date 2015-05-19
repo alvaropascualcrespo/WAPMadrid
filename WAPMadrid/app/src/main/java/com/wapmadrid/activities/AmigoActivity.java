@@ -19,7 +19,6 @@ public class AmigoActivity extends FragmentActivity implements ActionBar.TabList
 
     public static final String ID = "id";
     private Fragment[] fragments = new Fragment[]{new MiPerfilInfoFragment(),
-            new MiPerfilDietaFragment(),
             new MiPerfilActividadFragment()};
 
     private int lastIndex = 0;
@@ -32,9 +31,8 @@ public class AmigoActivity extends FragmentActivity implements ActionBar.TabList
         final ActionBar actionBar = getActionBar();
         actionBar.setIcon(R.drawable.ic_launcher);
         actionBar.setHomeButtonEnabled(true);
-        actionBar.setTitle("Ismael Requena");
         actionBar.setDisplayHomeAsUpEnabled(true);
-        for (int i = 0; i </*tabs.length*/3; i++) {
+        for (int i = 0; i </*tabs.length*/2; i++) {
             actionBar.addTab(
                     actionBar.newTab()
                             .setText(tabs[i])
@@ -44,7 +42,6 @@ public class AmigoActivity extends FragmentActivity implements ActionBar.TabList
         manager.beginTransaction()
                 .add(R.id.fgAmigoLayout, fragments[0])
                 .add(R.id.fgAmigoLayout, fragments[1])
-                .add(R.id.fgAmigoLayout, fragments[2])
                 .commit();
 
         manager.beginTransaction().hide(fragments[1])

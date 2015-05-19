@@ -6,8 +6,9 @@ package com.wapmadrid.utilities;
 public class Constants {
 
 
-    public static final int RESULT_CUESTIONARIO = 0;
     public static final String FRAGMENT_POSITION = "FRAGMENT_POSITION";
+    public static final int RESULT_EDIT = 0;
+    public static final int NUEVO_GRUPO = 1;
 
     public static String getSmoker(int smoker){
         switch (smoker){

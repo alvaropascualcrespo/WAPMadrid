@@ -1,5 +1,6 @@
 package com.wapmadrid.miPerfil;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -15,6 +17,8 @@ import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.wapmadrid.miPerfil.editarPerfil.EditInfoActivity;
+import com.wapmadrid.miPerfil.editarPerfil.EditStatusActivity;
 import com.wapmadrid.modelos.Walker;
 
 import com.wapmadrid.R;
@@ -36,6 +40,7 @@ public class MiPerfilEstadoFragment extends Fragment {
     private TextView txtPeso;
     private TextView txtFumador;
     private TextView txtAlcohol;
+    private Button btnEditProfile;
     // private BarGraph chartIMC;
 
     @Override
@@ -47,6 +52,15 @@ public class MiPerfilEstadoFragment extends Fragment {
         txtPeso = (TextView) v.findViewById(R.id.txtPeso);
         txtFumador = (TextView) v.findViewById(R.id.txtFumador);
         txtAlcohol = (TextView) v.findViewById(R.id.txtAlcohol);
+        btnEditProfile = (Button)v.findViewById(R.id.btnEditProfile);
+        btnEditProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), EditStatusActivity.class);
+                intent.putExtra("WALKER",walker);
+                getActivity().startActivityForResult(intent, Constants.RESULT_EDIT);
+            }
+        });
 
 
 
@@ -74,7 +88,9 @@ public class MiPerfilEstadoFragment extends Fragment {
         String alcoholRes = getResources().getString(R.string.alcohol);
         String height = walker.getHeight();
         int size = weight_value.size();
-        String weight = weight_value.get(size - 1);
+        String weight = "0";
+        if (size > 0)
+            weight = weight_value.get(size - 1);
         String smoker = walker.getSmoker();
         String alcohol = walker.getAlcohol();
         txtAltura.setText(String.format(alturaRes,height));

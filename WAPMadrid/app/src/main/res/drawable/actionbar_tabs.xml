@@ -21,7 +21,7 @@
           android:drawable="@drawable/tab_unselected_pressed" />
     <item android:state_focused="false" android:state_selected="true"
         android:state_pressed="true"	
-        android:drawable="@drawable/tab_selected_pressed" />
+        android:drawable="@drawable/ic_escenario_swipebar_bg" />
 
     <!-- Focused states (such as when focused with a d-pad or mouse hover) -->
     <item android:state_focused="true" android:state_selected="false"
@@ -29,5 +29,5 @@
           android:drawable="@drawable/tab_unselected_pressed" />
     <item android:state_focused="true" android:state_selected="true"
           android:state_pressed="true"
-          android:drawable="@drawable/tab_selected_pressed" />
+          android:drawable="@drawable/ic_escenario_swipebar_bg" />
 </selector>

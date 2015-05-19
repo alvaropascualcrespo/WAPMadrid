@@ -15,7 +15,7 @@ import com.wapmadrid.utilities.Constants;
 /**
  * Created by Ismael on 18/05/2015.
  */
-public class CuestionarioFragment extends Fragment {
+public class CuestionarioFragment extends Fragment implements View.OnClickListener{
 
     private TextView txtPregunta;
     private Button btnRespuesta1;
@@ -38,7 +38,29 @@ public class CuestionarioFragment extends Fragment {
         btnRespuesta1.setText(respuestas1[position]);
         btnRespuesta0.setText(respuestas0[position]);
 
+        btnRespuesta1.setOnClickListener(this);
+        btnRespuesta0.setOnClickListener(this);
+
 
         return v;
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        if (v.getId() == btnRespuesta1.getId()){
+            ((CuestionarioActivity)getActivity()).setRespuesta(position,1);
+            if (btnRespuesta0.isSelected()){
+                btnRespuesta0.setSelected(false);
+            }
+            btnRespuesta1.setSelected(true);
+        } else if (v.getId() == btnRespuesta0.getId()){
+            ((CuestionarioActivity)getActivity()).setRespuesta(position,0);
+            if (btnRespuesta1.isSelected()){
+                btnRespuesta1.setSelected(false);
+            }
+            btnRespuesta0.setSelected(true);
+        }
+
     }
 }

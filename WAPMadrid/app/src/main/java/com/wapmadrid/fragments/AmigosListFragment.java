@@ -24,6 +24,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.wapmadrid.R;
 import com.wapmadrid.activities.AmigoActivity;
 import com.wapmadrid.activities.InicioActivity;
@@ -38,8 +39,7 @@ public class AmigosListFragment extends Fragment{
 	AdapterItemAmigo adapter;
     private ProgressBar pgAmigosList;
     private GridView grid;
-    private RequestQueue requestQueue;
-	
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -51,21 +51,23 @@ public class AmigosListFragment extends Fragment{
         arraydir = new ArrayList<ItemAmigo>();
         adapter = new AdapterItemAmigo(getActivity(), arraydir);
         grid.setAdapter(adapter);
-        grid.setOnItemClickListener(new OnItemClickListener(){
+        grid.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
+									int position, long id) {
 				Intent i = new Intent(getActivity().getApplicationContext(), AmigoActivity.class);
 				i.putExtra(AmigoActivity.ID, arraydir.get(position).getId());
 				startActivity(i);
 			}
-        });
+		});
+		fill();
         return v;
     }
 
 	public void fill() {
+		RequestQueue requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
 		final DataManager dm = new DataManager(getActivity().getApplicationContext());
-		String[] cred = dm.getCred(); 
+		final String[] cred = dm.getCred();
 		String url = Helper.getAmigosUrl(cred[0]);
 
 
@@ -115,7 +117,7 @@ public class AmigosListFragment extends Fragment{
 			    protected Map<String, String> getParams() 
 			    {  
 			    	HashMap<String, String> params = new HashMap<String, String>();
-					params.put("token", InicioActivity.TOKEN);
+					params.put("token", cred[1]);
 					return params;
 			    }
 		}; 

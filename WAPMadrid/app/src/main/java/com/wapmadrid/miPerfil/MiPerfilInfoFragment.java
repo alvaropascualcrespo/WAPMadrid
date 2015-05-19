@@ -17,11 +17,14 @@ import com.android.volley.toolbox.Volley;
 import com.wapmadrid.R;
 import com.wapmadrid.adapters.AdapterItemAmigo;
 import com.wapmadrid.data.ItemAmigo;
+import com.wapmadrid.miPerfil.editarPerfil.EditInfoActivity;
 import com.wapmadrid.modelos.Walker;
 import com.wapmadrid.utilities.BitmapLRUCache;
+import com.wapmadrid.utilities.Constants;
 import com.wapmadrid.utilities.DataManager;
 import com.wapmadrid.utilities.Helper;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -48,6 +51,8 @@ public class MiPerfilInfoFragment extends Fragment{
 	private Walker walker;
 	private TextView txtEmail;
 	private TextView txtPhone;
+	private Button btnEditProfile;
+	private TextView txtAddress;
 
 	public void setWalker(Walker walker) {
 		this.walker = walker;
@@ -56,6 +61,7 @@ public class MiPerfilInfoFragment extends Fragment{
 		txtSobreMi.setText(walker.getAbout());
 		txtEmail.setText(walker.getEmail());
 		txtPhone.setText(walker.getTelephone());
+		txtAddress.setText(walker.getAddress());
 		RequestQueue requestQueueImagen = Volley.newRequestQueue(getActivity().getApplicationContext());
 		ImageLoader imageLoader = new ImageLoader(requestQueueImagen, new BitmapLRUCache());
 		imgAmigo.setImageUrl(walker.getProfileImage(), imageLoader);
@@ -72,13 +78,24 @@ public class MiPerfilInfoFragment extends Fragment{
         txtNombreyApellidos = (TextView)v.findViewById(R.id.txtNombreyApellidos);
 		txtEmail = (TextView)v.findViewById(R.id.txtEmail);
 		txtPhone = (TextView)v.findViewById(R.id.txtPhone);
+		txtAddress = (TextView)v.findViewById(R.id.txtAddress);
         btnMessage = (Button)v.findViewById(R.id.btnMessage);
         btnAceptar = (Button)v.findViewById(R.id.btnAceptar);
         btnRechazar = (Button)v.findViewById(R.id.btnRechazar);
+		btnEditProfile = (Button)v.findViewById(R.id.btnEditProfile);
         imgAmigo = (NetworkImageView)v.findViewById(R.id.imgAmigo);
 		btnMessage.setVisibility(View.GONE);
 		btnAceptar.setVisibility(View.GONE);
 		btnRechazar.setVisibility(View.GONE);
+
+		btnEditProfile.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(getActivity(), EditInfoActivity.class);
+				intent.putExtra("WALKER", walker);
+				getActivity().startActivityForResult(intent, Constants.RESULT_EDIT);
+			}
+		});
 
 
         return v;

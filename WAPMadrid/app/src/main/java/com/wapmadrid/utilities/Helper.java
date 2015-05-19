@@ -32,6 +32,16 @@ public class Helper {
 		return BASE_API_URL + "walkers/read/" + id;
 	}
 
+	public static String getUpdateDietaUrl(String id) {
+		return BASE_API_URL + "walkers/update/diet/" + id;
+	}
+	public static String getUpdateStatusUrl(String id) {
+		return BASE_API_URL + "walkers/update/status/" + id;
+	}
+	public static String getUpdateInfoUrl(String id) {
+		return BASE_API_URL + "walkers/update/info/" + id;
+	}
+
 	public static String getMessage() {
 		// TODO Auto-generated method stub
 		return null;
@@ -53,14 +63,16 @@ public class Helper {
 	}
 
 	public static String getPeticionesAmigosUrl(String id) {
-		return BASE_API_URL + "walkers/read/friends:" + id;
+		return BASE_API_URL + "walkers/read/friends/" + id;
 	}
 
 	public static String getAmigosUrl(String id) {
-		return BASE_API_URL + "walkers/read:" + id;
+		return BASE_API_URL + "walkers/friends/" + id;
 	}
 
 	public static String getGruposUrl(String id) {
-		return BASE_API_URL + "walkers/groups:" + id;
+		return BASE_API_URL + "walkers/groups/" + id;
 	}
+
+
 }

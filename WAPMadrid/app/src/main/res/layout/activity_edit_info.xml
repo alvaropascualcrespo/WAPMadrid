@@ -1,0 +1,90 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background"
+    android:padding="40dp">
+
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/imgAmigo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/profile" />
+
+    <EditText
+        android:id="@+id/etRegistroNombre"
+        style="@style/EditText.Orange"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgAmigo"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:hint="@string/nombre"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/etRegistroApellidos"
+        style="@style/EditText.Orange"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etRegistroNombre"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/apellidos"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/etEmail"
+        style="@style/EditText.Orange"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etRegistroApellidos"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/etTelephone"
+        style="@style/EditText.Orange"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etEmail"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/telephone"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/etAddress"
+        style="@style/EditText.Orange"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etTelephone"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/address"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/btnEnviarInfo"
+        style="@style/TextView.Black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etCity"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_enter"
+        android:text="@string/entrar"
+        android:textSize="18sp" />
+
+    <EditText
+        style="@style/EditText.Orange"
+        android:id="@+id/etCity"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/city"
+        android:inputType="text"
+        android:layout_below="@+id/etAddress"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
+

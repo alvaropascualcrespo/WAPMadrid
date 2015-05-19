@@ -1,0 +1,63 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background"
+    tools:context="com.wapmadrid.miPerfil.editarPerfil.EditStatusActivity"
+    android:id="@+id/rlStatusEdit"
+    android:padding="40dp">
+
+    <EditText
+        style="@style/EditText.Orange"
+        android:id="@+id/etPeso"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/peso"
+        android:inputType="number"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="15dp" />
+
+    <EditText
+        style="@style/EditText.Orange"
+        android:id="@+id/etAltura"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/altura"
+        android:inputType="numberDecimal"
+        android:layout_below="@+id/etPeso"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spFumador"
+        android:layout_below="@+id/etAltura"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        style="@style/EditText.Orange"
+        android:spinnerMode="dropdown" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spAlcohol"
+        android:layout_below="@+id/spFumador"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        style="@style/EditText.Orange"
+        android:spinnerMode="dropdown" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnEnviar"
+        android:text="@string/enviar"
+        style="@style/TextView.Black"
+        android:background="@drawable/button_enter"
+        android:layout_below="@+id/spAlcohol"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp" />
+
+</RelativeLayout>

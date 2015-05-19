@@ -1,5 +1,6 @@
 package com.wapmadrid.miPerfil;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -19,7 +20,10 @@ import com.wapmadrid.miPerfil.cuestionario.CuestionarioActivity;
 import com.wapmadrid.modelos.Walker;
 import com.wapmadrid.utilities.Constants;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by Ismael on 18/05/2015.
@@ -32,6 +36,8 @@ public class MiPerfilDietaFragment  extends Fragment {
     private Button btnCuestionario;
     // private BarGraph chartIMC;
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.perfil_dieta_fragment, container, false);
@@ -43,7 +49,7 @@ public class MiPerfilDietaFragment  extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent cuestionarioIntent = new Intent(getActivity().getApplicationContext(), CuestionarioActivity.class);
-                startActivityForResult(cuestionarioIntent, Constants.RESULT_CUESTIONARIO);
+                getActivity().startActivityForResult(cuestionarioIntent, Constants.RESULT_EDIT);
             }
         });
 
@@ -71,7 +77,7 @@ public class MiPerfilDietaFragment  extends Fragment {
             imcVals.add(new BarEntry(Float.valueOf(diet_value.get(i)), i));
         }
 
-        BarDataSet setIMC = new BarDataSet(imcVals, "IMC");
+        BarDataSet setIMC = new BarDataSet(imcVals, "Dieta Mediterranea");
         setIMC.setBarSpacePercent(35f);
         setIMC.setColor(getResources().getColor(R.color.orange_wap));
         ArrayList<BarDataSet> dataSets = new ArrayList<BarDataSet>();

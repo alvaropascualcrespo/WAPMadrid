@@ -1,50 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:padding="10dp"
-    android:background="@color/background">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <Button
+        android:id="@+id/btnEditProfile"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="right"
+        android:background="@drawable/ic_action_edit"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/txtAltura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/altura"
+        android:textColor="@color/textColor" />
+
+    <TextView
+        android:id="@+id/txtPeso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/peso"
+        android:textColor="@color/textColor" />
+
+    <TextView
+        android:id="@+id/txtFumador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/fumador"
+        android:textColor="@color/textColor" />
+
+    <TextView
+        android:id="@+id/txtAlcohol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/alcohol"
+        android:textColor="@color/textColor" />
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/chartIMC"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/medidaIMC"
+        android:textColor="@color/black" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/textColor"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/altura"
-            android:id="@+id/txtAltura" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/textColor"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/peso"
-            android:id="@+id/txtPeso" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/textColor"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/fumador"
-            android:id="@+id/txtFumador" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/textColor"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/alcohol"
-            android:id="@+id/txtAlcohol" />
-
-        <com.github.mikephil.charting.charts.BarChart
-            android:id="@+id/chartIMC"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="10dp" />
-
-    </LinearLayout>
-
-</ScrollView>
+</LinearLayout>
