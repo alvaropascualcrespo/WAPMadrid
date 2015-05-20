@@ -19,7 +19,7 @@ android {
 }
 
 dependencies {
-    compile 'com.google.android.gms:play-services:+'
+    compile 'com.google.android.gms:play-services:7.3.0'
     compile files('libs/volley.jar')
     compile 'com.android.support:support-v13:22.1.1'
     compile 'com.android.support:support-v4:22.1.1'
