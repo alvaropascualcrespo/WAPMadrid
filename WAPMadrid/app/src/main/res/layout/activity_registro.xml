@@ -125,7 +125,7 @@
             style="@style/EditText.Orange" />
 
         <Button
-            android:id="@+id/btnEnviarEstado"
+            android:id="@+id/btnEnviar"
 	        android:layout_width="match_parent"
 	        android:layout_height="40dp"
 	        android:layout_below="@+id/etRegistroContrasena2"
@@ -141,7 +141,7 @@
             android:id="@+id/gotoInicio"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/btnEnviarEstado"
+            android:layout_below="@id/btnEnviar"
             android:layout_margin="25dip"
             android:gravity="center"
             android:padding="10dp"
@@ -157,7 +157,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignRight="@+id/rgGenero"
-            android:layout_alignTop="@+id/btnEnviarEstado"
+            android:layout_alignTop="@+id/btnEnviar"
             android:layout_centerHorizontal="true" />   
 
     </RelativeLayout>

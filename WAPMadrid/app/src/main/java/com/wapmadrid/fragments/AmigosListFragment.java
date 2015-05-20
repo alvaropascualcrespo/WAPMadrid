@@ -88,7 +88,7 @@ public class AmigosListFragment extends Fragment{
 							if(estado.equals("accepted")){
 								JSONObject aux = auxArray.getJSONObject("friendID");
 								String picture = aux.getString("profileImage");
-								long idProfile = Long.valueOf(aux.getString("_id"));
+								String idProfile = aux.getString("_id");
 								String name = aux.getString("displayName");
 								ItemAmigo friend = new ItemAmigo(picture,name,idProfile);
 								arraydir.add(friend);

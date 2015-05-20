@@ -4,11 +4,13 @@ import java.util.ArrayList;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.ViewPager;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
@@ -16,80 +18,93 @@ import android.widget.Toast;
 
 import com.wapmadrid.R;
 import com.wapmadrid.adapters.AdapterItemLayoutCapitan;
+import com.wapmadrid.adapters.CapitanPageAdapter;
+import com.wapmadrid.adapters.GrupoPageAdapter;
 import com.wapmadrid.capitan.CederCapitaniaViewActivity;
 import com.wapmadrid.capitan.ComenzarRutaViewActivity;
-import com.wapmadrid.capitan.CrearRutaViewActivity;
+import com.wapmadrid.rutas.CrearRutaViewActivity;
 import com.wapmadrid.capitan.MensajesCapitanViewActivity;
 import com.wapmadrid.data.ItemLayoutCapitan;
+import com.wapmadrid.utilities.Constants;
 
-public class CapitanActivity extends Activity{
-
+public class CapitanActivity extends FragmentActivity {
 	ArrayList<ItemLayoutCapitan> arraydir;
 	AdapterItemLayoutCapitan adapter;
 	GridView lista;
-	
+	private String groupID;
+	ViewPager mViewPager;
+	private CapitanPageAdapter capitanPageAdapter;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_capitan);
+		mViewPager = (ViewPager) findViewById(R.id.pager);
 		final ActionBar actionBar = getActionBar();
+		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		actionBar.setHomeButtonEnabled(true);
-		actionBar.setDisplayHomeAsUpEnabled(true);
 		actionBar.setIcon(R.drawable.action_bar_negro);
-		actionBar.setTitle("Equipo A");
-		
-		lista = (GridView) findViewById(R.id.gridViewCapitan);
-        arraydir = new ArrayList<ItemLayoutCapitan>();       
-	    adapter = new AdapterItemLayoutCapitan(this, arraydir);
-        lista.setAdapter(adapter);
-        lista.setOnItemClickListener(new OnItemClickListener() {
+
+		ActionBar.TabListener tabListener = new ActionBar.TabListener() {
 			@Override
-			public void onItemClick(AdapterView<?> arg0, View view, int position, long arg3) {
-				switch(position){
-					case 0:
-						Intent intent1 = new Intent(getApplicationContext(), MensajesCapitanViewActivity.class);
-		                //intent.putExtra(MensajesCapitanViewActivity.ID, String.valueOf(adapter.getItemId(position)));
-		                startActivity(intent1);
-		                break;
-					
-					case 1:
-						Intent intent2 = new Intent(getApplicationContext(), ComenzarRutaViewActivity.class);
-		                //intent.putExtra(ComenzarRutaViewActivity.ID, String.valueOf(adapter.getItemId(position)));
-		                startActivity(intent2);
-		                break;
-		                
-					case 2:
-						Intent intent3 = new Intent(getApplicationContext(), CrearRutaViewActivity.class);
-		                //intent.putExtra(CrearRutaViewActivity.ID, String.valueOf(adapter.getItemId(position)));
-		                startActivity(intent3);
-		                break;
-		                
-					case 3:
-						Intent intent4 = new Intent(getApplicationContext(), CederCapitaniaViewActivity.class);
-		                //intent.putExtra(CederCapitaniaViewActivity.ID, String.valueOf(adapter.getItemId(position)));
-		                startActivity(intent4);
-		                break;
-		            
-		            default:
-		            	Toast.makeText(getApplicationContext(), "Error en la posicion", Toast.LENGTH_LONG).show();
-		            	break;
-				}
-			}		
+			public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
+				// TODO Auto-generated method stub
+				mViewPager.setCurrentItem(tab.getPosition());
+			}
+
+			@Override
+			public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
+				// TODO Auto-generated method stub
+
+			}
+		};
+		groupID = getIntent().getStringExtra(Constants.GROUP_ID);
+
+		String[] grupo_tabs = getResources().getStringArray(R.array.capitan_tabs);
+		for (int i = 0; i < grupo_tabs.length; i++)
+			actionBar.addTab(actionBar.newTab()
+					.setText(grupo_tabs[i])
+					.setTabListener(tabListener));
+		capitanPageAdapter = new CapitanPageAdapter(this, getSupportFragmentManager(), groupID);
+
+		// Set up the ViewPager with the sections adapter.
+
+		mViewPager.setOnPageChangeListener(
+				new ViewPager.SimpleOnPageChangeListener() {
+					@Override
+					public void onPageSelected(int position) {
+						getActionBar().setSelectedNavigationItem(position);
+					}
+				});
+		mViewPager.setAdapter(capitanPageAdapter);
+
+		final int abTitleId = getResources().getIdentifier("action_bar_title", "id", "android");
+		findViewById(abTitleId).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				//Do something
+			}
 		});
-        fill();		
+
 	}
 
-	private void fill() {
-		ItemLayoutCapitan i1 = new ItemLayoutCapitan(R.drawable.icono_mensajes,"Mensajes",0);
-    	arraydir.add(i1);
-    	ItemLayoutCapitan i2 = new ItemLayoutCapitan(R.drawable.icono_empezar_ruta,"Comenzar Ruta",1);
-    	arraydir.add(i2);
-    	ItemLayoutCapitan i3 = new ItemLayoutCapitan(R.drawable.icono_crear_ruta,"Nueva Ruta",2);
-    	arraydir.add(i3);
-    	ItemLayoutCapitan i4 = new ItemLayoutCapitan(R.drawable.icono_ceder_capitania,"Ceder Capitania",3);
-    	arraydir.add(i4);
-    	adapter.notifyDataSetChanged();		
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		int itemId = item.getItemId();
+		switch (itemId) {
+			case android.R.id.home:
+				Intent i = new Intent(this, InicioActivity.class);
+				startActivity(i);
+				break;
+		}
+		return true;
 	}
 	
 }

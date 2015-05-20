@@ -8,20 +8,20 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.wapmadrid.R;
 import com.wapmadrid.grupo.GrupoCaracteristicasFragment;
-import com.wapmadrid.grupo.GrupoFotosFragment;
 import com.wapmadrid.grupo.GrupoMiembrosFragment;
 import com.wapmadrid.grupo.GrupoNotasFragment;
 import com.wapmadrid.grupo.GrupoRutaFragment;
 import com.wapmadrid.utilities.Constants;
 
-public class GrupoPageAdapter extends FragmentStatePagerAdapter {
-	
+public class CapitanPageAdapter extends FragmentStatePagerAdapter {
+
 	private Fragment[] fragments = new Fragment[]{ 	new GrupoCaracteristicasFragment(),
+			new GrupoRutaFragment(),
 			 new GrupoMiembrosFragment(),
 			new GrupoNotasFragment()};
 	private String[] grupo_navigation;
 
-		public GrupoPageAdapter(Activity activity, FragmentManager fm, String groupID) {
+		public CapitanPageAdapter(Activity activity, FragmentManager fm, String groupID) {
 			super(fm);
 			for (int i = 0; i < fragments.length; i++){
 				Bundle bundle = new Bundle();

@@ -5,7 +5,7 @@ public class ItemAmigo extends Item{
 	protected String picture;
 	protected String name;
 	
-	public ItemAmigo(String picture, String name, long id) {
+	public ItemAmigo(String picture, String name, String id) {
 		super();
 		this.picture = picture;
 		this.name = name;

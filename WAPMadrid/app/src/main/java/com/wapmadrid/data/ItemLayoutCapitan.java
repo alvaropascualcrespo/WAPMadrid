@@ -8,7 +8,7 @@ public class ItemLayoutCapitan extends Item{
 	protected int picture;
 	protected String name;
 	
-	public ItemLayoutCapitan(int imageView, String name, long id) {
+	public ItemLayoutCapitan(int imageView, String name, String id) {
 		super();
 		this.picture = imageView;
 		this.name = name;

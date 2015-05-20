@@ -70,7 +70,7 @@
             android:name=".rutas.MapFragment"
             android:label="@string/title_activity_map_fragment" />
         <activity
-            android:name=".capitan.CrearRutaViewActivity"
+            android:name=".rutas.CrearRutaViewActivity"
             android:label="@string/title_activity_crear_ruta"
             android:parentActivityName=".activities.CapitanActivity" />
         <activity
@@ -104,16 +104,14 @@
             android:label="@string/title_activity_drawer" />
         <activity
             android:name=".activities.CapitanActivity"
-            android:label="@string/title_activity_main"
-            android:parentActivityName=".activities.InicioActivity" />
+            android:label="Capitan" />
         <activity
             android:name=".activities.GrupoActivity"
             android:label="@string/title_activity_gupo"
             android:parentActivityName=".activities.InicioActivity" />
         <activity
             android:name=".activities.AmigoActivity"
-            android:label="@string/title_activity_gupo"
-            android:parentActivityName=".activities.InicioActivity" />
+            android:label="@string/title_activity_gupo" />
         <activity
             android:name=".activities.AmigoPeticionActivity"
             android:label="@string/title_activity_peticiones"
@@ -141,7 +139,13 @@
             android:name=".activities.NewGroupActivity"
             android:label="@string/title_activity_new_group"
             android:theme="@style/Theme.PopUp"
-            android:windowSoftInputMode="adjustPan">
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".activities.RoutesListActivity"
+            android:theme="@style/Theme.PopUp"
+            android:windowSoftInputMode="adjustPan"
+            android:label="@string/title_activity_routes_list" >
         </activity>
     </application>
 

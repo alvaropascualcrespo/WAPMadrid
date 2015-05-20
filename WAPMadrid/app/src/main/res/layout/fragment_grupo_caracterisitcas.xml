@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/black" >
+    android:background="@color/background" >
 
 	<RelativeLayout
 	    android:layout_width="match_parent"
@@ -27,58 +27,48 @@
 	        android:layout_height="120dp"
 	        android:layout_alignParentLeft="true"
 	        android:src="@drawable/avatar_sanblas" />
-	
-	    <TextView
-	        android:id="@+id/textInfo"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignLeft="@+id/textTelefono"
-	        android:layout_below="@+id/textTelefono"
-	        android:layout_marginTop="10dp"
-	        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus cursus felis leo, in volutpat elit lacinia non. Morbi non maximus elit. Proin ac consequat nibh. Aenean posuere nisl fermentum risus tincidunt consequat. Vestibulum aliquet in felis ut fermentum. Cras ullamcorper massa mattis, eleifend erat id massa nunc."
-	        android:textAppearance="?android:attr/textAppearanceSmall" />
-	
-	    <TextView
-	        android:id="@+id/textNombreCentro"
+
+		<TextView
+	        android:id="@+id/txtNombreGrupo"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_toRightOf="@+id/imageSanidad"
 	        android:layout_marginLeft="15dp"
 	        android:layout_alignTop="@+id/imageSanidad"
-	        android:text="Equipo A"
+			android:textColor="@color/black"
 	        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 	    <TextView
-	        android:id="@+id/textRuta"
+	        android:id="@+id/txtRuta"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:layout_below="@+id/textNombreCentro"
-	        android:layout_alignLeft="@+id/textNombreCentro"
-	        android:text="Ruta: San Blas"
+	        android:layout_below="@+id/txtNombreGrupo"
+	        android:layout_alignLeft="@+id/txtNombreGrupo"
+			android:textColor="@color/black"
 	        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 	    <TextView
-	        android:id="@+id/textNombreCapitan"
+	        android:id="@+id/txtNombreCapitan"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_alignLeft="@+id/imageSanidad"
 	        android:layout_below="@+id/imageSanidad"
 	        android:layout_marginTop="5dp"
-	        android:text="Capitan: Yuleska Pérez"
+			android:textColor="@color/black"
 	        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 	    <TextView
-	        android:id="@+id/textTelefono"
+	        android:id="@+id/txtEmail"
+			android:textColor="@color/black"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_alignLeft="@+id/imageSanidad"
-	        android:layout_below="@+id/textNombreCapitan"
-	        android:text="Telefono Capitan: 673 86 39 55"
-	        android:layout_marginTop="5dp"
+	        android:layout_below="@+id/txtNombreCapitan"
+			android:layout_marginTop="5dp"
 	        android:textAppearance="?android:attr/textAppearanceMedium" />
 	    
 	    <Button
-       android:id="@+id/btnMessage"
+       android:id="@+id/btnJoinRequest"
        style="@style/TextView.Black"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
@@ -87,16 +77,25 @@
        android:layout_marginBottom="19dp"
        android:background="@drawable/button_enter"
        android:text="Solicitar ingreso"
-       android:visibility="visible" />
+       android:visibility="gone" />
 
 	    <TextView
-	        android:id="@+id/textHorario"
+	        android:id="@+id/txtHorario"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:layout_alignLeft="@+id/textRuta"
-	        android:layout_below="@+id/textRuta"
-	        android:text="L-X-V 11:00"
+	        android:layout_alignLeft="@+id/txtRuta"
+	        android:layout_below="@+id/txtRuta"
+			android:textColor="@color/black"
 	        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+		<TextView
+			android:id="@+id/txtNivel"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignLeft="@+id/txtHorario"
+			android:layout_below="@+id/txtHorario"
+			android:textColor="@color/black"
+			android:textAppearance="?android:attr/textAppearanceSmall" />
 	
 	</RelativeLayout>
 

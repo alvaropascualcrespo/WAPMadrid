@@ -6,7 +6,7 @@ public class ItemGrupo extends Item{
 	protected String name;
 	private String ruta;
 	
-	public ItemGrupo(String picture, String name,String ruta, long id) {
+	public ItemGrupo(String picture, String name,String ruta, String id) {
 		super();
 		this.picture = picture;
 		this.name = name;

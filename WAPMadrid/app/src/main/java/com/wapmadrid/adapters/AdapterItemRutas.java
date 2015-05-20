@@ -46,7 +46,7 @@ public class AdapterItemRutas extends BaseAdapter{
 
 	@Override
 	public long getItemId(int arg0) {
-		return ((ItemRutasList) getItem(arg0)).getId();
+		return 0;
 	}
 
 	@Override

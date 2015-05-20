@@ -166,7 +166,7 @@ public class AmigoPeticionActivity extends Activity{
 							if(estado.equals("request")){
 								JSONObject aux = auxArray.getJSONObject("friendID");
 								String picture = aux.getString("profileImage");
-								long idProfile = Long.valueOf(aux.getString("_id"));
+								String idProfile = aux.getString("_id");
 								String name = aux.getString("displayName");
 								ItemAmigo friend = new ItemAmigo(picture,name,idProfile);
 								arraydir.add(friend);

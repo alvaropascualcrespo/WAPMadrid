@@ -8,7 +8,7 @@ public class ItemEvento extends Item{
 	String fecha;
 	String hora;
 	
-	public ItemEvento(String centroMedico, String titulo, String texto, String fecha, String hora, long id) {
+	public ItemEvento(String centroMedico, String titulo, String texto, String fecha, String hora, String id) {
 		super();
 		this.centroMedico = centroMedico;
 		this.titulo = titulo;

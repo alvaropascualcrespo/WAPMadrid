@@ -46,7 +46,7 @@ public class AdapterItemCederCapitania extends BaseAdapter{
 
 	@Override
 	public long getItemId(int arg0) {
-		return ((ItemCederCapitania) getItem(arg0)).getId();
+		return 0;
 	}
 
 	@Override

@@ -39,11 +39,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/nivelHint"
-        android:inputType="text"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
+        android:inputType="number"
         android:layout_marginBottom="10dp"/>
 
     <RelativeLayout
@@ -74,7 +74,7 @@
 
 
     <Button
-        android:id="@+id/btnEnviarEstado"
+        android:id="@+id/btnEnviar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/etRegistroContrasena2"

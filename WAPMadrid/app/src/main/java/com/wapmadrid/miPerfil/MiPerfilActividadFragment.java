@@ -6,6 +6,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.wapmadrid.R;
 import com.wapmadrid.adapters.AdapterItem;
 import com.wapmadrid.data.Item;
+import com.wapmadrid.modelos.Walker;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -19,8 +20,9 @@ public class MiPerfilActividadFragment extends Fragment{
 
 	ProgressBar pgAmigoActividad;
 	ListView lista;
-	
-	 @Override
+	private Walker walker;
+
+	@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	                             Bundle savedInstanceState) {
 
@@ -35,4 +37,7 @@ public class MiPerfilActividadFragment extends Fragment{
 		
 	}
 
+	public void setWalker(Walker walker) {
+		this.walker = walker;
+	}
 }

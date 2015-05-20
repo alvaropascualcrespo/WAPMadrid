@@ -9,6 +9,9 @@ public class Constants {
     public static final String FRAGMENT_POSITION = "FRAGMENT_POSITION";
     public static final int RESULT_EDIT = 0;
     public static final int NUEVO_GRUPO = 1;
+    public static final int RESULT_SELECTED_ROUTE = 2;
+    public static final String GROUP_ID = "GROUP_ID";
+    public static final String WALKER_ID = "WALKER_ID";
 
     public static String getSmoker(int smoker){
         switch (smoker){

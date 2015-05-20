@@ -6,7 +6,7 @@ public class ItemRutasList extends Item{
 	private String descripcion;
 	private String imagen;
 	
-	public ItemRutasList(String nombre, String descripcion, String imagen, long id) {
+	public ItemRutasList(String nombre, String descripcion, String imagen, String id) {
 		super();
 		this.nombre = nombre;
 		this.descripcion = descripcion;

@@ -60,6 +60,7 @@ public class GrupoListFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 Intent i = new Intent(getActivity().getApplicationContext(), GrupoActivity.class);
+                i.putExtra(Constants.GROUP_ID, arraydir.get(position).getId());
                 startActivity(i);
             }
         });
@@ -71,7 +72,7 @@ public class GrupoListFragment extends Fragment {
                 getActivity().startActivityForResult(i, Constants.NUEVO_GRUPO);
             }
         });
-
+        fill();
         return view;
 
 
@@ -81,7 +82,7 @@ public class GrupoListFragment extends Fragment {
     public void fill() {
         requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
         final DataManager dm = new DataManager(getActivity().getApplicationContext());
-        String[] cred = dm.getCred();
+        final String[] cred = dm.getCred();
         String url = Helper.getGruposUrl(cred[0]);
 
 
@@ -96,17 +97,14 @@ public class GrupoListFragment extends Fragment {
                     if (error.equals("0")) {
                         JSONArray array = root.getJSONArray("groups");
                         for (int i = 0; i < array.length(); i++) {
-                            JSONObject auxArray = array.getJSONObject(i);
-                            String capitan = auxArray.getString("rol");
-                            if (capitan.equals("user")) {
-                                JSONObject aux = auxArray.getJSONObject("groupID");
-                                String picture = aux.getString("image");
-                                String ruta = aux.getString("route");
-                                long idProfile = Long.valueOf(aux.getString("_id"));
-                                String name = aux.getString("name");
-                                ItemGrupo grupo = new ItemGrupo(picture, name, ruta, idProfile);
-                                arraydir.add(grupo);
-                            }
+                            JSONObject aux = array.getJSONObject(i);
+                            String picture = aux.getString("image");
+                            String name = aux.getString("name");
+                            String id = aux.getString("_id");
+                            JSONObject auxRoute = aux.getJSONObject("route");
+                            String ruta = auxRoute.getString("name");
+                            ItemGrupo grupo = new ItemGrupo(picture, name, ruta, id);
+                            arraydir.add(grupo);
                         }
                     }
                     adapter.notifyDataSetChanged();
@@ -127,7 +125,7 @@ public class GrupoListFragment extends Fragment {
             @Override
             protected Map<String, String> getParams() {
                 HashMap<String, String> params = new HashMap<String, String>();
-                params.put("token", InicioActivity.TOKEN);
+                params.put("token", cred[1]);
                 return params;
             }
         };

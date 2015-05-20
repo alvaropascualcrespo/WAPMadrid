@@ -6,7 +6,7 @@ public class ItemCederCapitania extends Item{
 	protected String picture;
 	protected boolean checked;
 	
-    public ItemCederCapitania(String nombre, String picture, boolean checked, long id) {
+    public ItemCederCapitania(String nombre, String picture, boolean checked, String id) {
 		super();
 		this.nombre = nombre;
 		this.picture = picture;

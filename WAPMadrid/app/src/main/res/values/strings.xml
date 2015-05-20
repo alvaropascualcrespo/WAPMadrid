@@ -45,10 +45,15 @@
         <item>Enlaces</item>
     </string-array>
     <string-array name="grupo_tabs">
-        <item>Características</item>
+        <item>Información</item>
         <item>Miembros</item>
-        <item>Fotos</item>
-        <item>Notas</item>
+        <item>Mensajes</item>
+    </string-array>
+    <string-array name="capitan_tabs">
+        <item>Información</item>
+        <item>Ruta</item>
+        <item>Miembros</item>
+        <item>Mensajes</item>
     </string-array>
     <string-array name="rutasListTab">
         <item>Mapa</item>
@@ -153,6 +158,11 @@
     <string name="horarioHint">Horario: Ej. L-X-V 16:00</string>
     <string name="nivelHint">Nivel de esfuerzo de 1 a 5</string>
     <string name="selectRoute">Selecciona la ruta</string>
+    <string name="title_activity_routes_list">Listado de rutas</string>
+    <string name="emailCapitan">Email: %1$s</string>
+    <string name="captainName">Capitán: %1$s</string>
+    <string name="routeName">Ruta: %1$s</string>
+    <string name="nivelGrupo">Nivel: %1$s</string>
 
 
 </resources>

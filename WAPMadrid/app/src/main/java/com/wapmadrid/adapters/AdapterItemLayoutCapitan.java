@@ -38,7 +38,7 @@ public class AdapterItemLayoutCapitan extends BaseAdapter{
 
 	@Override
 	public long getItemId(int arg0) {
-		return ((ItemLayoutCapitan) getItem(arg0)).getId();
+		return 0;
 	}
 
 	@Override

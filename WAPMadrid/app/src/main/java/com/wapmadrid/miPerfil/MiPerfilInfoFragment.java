@@ -62,9 +62,15 @@ public class MiPerfilInfoFragment extends Fragment{
 		txtEmail.setText(walker.getEmail());
 		txtPhone.setText(walker.getTelephone());
 		txtAddress.setText(walker.getAddress());
+
 		RequestQueue requestQueueImagen = Volley.newRequestQueue(getActivity().getApplicationContext());
 		ImageLoader imageLoader = new ImageLoader(requestQueueImagen, new BitmapLRUCache());
 		imgAmigo.setImageUrl(walker.getProfileImage(), imageLoader);
+	}
+
+	public void fromFriend(){
+		btnEditProfile.setVisibility(View.GONE);
+		getActivity().getActionBar().setTitle(walker.getDisplayName());
 	}
 
 	@Override
@@ -87,7 +93,6 @@ public class MiPerfilInfoFragment extends Fragment{
 		btnMessage.setVisibility(View.GONE);
 		btnAceptar.setVisibility(View.GONE);
 		btnRechazar.setVisibility(View.GONE);
-
 		btnEditProfile.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {

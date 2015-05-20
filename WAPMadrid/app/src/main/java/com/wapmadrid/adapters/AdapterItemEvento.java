@@ -2,16 +2,9 @@ package com.wapmadrid.adapters;
 
 import java.util.ArrayList;
 
-import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.NetworkImageView;
-import com.android.volley.toolbox.Volley;
 import com.wapmadrid.R;
-import com.wapmadrid.adapters.AdapterItemRutas.ViewHolderRutas;
 import com.wapmadrid.data.ItemEvento;
-import com.wapmadrid.data.ItemRutasList;
-import com.wapmadrid.utilities.BitmapLRUCache;
-import com.wapmadrid.utilities.Helper;
 
 import android.app.Activity;
 import android.content.Context;
@@ -45,7 +38,7 @@ public class AdapterItemEvento extends BaseAdapter{
 
 	@Override
 	public long getItemId(int arg0) {
-		return ((ItemEvento) getItem(arg0)).getId();
+		return 0;
 	}
 
 	@Override
@@ -58,7 +51,7 @@ public class AdapterItemEvento extends BaseAdapter{
         	holder = new ViewHolderEvento();
             LayoutInflater inf = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             v = inf.inflate(R.layout.item_evento, null);
-            holder.centroMedico = (TextView) v.findViewById(R.id.txtNombreCentro);
+            holder.centroMedico = (TextView) v.findViewById(R.id.txtNombreGrupo);
             holder.titulo = (TextView) v.findViewById(R.id.txtTituloEvento);
             holder.texto = (TextView) v.findViewById(R.id.txtTextoEvento);
             holder.fecha = (TextView) v.findViewById(R.id.txtFechaEvento);

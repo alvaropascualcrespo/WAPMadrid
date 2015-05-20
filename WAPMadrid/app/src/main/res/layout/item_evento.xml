@@ -16,7 +16,7 @@
         android:padding="10dp" >
 
         <TextView
-            android:id="@+id/txtNombreCentro"
+            android:id="@+id/txtNombreGrupo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -30,7 +30,7 @@
             android:id="@+id/txtTituloEvento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txtNombreCentro"
+            android:layout_below="@+id/txtNombreGrupo"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="5dp"
             android:layout_marginTop="20dp"
@@ -64,7 +64,7 @@
             android:id="@+id/pictureEvento"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/txtNombreCentro"
+            android:layout_alignLeft="@+id/txtNombreGrupo"
             android:layout_alignTop="@+id/txtTituloEvento"
             android:adjustViewBounds="true"
             android:cropToPadding="true"

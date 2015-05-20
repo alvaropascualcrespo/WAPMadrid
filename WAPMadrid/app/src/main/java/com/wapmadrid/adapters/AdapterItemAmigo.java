@@ -48,7 +48,7 @@ public class AdapterItemAmigo extends BaseAdapter{
 
 	@Override
 	public long getItemId(int arg0) {
-		return ((ItemAmigo) getItem(arg0)).getId();
+		return 0;
 	}
 
 	@Override

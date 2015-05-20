@@ -65,7 +65,7 @@ public class RegistroActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_registro);
 		
-		btnEnviarEstado = (Button)findViewById(R.id.btnEnviarEstado);
+		btnEnviarEstado = (Button)findViewById(R.id.btnEnviar);
 		gotoInicio = (TextView)findViewById(R.id.gotoInicio);
 		pgRegistro = (ProgressBar)findViewById(R.id.pgRegistro);
 		etRegistroNombre = (EditText)findViewById(R.id.etRegistroNombre);

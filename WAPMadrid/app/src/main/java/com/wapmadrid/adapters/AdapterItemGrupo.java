@@ -46,7 +46,7 @@ public class AdapterItemGrupo extends BaseAdapter{
 
 	@Override
 	public long getItemId(int arg0) {
-		return ((ItemGrupo) getItem(arg0)).getId();
+		return 0;
 	}
 
 	@Override
