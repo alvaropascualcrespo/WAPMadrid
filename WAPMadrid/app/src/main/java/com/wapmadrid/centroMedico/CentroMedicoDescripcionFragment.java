@@ -75,6 +75,7 @@ public class CentroMedicoDescripcionFragment extends Fragment implements OnMapCl
         
         try{
         	mapa = ((SupportMapFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.mapCentroMedico)).getMap();
+
         } catch(Exception e){}
         return v;
     }
