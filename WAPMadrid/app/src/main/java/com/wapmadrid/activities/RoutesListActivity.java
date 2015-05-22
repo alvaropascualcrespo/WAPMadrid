@@ -2,6 +2,8 @@ package com.wapmadrid.activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -12,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
@@ -23,6 +26,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.wapmadrid.R;
+import com.wapmadrid.fragments.RutasListFragment;
 import com.wapmadrid.utilities.DataManager;
 import com.wapmadrid.utilities.Helper;
 
@@ -34,12 +38,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RoutesListActivity extends Activity {
+public class RoutesListActivity extends FragmentActivity {
 
     private EditText etSearchRoute;
-    ArrayList<HashMap<String, String>> routesArray;
-    private ListView lvRoutes;
-    private SimpleAdapter sa;
+    private FrameLayout lvRoutes;
+    private RutasListFragment rutasListFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +50,8 @@ public class RoutesListActivity extends Activity {
         setContentView(R.layout.activity_routes_list);
 
         etSearchRoute = (EditText) findViewById(R.id.etSearchRoute);
-        lvRoutes = (ListView) findViewById(R.id.lvRoutes);
-        routesArray = new ArrayList<>();
-
+        lvRoutes = (FrameLayout) findViewById(R.id.lvRoutes);
+        rutasListFragment = new RutasListFragment();
         etSearchRoute.addTextChangedListener(new TextWatcher() {
 
             @Override
@@ -67,73 +69,20 @@ public class RoutesListActivity extends Activity {
             }
         });
 
-
-
-
-        sa = new SimpleAdapter(this, routesArray,
-                R.layout.item_routes_activity,
-                new String[]{"name", "id"},
-                new int[]{R.id.tvRouteName, R.id.tvRouteId});
-        lvRoutes.setAdapter(sa);
-
-        lvRoutes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent();
-                i.putExtra("name", routesArray.get(position).get("name"));
-                i.putExtra("id", routesArray.get(position).get("id"));
-                setResult(Activity.RESULT_OK, i);
-                finish();
-
-            }
-        });
-        fillData();
+        FragmentManager fm = getSupportFragmentManager();
+        Bundle bundle = new Bundle();
+        bundle.putString("CREATE_GROUP","CREATE_GROUP");
+        rutasListFragment.setArguments(bundle);
+        fm.beginTransaction().add(R.id.lvRoutes, rutasListFragment).commit();
 
     }
 
-    private void fillData() {
-        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        DataManager dm = new DataManager(this);
-        String url = Helper.getGetRoutesUrl();
-
-        Response.Listener<String> succeedListener = new Response.Listener<String>()
-        {
-            @Override
-            public void onResponse(String response) {
-                // response
-                Log.e("Response", response);
-                try {
-                    sa.notifyDataSetInvalidated();
-                    JSONObject respuesta = new JSONObject(response);
-                    String error = respuesta.getString("error");
-                    if (error.equals("0")) {
-                        HashMap<String, String> item;
-                        JSONArray routesJArray = respuesta.getJSONArray("routes");
-                        for(int i = 0; i < routesJArray.length(); i++) {
-                            JSONObject aux = routesJArray.getJSONObject(i);
-                            item = new HashMap<String, String>();
-                            item.put("name", aux.getString("name"));
-                            item.put("id",  aux.getString("_id"));
-                            routesArray.add(item);
-                        }
-                        sa.notifyDataSetChanged();
-                    }
-
-                } catch(JSONException e) {}
-            }
-        };
-        Response.ErrorListener errorListener = new Response.ErrorListener()
-        {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e("Error.Response", error.toString());
-            }
-        };
-
-        StringRequest request = new StringRequest(Request.Method.GET, url, succeedListener, errorListener);
-
-
-        requestQueue.add(request);
+    public void selectedRuta(String id, String name){
+        Intent i = new Intent();
+        i.putExtra("name", name);
+        i.putExtra("id", id);
+        setResult(Activity.RESULT_OK, i);
+        finish();
 
     }
 

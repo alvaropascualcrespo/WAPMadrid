@@ -1,10 +1,7 @@
 package com.wapmadrid.fragments;
 
 import com.wapmadrid.R;
-import com.wapmadrid.centroMedico.CentroMedicoDescripcionFragment;
-import com.wapmadrid.centroMedico.CentroMedicoEventosFragment;
 import com.wapmadrid.rutas.MapFragment;
-import com.wapmadrid.rutas.RutasListFragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -99,5 +96,5 @@ public class RutasFragment extends Fragment implements  ActionBar.TabListener{
 		// TODO Auto-generated method stub
 		
 	}
-	
+
 }

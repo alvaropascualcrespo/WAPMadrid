@@ -3,8 +3,6 @@ package com.wapmadrid.activities;
 import com.wapmadrid.R;
 import com.wapmadrid.rutaIndividual.RutaDescripcionFragment;
 import com.wapmadrid.rutaIndividual.RutaMapFragment;
-import com.wapmadrid.rutas.MapFragment;
-import com.wapmadrid.rutas.RutasListFragment;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
@@ -13,10 +11,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.support.v7.app.ActionBarActivity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 public class RutaActivity extends FragmentActivity implements ActionBar.TabListener{
 

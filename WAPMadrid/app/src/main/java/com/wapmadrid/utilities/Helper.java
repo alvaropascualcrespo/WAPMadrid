@@ -48,6 +48,10 @@ public class Helper {
         return BASE_API_URL + "groups/create/" + id;
     }
 
+    public static String getCreateRouteUrl(String id) {
+        return BASE_API_URL + "routes/create/" + id;
+    }
+
     public static String getGetRoutesUrl() {
         return BASE_API_URL + "routes/all";
     }
@@ -91,9 +95,21 @@ public class Helper {
     public static String getReadGrupoMembersUrl(String id) {
         return BASE_API_URL + "groups/members/" + id;
     }
+ public static String getWalkerRoutesUrl(String id) {
+        return BASE_API_URL + "walkers/routes/" + id;
+    }
 
 
     public static String getJoinGrupoUrl(String id) {
         return BASE_API_URL + "groups/join/" + id;
     }
+
+    public static String getReadRouteUrl(String id) {
+        return BASE_API_URL + "routes/" + id;
+    }
+
+    public static String getEventsUrl() {
+        return BASE_API_URL + "events";
+
+        }
 }

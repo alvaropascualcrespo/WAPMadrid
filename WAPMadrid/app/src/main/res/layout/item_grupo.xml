@@ -8,6 +8,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
         style="@style/nowCardStyle"
+        android:background="#FFCC99"
         android:layout_centerHorizontal="true"
         android:padding="10dp" >
     
@@ -17,11 +18,12 @@
             android:layout_height="70dp"
             android:layout_alignParentLeft="true"
             android:adjustViewBounds="true"
-            android:layout_margin="5dp" />
+            android:layout_margin="5dp"
+        android:visibility="gone" />
 
         <TextView
             android:id="@+id/txtNombreGrupo"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/imagenCapitan"
             android:layout_alignTop="@+id/imagenCapitan"
@@ -32,7 +34,7 @@
         <TextView
             android:id="@+id/txtNombreRuta"
             style="@style/TextView.Black"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/txtNombreGrupo"
             android:layout_alignBottom="@+id/imagenCapitan"

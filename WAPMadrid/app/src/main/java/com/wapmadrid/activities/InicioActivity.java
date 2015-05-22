@@ -28,6 +28,7 @@ import com.wapmadrid.fragments.GrupoListFragment;
 import com.wapmadrid.fragments.HomeFragment;
 import com.wapmadrid.fragments.PerfilFragment;
 import com.wapmadrid.fragments.RutasFragment;
+import com.wapmadrid.fragments.RutasListFragment;
 import com.wapmadrid.utilities.Constants;
 
 import java.text.SimpleDateFormat;
@@ -46,10 +47,10 @@ public class InicioActivity extends FragmentActivity {
     protected static final String OPTION = "option";
     private ActionBarDrawerToggle drawerToggle;
     private Fragment[] fragments = new Fragment[]{new HomeFragment(),
-            new RutasFragment(),
+            new RutasListFragment(),
             new CentroMedicoFragment(),
             new PerfilFragment(),
-            new AmigosListFragment(),
+          //  new AmigosListFragment(),
             new GrupoListFragment(),
             new CapitanListFragment(),
             new EnlacesFragment()};
@@ -118,7 +119,7 @@ public class InicioActivity extends FragmentActivity {
                 .add(R.id.contentFrame, fragments[4])
                 .add(R.id.contentFrame, fragments[5])
                 .add(R.id.contentFrame, fragments[6])
-                .add(R.id.contentFrame, fragments[7])
+               // .add(R.id.contentFrame, fragments[7])
                 .commitAllowingStateLoss();
 
         manager.beginTransaction().hide(fragments[1])
@@ -127,7 +128,7 @@ public class InicioActivity extends FragmentActivity {
                 .hide(fragments[4])
                 .hide(fragments[5])
                 .hide(fragments[6])
-                .hide(fragments[7])
+          //      .hide(fragments[7])
                 .commitAllowingStateLoss();
 
         setContent(option);
@@ -178,8 +179,7 @@ public class InicioActivity extends FragmentActivity {
             actionBar.setTitle("");
         }
         if (index == 1) {
-            actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-            ((RutasFragment) toShow).setTabs();
+            ((RutasListFragment) toShow).fill();
         }
         if (index == 2) {
             actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -221,8 +221,8 @@ public class InicioActivity extends FragmentActivity {
                 setContent(3);
                 ((PerfilFragment) fragments[3]).fill();
             } else if (requestCode == Constants.NUEVO_GRUPO) {
-                setContent(5);
-                ((GrupoListFragment) fragments[3]).fill();
+                setContent(4);
+                ((GrupoListFragment) fragments[4]).fill();
             }
         }
     }

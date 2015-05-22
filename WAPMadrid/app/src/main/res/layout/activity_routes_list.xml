@@ -14,10 +14,9 @@
         android:hint="Busqueda"
         android:id="@+id/etSearchRoute"/>
 
-    <ListView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:choiceMode="singleChoice"
         android:id="@+id/lvRoutes"/>
 
 </LinearLayout>

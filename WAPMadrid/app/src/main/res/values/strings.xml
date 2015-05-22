@@ -39,7 +39,6 @@
         <item>Rutas</item>
         <item>Centro Medico</item>
         <item>Perfil</item>
-        <item>Amigos</item>
         <item>Grupos</item>
         <item>Capitán</item>
         <item>Enlaces</item>
@@ -163,6 +162,8 @@
     <string name="captainName">Capitán: %1$s</string>
     <string name="routeName">Ruta: %1$s</string>
     <string name="nivelGrupo">Nivel: %1$s</string>
+    <string name="nombreRuta">Nombre de la ruta</string>
+    <string name="title_activity_route">RouteActivity</string>
 
 
 </resources>

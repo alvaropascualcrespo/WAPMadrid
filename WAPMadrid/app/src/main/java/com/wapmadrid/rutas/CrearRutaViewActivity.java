@@ -1,7 +1,11 @@
 package com.wapmadrid.rutas;
 
 import android.app.ActionBar;
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -11,18 +15,33 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.wapmadrid.R;
+import com.wapmadrid.utilities.DataManager;
+import com.wapmadrid.utilities.Helper;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class CrearRutaViewActivity extends FragmentActivity implements OnMapReadyCallback, LocationListener {
     private boolean iniciado = false;
@@ -32,7 +51,12 @@ public class CrearRutaViewActivity extends FragmentActivity implements OnMapRead
     private GoogleMap mapa;
     LocationManager locationManager;
     private boolean canGetLocation = false;
-    private ArrayList<HashMap<String,Double>> puntosRuta;
+    private ArrayList<HashMap<String, Double>> puntosRuta;
+    private ArrayList<LatLng> points;
+    private float distance = 0;
+    private HashMap<String, String> dataToSend;
+    private ArrayList<JSONObject> coordinates;
+    private EditText etNombreRuta;
 
     /**
      * Called when the activity is first created.
@@ -44,12 +68,15 @@ public class CrearRutaViewActivity extends FragmentActivity implements OnMapRead
         final ActionBar actionBar = getActionBar();
         actionBar.setHomeButtonEnabled(true);
         fragmentMapa = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapNuevaRuta);
+        etNombreRuta = (EditText) findViewById(R.id.etNombreRuta);
         fragmentMapa.getMapAsync(this);
-
+        dataToSend = new HashMap<>();
         puntosRuta = new ArrayList<>();
-
+        coordinates = new ArrayList<>();
         actionBar.setIcon(R.drawable.action_bar_negro);
         locationListener = this;
+
+        points = new ArrayList<>();
 
         finalizarRuta = (Button) findViewById(R.id.btnTerminarRuta);
         if (!iniciado)
@@ -60,15 +87,94 @@ public class CrearRutaViewActivity extends FragmentActivity implements OnMapRead
             public void onClick(View v) {
                 // TODO Mandar Datos al Servidor
                 if (!iniciado) {
-                    finalizarRuta.setText("Iniciar Ruta");
+                    finalizarRuta.setText("Finalizar Ruta");
                     updateLocation(mapa.getMyLocation());
                     locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 6000, 50, locationListener);
+                    iniciado = true;
                 } else {
-                    finalizarRuta.setText("Finalizar Ruta");
+                    finalizarRuta.setText("Iniciar Ruta");
+                    locationManager.removeUpdates(locationListener);
+                    dataToSend.put("name", "Ruta Moto Isma");
+                    String nombreRuta = etNombreRuta.getText().toString();
+                    if (!nombreRuta.equals("")) {
+                        dataToSend.put("name", nombreRuta);
+                        dataToSend.put("distance", String.valueOf(distance));
+                        fillCoordinates();
+                        iniciado = false;
+                    }
                 }
             }
         });
 
+    }
+
+    public void fillCoordinates() {
+
+        for (int i = 0; i < puntosRuta.size(); i++) {
+            coordinates.add(new JSONObject(puntosRuta.get(i)));
+        }
+        JSONArray jarrayCoordinates = new JSONArray(coordinates);
+        dataToSend.put("coordinates","{\"coordinates\": "+ jarrayCoordinates.toString() + "}");
+        sendData();
+
+    }
+
+    private void sendData() {
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        DataManager dm = new DataManager(this);
+        final String[] cred = dm.getCred();
+        String url = Helper.getCreateRouteUrl(cred[0]);
+
+        Response.Listener<String> succeedListener = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                // response
+                Log.e("Response", response);
+                try {
+                    JSONObject respuesta = new JSONObject(response);
+                    String error = respuesta.getString("error");
+                    if (error.equals("0")) {
+                        Toast.makeText(getApplicationContext(), "Creado", Toast.LENGTH_SHORT).show();
+                    } else {
+                        String error_message = respuesta.getString("error_message");
+                        setErrorMsg(error_message);
+                    }
+                } catch (JSONException e) {
+                }
+            }
+        };
+        Response.ErrorListener errorListener = new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("Error.Response", error.toString());
+            }
+        };
+
+        StringRequest request = new StringRequest(Request.Method.POST, url, succeedListener, errorListener) {
+            @Override
+            protected Map<String, String> getParams() {
+                dataToSend.put("token", cred[1]);
+                return dataToSend;
+            }
+        };
+
+        requestQueue.add(request);
+
+    }
+
+    private void setErrorMsg(String string) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(string)
+                .setTitle("Error al crear la ruta")
+                .setCancelable(false)
+                .setNeutralButton("Aceptar",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 
 
@@ -99,20 +205,18 @@ public class CrearRutaViewActivity extends FragmentActivity implements OnMapRead
             mapa.animateCamera(CameraUpdateFactory.newLatLngZoom(
                     new LatLng(latitude, longitude), 15));
 
-            HashMap<String,Double> aux = new HashMap<>();
-            aux.put("latitude", latitude);
-            aux.put("longitude", longitude);
+            HashMap<String, Double> aux = new HashMap<>();
+            aux.put("_lat", latitude);
+            aux.put("_long", longitude);
             puntosRuta.add(aux);
+            points.add(new LatLng(latitude, longitude));
             PolylineOptions polylineOptions = new PolylineOptions();
+            polylineOptions.width(15);
+            polylineOptions.color(getResources().getColor(R.color.orange_wap));
             polylineOptions.geodesic(true);
-            for (int i = 0; i < puntosRuta.size(); i++){
-                aux = puntosRuta.get(i);
-                polylineOptions.add(new LatLng(aux.get("latitude"),aux.get("longitude")));
-            }
-            mapa.addPolyline(polylineOptions);
+            Polyline poly = mapa.addPolyline(polylineOptions);
+            poly.setPoints(points);
 
-            String msg = "Latitude: " + latitude + " --- Longitude: " + longitude;
-            Toast.makeText(getBaseContext(), msg, Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
         }
     }
@@ -177,6 +281,12 @@ public class CrearRutaViewActivity extends FragmentActivity implements OnMapRead
         return location;
     }
 
+    @Override
+    public void onBackPressed() {
+        locationManager.removeUpdates(locationListener);
+        super.onBackPressed();
+    }
+
     public void updateGPSCoordinates(Location location) {
         if (location != null) {
             location.getLatitude();
@@ -189,7 +299,7 @@ public class CrearRutaViewActivity extends FragmentActivity implements OnMapRead
         mapa = googleMap;
         Location location = null;
         mapa.setMyLocationEnabled(true);
-        if (mapa.getMyLocation() == null )
+        if (mapa.getMyLocation() == null)
             location = getLocation();
         else
             location = mapa.getMyLocation();
