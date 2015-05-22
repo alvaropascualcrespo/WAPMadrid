@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android" >
-    <item android:state_checked="true" >
-        <shape>
-            <gradient
-                android:startColor="#be4600"
-                android:centerColor="@color/orange"
-                android:endColor="#be4600"
-                android:angle="180" />
-        </shape>
-    </item>
-    <item android:state_pressed="true" >
-        <shape>
-            <gradient
-                android:startColor="#be4600"
-                android:endColor="#be4600"
-                android:angle="0" />
-            
-        </shape>
-    </item>
-    
-   
+    <item android:state_checked="true"  android:drawable="@color/background_cards"/>
+    <item android:state_pressed="true" android:drawable="@color/background"/>
 
 </selector>

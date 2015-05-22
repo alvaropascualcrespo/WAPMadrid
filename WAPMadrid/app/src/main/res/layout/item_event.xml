@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.wapmadrid.utilities.NowLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/orange_wap"
-    android:layout_margin="50dp"
-    android:padding="20dp">
+    >
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        style="@style/nowCardStyle"
+        android:background="@color/background_cards"
+        android:layout_gravity="center"
+        android:padding="10dp">
     <TextView
         android:id="@+id/tvTitleEvent"
         android:gravity="center_horizontal"
         android:textSize="16sp"
         android:textColor="@color/white"
+        android:background="@color/orange_wap"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <TextView
         android:id="@+id/tvDescriptionEvent"
         android:layout_below="@+id/tvTitleEvent"
         android:textColor="@color/white"
+        android:gravity="center"
+        android:background="@color/orange_wap"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -25,8 +34,11 @@
         android:layout_below="@+id/tvDescriptionEvent"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:gravity="right"
         android:textColor="@color/white"
-        android:layout_width="wrap_content"
+        android:background="@color/orange_wap"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+    </RelativeLayout>
 
 </com.wapmadrid.utilities.NowLayout>

@@ -4,7 +4,7 @@
     android:layout_height="wrap_content" 
     android:id="@android:id/text1"
     android:gravity="center_vertical"
-    android:textColor="@color/black"
+    android:textColor="@drawable/textdrawer"
     android:background="@drawable/drawer_item"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
