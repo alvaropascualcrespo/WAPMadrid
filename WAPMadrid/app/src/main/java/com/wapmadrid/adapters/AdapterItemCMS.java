@@ -11,7 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.wapmadrid.R;
-import com.wapmadrid.data.ItemEvent;
+import com.wapmadrid.data.ItemCMS;
 import com.wapmadrid.data.ItemRuta;
 
 import java.util.ArrayList;
@@ -19,12 +19,12 @@ import java.util.ArrayList;
 /**
  * Created by Ismael on 22/05/2015.
  */
-public class AdapterItemEvent extends BaseAdapter {
+public class AdapterItemCMS extends BaseAdapter {
 
     protected Activity activity;
-    protected ArrayList<ItemEvent> items;
+    protected ArrayList<ItemCMS> items;
 
-    public AdapterItemEvent(Activity activity, ArrayList<ItemEvent> items) {
+    public AdapterItemCMS(Activity activity, ArrayList<ItemCMS> items) {
         super();
         this.activity = activity;
         this.items = items;
@@ -50,30 +50,24 @@ public class AdapterItemEvent extends BaseAdapter {
         // Generamos una convertView por motivos de eficiencia
 
         ViewHolderRuta holder;
-        final ItemEvent item = items.get(position);
+        final ItemCMS item = items.get(position);
         if ( convertView == null ) {
             holder = new ViewHolderRuta();
             LayoutInflater inf = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inf.inflate(R.layout.item_event, null);
-            holder.tvTitleEvent = (TextView) convertView.findViewById(R.id.tvTitleEvent);
-            holder.tvDescriptionEvent = (TextView) convertView.findViewById(R.id.tvDescriptionEvent);
-            holder.tvDateEvent = (TextView) convertView.findViewById(R.id.tvDateEvent);
+            convertView = inf.inflate(R.layout.item_ruta, null);
+            holder.name = (TextView) convertView.findViewById(R.id.tvRouteName);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolderRuta) convertView.getTag();
         }
 
-        holder.tvTitleEvent.setText(item.getTitle());
-        holder.tvDescriptionEvent.setText(item.getDescription());
-        holder.tvDateEvent.setText(item.getDate());
+        holder.name.setText(item.getName());
 
         return convertView;
     }
 
     static class ViewHolderRuta{
-        public TextView tvTitleEvent;
-        public TextView tvDescriptionEvent;
-        public TextView tvDateEvent;
+        public TextView name;
     }
 
 }

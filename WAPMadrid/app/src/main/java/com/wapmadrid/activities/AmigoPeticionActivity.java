@@ -147,7 +147,7 @@ public class AmigoPeticionActivity extends Activity{
 		final DataManager dm = new DataManager(getApplicationContext());
 		String[] cred = dm.getCred(); 
 		String url = Helper.getPeticionesAmigosUrl(cred[0]);
-
+		final String token = cred[1];
 
 		Response.Listener<String> succeedListener = new Response.Listener<String>() 
 				{
@@ -195,7 +195,7 @@ public class AmigoPeticionActivity extends Activity{
 			    protected Map<String, String> getParams() 
 			    {  
 			    	HashMap<String, String> params = new HashMap<String, String>();
-					params.put("token", InicioActivity.TOKEN);
+					params.put("token", token);
 					return params;
 			    }
 		}; 

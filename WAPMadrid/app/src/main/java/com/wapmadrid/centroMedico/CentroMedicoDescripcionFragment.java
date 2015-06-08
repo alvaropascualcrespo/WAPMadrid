@@ -1,22 +1,26 @@
 package com.wapmadrid.centroMedico;
 
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.util.Linkify;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -31,17 +35,20 @@ import com.android.volley.toolbox.Volley;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMap.OnMapClickListener;
+import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.wapmadrid.activities.CMSListActivity;
 import com.wapmadrid.R;
-import com.wapmadrid.activities.InicioActivity;
-import com.wapmadrid.activities.RegistroActivity;
 import com.wapmadrid.utilities.BitmapLRUCache;
+import com.wapmadrid.utilities.Constants;
+import com.wapmadrid.utilities.DataManager;
 import com.wapmadrid.utilities.Helper;
 
-public class CentroMedicoDescripcionFragment extends Fragment implements OnMapClickListener{
+public class CentroMedicoDescripcionFragment extends Fragment implements OnMapClickListener, OnMapReadyCallback {
 
 	LatLng position;
 	private ProgressBar pgCMDescripcion;
@@ -58,32 +65,40 @@ public class CentroMedicoDescripcionFragment extends Fragment implements OnMapCl
 	private RequestQueue requestQueue;
     private JSONObject respuesta = null;
     private ImageLoader imageLoader;
+	private SupportMapFragment fragmentMapa;
+	private TextView textEmail;
+	private String direccion;
+	private String nombre;
 
-    @Override
+	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_centro_medico_descripcion, container, false);
         pgCMDescripcion = (ProgressBar) v.findViewById(R.id.pgCMDescripcion);
-        textPoblacion = (TextView)v.findViewById(R.id.textPoblacion);
-        textCP = (TextView)v.findViewById(R.id.textCP);
         textNombreCentro = (TextView)v.findViewById(R.id.textNombreCentro);
         textDireccionCentro = (TextView)v.findViewById(R.id.textDireccionCentro);
         textHorario = (TextView)v.findViewById(R.id.textHorario);
         textTelefono = (TextView)v.findViewById(R.id.textTelefono);
+		textEmail = (TextView)v.findViewById(R.id.textEmail);
         imageSanidad = (NetworkImageView)v.findViewById(R.id.imageSanidad);
-        
-        try{
-        	mapa = ((SupportMapFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.mapCentroMedico)).getMap();
 
-        } catch(Exception e){}
+		direccion = "";
+		nombre = "";
+
+		fragmentMapa = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.mapCMS);
+		fragmentMapa.getMapAsync(this);
+
         return v;
     }
 	
 	public void fill() {
+		final DataManager dm = new DataManager(getActivity().getApplicationContext());
+		String[] cred = dm.getCred();
 		pgCMDescripcion.setVisibility(View.VISIBLE);
 		requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext()); 
-		String url = Helper.getCMSUrl(InicioActivity.ID);
+		String url = Helper.getCMSUrl(cred[0]);
+		final String token = cred[1];
 		
 		Response.Listener<String> succeedListener = new Response.Listener<String>() 
 	    {
@@ -95,30 +110,57 @@ public class CentroMedicoDescripcionFragment extends Fragment implements OnMapCl
 	            	pgCMDescripcion.setVisibility(View.GONE);
 		            respuesta = new JSONObject(response);
 		            String error = respuesta.getString("error");
+
 		            if (error.equals("0")) {
-		            	String imagen = respuesta.getString("image");
-		            	String nombre = respuesta.getString("displayName");
-		            	String direccion = respuesta.getString("address");
-		            	String telefono = respuesta.getString("telephone");
-		            	String horario = respuesta.getString("openingHours");
-		            	
-		            	textPoblacion.setText("Madrid");
-		                textCP.setText("28000");
-		                textNombreCentro.setText(nombre);
-		                textDireccionCentro.setText(direccion);
-		                textHorario.setText(horario);
-		                textTelefono.setText(telefono);
-		                
-		                RequestQueue requestQueueImagen = Volley.newRequestQueue(getActivity().getApplicationContext());
-		                imageLoader = new ImageLoader(requestQueueImagen, new BitmapLRUCache());
-		                imageSanidad.setImageUrl(imagen,imageLoader);
+						JSONArray cmsArray = respuesta.getJSONArray("cms");
+						if (cmsArray.length() != 0) {
+							JSONObject cms = cmsArray.getJSONObject(0);
+							String imagen = cms.getString("image");
+							nombre = cms.getString("name");
+							direccion = cms.getString("address");
+							String telefono = cms.getString("telephone");
+							String horario = cms.getString("openingHours");
+							String email = cms.getString("email");
+
+
+							textNombreCentro.setText(nombre);
+							textHorario.setText(horario);
+							textTelefono.setText(telefono);
+							textEmail.setText(email);
+
+							Linkify.addLinks(textTelefono, Linkify.ALL);
+							Linkify.addLinks(textEmail, Linkify.ALL);
+
+							RequestQueue requestQueueImagen = Volley.newRequestQueue(getActivity().getApplicationContext());
+							imageLoader = new ImageLoader(requestQueueImagen, new BitmapLRUCache());
+							imageSanidad.setImageUrl(imagen, imageLoader);
+
+							if (mapa != null){
+								Geocoder coder = new Geocoder(getActivity());
+								List<Address> address;
+								address = coder.getFromLocationName(direccion,5);
+								Address location = address.get(0);
+								mapa.animateCamera(CameraUpdateFactory.newLatLngZoom(
+										new LatLng(location.getLatitude(), location.getLongitude()), 15));
+								mapa.addMarker(new MarkerOptions()
+										.position(new LatLng(location.getLatitude(), location.getLongitude()))
+										.title(nombre)
+										.snippet(direccion));
+							}
+						} else {
+							Intent i = new Intent(getActivity().getApplicationContext(), CMSListActivity.class);
+							getActivity().startActivityForResult(i, Constants.RESULT_SELECTED_CMS);
+						}
+
 		            }
 		            else{
 						String error_message = respuesta.getString("error_message");
 						setErrorMsg(error_message);
 					}
-	            } catch(JSONException e) {}
-	        }
+	            } catch(JSONException e) {} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
 	    };
 	    Response.ErrorListener errorListener = new Response.ErrorListener() 
 	    {
@@ -136,7 +178,7 @@ public class CentroMedicoDescripcionFragment extends Fragment implements OnMapCl
 			    protected Map<String, String> getParams() 
 			    {  
 			    	HashMap<String, String> params = new HashMap<String, String>();
-					params.put("token", InicioActivity.TOKEN);
+					params.put("token", token);
 					return params;
 			    }
 		};
@@ -190,4 +232,27 @@ public class CentroMedicoDescripcionFragment extends Fragment implements OnMapCl
 		//register_error.setText(string);
 	}
 
+	@Override
+	public void onMapReady(GoogleMap googleMap) {
+		mapa = googleMap;
+		Geocoder coder = new Geocoder(getActivity());
+		List<Address> address;
+
+		try {
+
+			if (!direccion.equals(""))
+				address = coder.getFromLocationName(direccion,5);
+			else
+				return;
+			Address location = address.get(0);
+			mapa.animateCamera(CameraUpdateFactory.newLatLngZoom(
+					new LatLng(location.getLatitude(), location.getLongitude()), 15));
+			Marker marker = mapa.addMarker(new MarkerOptions()
+					.position(new LatLng(location.getLatitude(), location.getLongitude()))
+					.title(nombre)
+					.snippet(direccion));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }

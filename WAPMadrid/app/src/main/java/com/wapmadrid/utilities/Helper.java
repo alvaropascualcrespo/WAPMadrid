@@ -110,6 +110,9 @@ public class Helper {
 
     public static String getEventsUrl() {
         return BASE_API_URL + "events";
-
         }
+
+    public static String getCMSListUrl(String id) {
+        return BASE_API_URL + "cms/list/" + id;
+    }
 }

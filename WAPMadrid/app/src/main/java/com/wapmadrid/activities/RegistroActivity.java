@@ -202,9 +202,6 @@ private boolean checkFields() {
 							DataManager dm = new DataManager(getApplicationContext());
 							dm.login(id,token);
 							Intent i = new Intent(RegistroActivity.this, InicioActivity.class);
-							i.putExtra(InicioActivity.USUARIO, usuario);
-							i.putExtra(InicioActivity.ID, id);
-							i.putExtra(InicioActivity.TOKEN, token);
 							i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 							startActivity(i);
 		            	}

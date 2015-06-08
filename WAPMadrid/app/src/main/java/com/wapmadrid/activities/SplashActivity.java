@@ -50,8 +50,6 @@ public class SplashActivity extends Activity {
 				if (dm.checkLogin()){
 					String[] cred = dm.getCred();
 					Intent i = new Intent(getApplicationContext(), InicioActivity.class);
-					i.putExtra(InicioActivity.ID, cred[0]);
-					i.putExtra(InicioActivity.TOKEN, cred[1]);
 					i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 					startActivity(i);
 				}else {

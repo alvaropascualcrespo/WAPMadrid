@@ -49,11 +49,12 @@ public class HomeFragment extends Fragment {
         list = (ListView) v.findViewById(R.id.listaHome);
         arraydir = new ArrayList<>();
         adapter = new AdapterItemEvent(getActivity(), arraydir);
+        list.setAdapter(adapter);
         fill();
         return v;
     }
 
-    void fill() {
+    public void fill() {
         RequestQueue requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
         final DataManager dm = new DataManager(getActivity().getApplicationContext());
         final String[] cred = dm.getCred();

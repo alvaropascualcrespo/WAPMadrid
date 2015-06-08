@@ -12,6 +12,7 @@ public class Constants {
     public static final int RESULT_SELECTED_ROUTE = 2;
     public static final String GROUP_ID = "GROUP_ID";
     public static final String WALKER_ID = "WALKER_ID";
+    public static final int RESULT_SELECTED_CMS = 3;
 
     public static String getSmoker(int smoker){
         switch (smoker){

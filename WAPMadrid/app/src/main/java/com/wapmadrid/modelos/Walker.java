@@ -158,7 +158,7 @@ public class Walker implements Parcelable {
         about = in.readString();
         email = in.readString();
         telephone = in.readString();
-        birthDate = in.readString();;
+        birthDate = in.readString();
         height = in.readString();
         smoker = in.readString();
         alcohol = in.readString();

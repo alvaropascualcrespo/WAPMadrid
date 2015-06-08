@@ -95,9 +95,6 @@
             android:name=".fragments.RutasListFragment"
             android:label="@string/title_activity_rutasList_fragment" />
         <activity
-            android:name=".DrawerActivity"
-            android:label="@string/title_activity_drawer" />
-        <activity
             android:name=".activities.CapitanActivity"
             android:label="Capitan" />
         <activity
@@ -153,6 +150,11 @@
             android:name=".activities.RouteActivity"
             android:label="@string/title_activity_route" >
         </activity>
+        <activity
+            android:name=".activities.CMSListActivity"
+            android:label="@string/title_activity_cmslist"
+            android:theme="@style/Theme.PopUp">
+        </activity>
     </application>
-
+\
 </manifest>

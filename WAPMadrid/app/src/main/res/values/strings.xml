@@ -163,7 +163,8 @@
     <string name="routeName">Ruta: %1$s</string>
     <string name="nivelGrupo">Nivel: %1$s</string>
     <string name="nombreRuta">Nombre de la ruta</string>
-    <string name="title_activity_route">RouteActivity</string>
+    <string name="title_activity_route">Ruta</string>
+    <string name="title_activity_cmslist">CMS</string>
 
 
 </resources>

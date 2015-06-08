@@ -18,28 +18,18 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.wapmadrid.NavigationDrawerFragment;
 import com.wapmadrid.R;
-import com.wapmadrid.fragments.AmigosListFragment;
+import com.wapmadrid.centroMedico.CentroMedicoDescripcionFragment;
 import com.wapmadrid.fragments.CapitanListFragment;
-import com.wapmadrid.fragments.CentroMedicoFragment;
 import com.wapmadrid.fragments.EnlacesFragment;
 import com.wapmadrid.fragments.GrupoListFragment;
 import com.wapmadrid.fragments.HomeFragment;
 import com.wapmadrid.fragments.PerfilFragment;
-import com.wapmadrid.fragments.RutasFragment;
 import com.wapmadrid.fragments.RutasListFragment;
 import com.wapmadrid.utilities.Constants;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
 public class InicioActivity extends FragmentActivity {
 
-    public static final String ID = "id";
-    public static final String TOKEN = "token";
-    protected static final String USUARIO = "usuario";
     private ListView drawerList;
     private String[] drawerOptions;
     private DrawerLayout drawerLayout;
@@ -48,7 +38,7 @@ public class InicioActivity extends FragmentActivity {
     private ActionBarDrawerToggle drawerToggle;
     private Fragment[] fragments = new Fragment[]{new HomeFragment(),
             new RutasListFragment(),
-            new CentroMedicoFragment(),
+            new CentroMedicoDescripcionFragment(),
             new PerfilFragment(),
           //  new AmigosListFragment(),
             new GrupoListFragment(),
@@ -64,6 +54,7 @@ public class InicioActivity extends FragmentActivity {
         if (getIntent().hasExtra(OPTION)) {
             option = Integer.parseInt(getIntent().getStringExtra(OPTION));
         }
+
 
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
@@ -178,12 +169,14 @@ public class InicioActivity extends FragmentActivity {
         if ((index == 0) || (index == 4) || (index == 6) || (index == 7)) {
             actionBar.setTitle("");
         }
+   /*     if (index == 0){
+            ((HomeFragment) toShow).fill();
+        }*/
         if (index == 1) {
             ((RutasListFragment) toShow).fill();
         }
         if (index == 2) {
-            actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-            ((CentroMedicoFragment) toShow).setTabs();
+            ((CentroMedicoDescripcionFragment) toShow).fill();
         }
         if (index == 3) {
             actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -223,6 +216,9 @@ public class InicioActivity extends FragmentActivity {
             } else if (requestCode == Constants.NUEVO_GRUPO) {
                 setContent(4);
                 ((GrupoListFragment) fragments[4]).fill();
+            } else if (requestCode == Constants.RESULT_SELECTED_CMS){
+                setContent(2);
+                ((CentroMedicoDescripcionFragment) fragments[2]).fill();
             }
         }
     }

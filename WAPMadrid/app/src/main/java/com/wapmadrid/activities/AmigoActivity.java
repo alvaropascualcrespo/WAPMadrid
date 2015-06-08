@@ -160,7 +160,6 @@ public class AmigoActivity extends FragmentActivity implements ActionBar.TabList
                         String msg = root.getString("   error_message");
                         Toast.makeText(getApplicationContext(),msg,Toast.LENGTH_SHORT).show();
                     }
-
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

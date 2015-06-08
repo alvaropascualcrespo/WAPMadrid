@@ -24,9 +24,8 @@
         android:id="@+id/gridAmigos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:columnWidth="100dp"
         android:gravity="center"
-        android:numColumns="3"
+        android:numColumns="2"
         android:stretchMode="columnWidth" />
 
 </LinearLayout>
