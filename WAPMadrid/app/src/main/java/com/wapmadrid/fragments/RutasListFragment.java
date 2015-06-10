@@ -121,7 +121,7 @@ public class RutasListFragment extends Fragment {
 							for (int i = 0; i < array.length(); i++) {
 								JSONObject ruta = array.getJSONObject(i);
 								try {
-									arraydir.add(new ItemRuta(ruta.getString("_id"), ruta.getString("name"), ruta.getJSONArray("coordinates")));
+									arraydir.add(new ItemRuta(ruta.getString("_id"), ruta.getString("name"), null));
 								} catch (Exception e){
 									e.printStackTrace();
 								}

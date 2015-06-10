@@ -19,6 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/altura"
+        android:textSize="16sp"
         android:textColor="@color/textColor" />
 
     <TextView
@@ -27,6 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/peso"
+        android:textSize="16sp"
         android:textColor="@color/textColor" />
 
     <TextView
@@ -35,6 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/fumador"
+        android:textSize="16sp"
         android:textColor="@color/textColor" />
 
     <TextView
@@ -43,6 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/alcohol"
+        android:textSize="16sp"
         android:textColor="@color/textColor" />
 
     <com.github.mikephil.charting.charts.BarChart
@@ -56,6 +60,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="@string/medidaIMC"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"
+        android:textSize="16sp" />
 
 </LinearLayout>

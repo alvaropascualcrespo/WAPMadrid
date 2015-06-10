@@ -38,19 +38,20 @@ public class ItemRuta{
     public ItemRuta(String id, String name, JSONArray puntos) {
         this.id = id;
         this.name = name;
-        points = new ArrayList<>();
-        for (int i = 0; i < puntos.length(); i++) {
-            try {
-                JSONObject aux = puntos.getJSONObject(i);
-                float _lat = Float.valueOf(aux.getString("_lat"));
-                float _long = Float.valueOf(aux.getString("_long"));
-                points.add(new LatLng(_lat, _long));
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (puntos != null) {
+            points = new ArrayList<>();
+            for (int i = 0; i < puntos.length(); i++) {
+                try {
+                    JSONObject aux = puntos.getJSONObject(i);
+                    float _lat = Float.valueOf(aux.getString("_lat"));
+                    float _long = Float.valueOf(aux.getString("_long"));
+                    points.add(new LatLng(_lat, _long));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
             }
-
         }
-
     }
 
     public ArrayList<LatLng> getPoints() {

@@ -32,6 +32,7 @@ public class CapitanActivity extends FragmentActivity {
 	AdapterItemLayoutCapitan adapter;
 	GridView lista;
 	private String groupID;
+	private String routeID;
 	ViewPager mViewPager;
 	private CapitanPageAdapter capitanPageAdapter;
 
@@ -66,13 +67,14 @@ public class CapitanActivity extends FragmentActivity {
 			}
 		};
 		groupID = getIntent().getStringExtra(Constants.GROUP_ID);
+		routeID = getIntent().getStringExtra("ROUTE_ID");
 
 		String[] grupo_tabs = getResources().getStringArray(R.array.capitan_tabs);
 		for (int i = 0; i < grupo_tabs.length; i++)
 			actionBar.addTab(actionBar.newTab()
 					.setText(grupo_tabs[i])
 					.setTabListener(tabListener));
-		capitanPageAdapter = new CapitanPageAdapter(this, getSupportFragmentManager(), groupID);
+		capitanPageAdapter = new CapitanPageAdapter(this, getSupportFragmentManager(), groupID,routeID);
 
 		// Set up the ViewPager with the sections adapter.
 

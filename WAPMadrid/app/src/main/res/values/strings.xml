@@ -45,8 +45,15 @@
     </string-array>
     <string-array name="grupo_tabs">
         <item>Información</item>
+        <item>Ruta</item>
         <item>Miembros</item>
         <item>Mensajes</item>
+    </string-array>
+    <string-array name="perfil_tabs">
+        <item>Información</item>
+        <item>Estado</item>
+        <item>Dieta</item>
+        <item>Actividad</item>
     </string-array>
     <string-array name="capitan_tabs">
         <item>Información</item>

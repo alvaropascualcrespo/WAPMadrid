@@ -33,8 +33,8 @@ import java.util.ArrayList;
 /**
  * Created by Ismael on 22/05/2015.
  */
-public class CustomItemMap extends LinearLayout{
-
+public class CustomItemMap {
+/*
     Context context;
     GoogleMap map;
     ItemRuta item;
@@ -115,7 +115,7 @@ public class CustomItemMap extends LinearLayout{
             });
         }
     }
-
+*/
 
 
 }

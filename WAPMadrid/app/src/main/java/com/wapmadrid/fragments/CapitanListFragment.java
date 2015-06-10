@@ -61,6 +61,7 @@ public class CapitanListFragment extends Fragment {
 
                 Intent i = new Intent(getActivity().getApplicationContext(), CapitanActivity.class);
                 i.putExtra(Constants.GROUP_ID, arraydir.get(position).getId());
+                i.putExtra("ROUTE_ID", arraydir.get(position).getRutaId());
                 startActivity(i);
 
             }
@@ -105,8 +106,9 @@ public class CapitanListFragment extends Fragment {
                                 String name = aux.getString("name");
                                 String id = aux.getString("_id");
                                 JSONObject auxRoute = aux.getJSONObject("route");
+                                String rutaId = auxRoute.getString("_id");
                                 String ruta = auxRoute.getString("name");
-                                ItemGrupo grupo = new ItemGrupo(picture, name, ruta, id);
+                                ItemGrupo grupo = new ItemGrupo(picture, name, ruta, id, rutaId);
                                 arraydir.add(grupo);
                             }
                         }

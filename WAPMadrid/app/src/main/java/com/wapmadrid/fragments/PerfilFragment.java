@@ -72,26 +72,11 @@ public class PerfilFragment extends Fragment implements ActionBar.TabListener {
         final ActionBar actionBar = getActivity().getActionBar();
 
         actionBar.removeAllTabs();
-
-        actionBar.addTab(
-                actionBar.newTab()
-                        .setText("Información")
-                        .setTabListener(this));
-        actionBar.addTab(
-                actionBar.newTab()
-                        .setText("Estado")
-                        .setTabListener(this));
-
-        actionBar.addTab(
-                actionBar.newTab()
-                        .setText("Dieta")
-                        .setTabListener(this));
-
-        actionBar.addTab(
-                actionBar.newTab()
-                        .setText("Actividad")
-                        .setTabListener(this));
-
+        String[] perfil_tabs = getResources().getStringArray(R.array.perfil_tabs);
+        for (int i = 0; i < perfil_tabs.length; i++)
+            actionBar.addTab(actionBar.newTab()
+                    .setText(perfil_tabs[i])
+                    .setTabListener(this));
     }
 
     public void setContent(int index) {

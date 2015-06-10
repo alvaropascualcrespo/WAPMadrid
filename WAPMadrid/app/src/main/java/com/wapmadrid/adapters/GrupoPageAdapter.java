@@ -17,15 +17,17 @@ import com.wapmadrid.utilities.Constants;
 public class GrupoPageAdapter extends FragmentStatePagerAdapter {
 	
 	private Fragment[] fragments = new Fragment[]{ 	new GrupoCaracteristicasFragment(),
+			new GrupoRutaFragment(),
 			 new GrupoMiembrosFragment(),
 			new GrupoNotasFragment()};
 	private String[] grupo_navigation;
 
-		public GrupoPageAdapter(Activity activity, FragmentManager fm, String groupID) {
+		public GrupoPageAdapter(Activity activity, FragmentManager fm, String groupID, String routeID) {
 			super(fm);
 			for (int i = 0; i < fragments.length; i++){
 				Bundle bundle = new Bundle();
 				bundle.putString(Constants.GROUP_ID,groupID);
+				bundle.putString("ROUTE_ID",routeID);
 				fragments[i].setArguments(bundle);
 			}
 			grupo_navigation = activity.getResources().getStringArray(R.array.grupo_tabs);

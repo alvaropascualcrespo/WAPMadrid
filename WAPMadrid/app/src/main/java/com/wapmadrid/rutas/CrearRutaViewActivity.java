@@ -235,7 +235,7 @@ public class CrearRutaViewActivity extends FragmentActivity implements OnMapRead
                     .isProviderEnabled(LocationManager.NETWORK_PROVIDER);
 
             if (!isGPSEnabled && !isNetworkEnabled) {
-                // location service disabled
+
             } else {
                 this.canGetLocation = true;
 
@@ -303,8 +303,25 @@ public class CrearRutaViewActivity extends FragmentActivity implements OnMapRead
             location = getLocation();
         else
             location = mapa.getMyLocation();
-        mapa.animateCamera(CameraUpdateFactory.newLatLngZoom(
-                new LatLng(location.getLatitude(), location.getLongitude()), 15));
+        if (location == null)
+            startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS), 100);
+        else
+            mapa.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 15));
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (RESULT_OK == resultCode){
+            if (100 == requestCode){
+                if (mapa.getMyLocation() != null){
+                    Location location = null;
+                    if (mapa.getMyLocation() == null)
+                        location = getLocation();
+                    else
+                        location = mapa.getMyLocation();
+                    mapa.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 15));
+                }
+            }
+        }
     }
 }

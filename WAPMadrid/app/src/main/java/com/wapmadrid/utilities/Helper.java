@@ -88,6 +88,10 @@ public class Helper {
         return BASE_API_URL + "walkers/groups/" + id;
     }
 
+    public static String getGruposListUrl(String id) {
+        return BASE_API_URL + "groups/list/" + id;
+    }
+
     public static String getReadGrupoUrl(String id) {
         return BASE_API_URL + "groups/" + id;
     }

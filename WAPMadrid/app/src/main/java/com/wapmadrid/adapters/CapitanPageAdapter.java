@@ -21,11 +21,12 @@ public class CapitanPageAdapter extends FragmentStatePagerAdapter {
 			new GrupoNotasFragment()};
 	private String[] grupo_navigation;
 
-		public CapitanPageAdapter(Activity activity, FragmentManager fm, String groupID) {
+		public CapitanPageAdapter(Activity activity, FragmentManager fm, String groupID, String routeID) {
 			super(fm);
 			for (int i = 0; i < fragments.length; i++){
 				Bundle bundle = new Bundle();
 				bundle.putString(Constants.GROUP_ID,groupID);
+				bundle.putString("ROUTE_ID",routeID);
 				fragments[i].setArguments(bundle);
 			}
 			grupo_navigation = activity.getResources().getStringArray(R.array.grupo_tabs);

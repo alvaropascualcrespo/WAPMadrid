@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 
 import com.wapmadrid.R;
@@ -44,6 +45,7 @@ public class InicioActivity extends FragmentActivity {
             new GrupoListFragment(),
             new CapitanListFragment(),
             new EnlacesFragment()};
+    private FrameLayout contentFrame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +57,7 @@ public class InicioActivity extends FragmentActivity {
             option = Integer.parseInt(getIntent().getStringExtra(OPTION));
         }
 
+        contentFrame = (FrameLayout) findViewById(R.id.contentFrame);
 
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
@@ -122,6 +125,8 @@ public class InicioActivity extends FragmentActivity {
           //      .hide(fragments[7])
                 .commitAllowingStateLoss();
 
+        contentFrame.setVisibility(View.VISIBLE);
+        drawerList.setVisibility(View.VISIBLE);
         setContent(option);
 
         getActionBar().setIcon(R.drawable.action_bar_negro);

@@ -12,7 +12,8 @@
         android:layout_centerHorizontal="true"
         android:text="aaaaaaa"
         android:id="@+id/txtPregunta"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="50dp"
+        android:textSize="18sp" />
 
     <Button
         android:layout_width="wrap_content"

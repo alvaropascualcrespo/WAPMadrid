@@ -40,6 +40,7 @@ public class GrupoActivity extends FragmentActivity {
      */
     ViewPager mViewPager;
     private String groupID;
+    private String routeID;
 
     @SuppressWarnings("deprecation")
     @Override
@@ -73,13 +74,14 @@ public class GrupoActivity extends FragmentActivity {
             }
         };
         groupID = getIntent().getStringExtra(Constants.GROUP_ID);
+        routeID = getIntent().getStringExtra("ROUTE_ID");
 
         String[] grupo_tabs = getResources().getStringArray(R.array.grupo_tabs);
         for (int i = 0; i < grupo_tabs.length; i++)
             actionBar.addTab(actionBar.newTab()
                     .setText(grupo_tabs[i])
                     .setTabListener(tabListener));
-        grupoPageAdapter = new GrupoPageAdapter(this, getSupportFragmentManager(), groupID);
+        grupoPageAdapter = new GrupoPageAdapter(this, getSupportFragmentManager(), groupID, routeID);
 
         // Set up the ViewPager with the sections adapter.
 

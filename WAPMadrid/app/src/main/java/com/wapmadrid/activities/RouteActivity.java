@@ -42,6 +42,7 @@ public class RouteActivity extends FragmentActivity  implements OnMapReadyCallba
     private String routeID;
     private ItemRuta item;
     OnMapReadyCallback onMapReadyCallback;
+    private TextView tvDistance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,12 +51,12 @@ public class RouteActivity extends FragmentActivity  implements OnMapReadyCallba
 
         fragmentMapa = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapRutaActivity);
         tvName = (TextView) findViewById(R.id.tvName);
+        tvDistance = (TextView) findViewById(R.id.tvDistance);
         getActionBar().setDisplayHomeAsUpEnabled(true);
         routeID = getIntent().getStringExtra("ROUTE_ID");
         onMapReadyCallback = this;
 
         fill();
-      //  fragmentMapa.getMapAsync(this);
     }
 
     public void fill() {
@@ -76,6 +77,7 @@ public class RouteActivity extends FragmentActivity  implements OnMapReadyCallba
                     if (error.equals("0")) {
                         JSONObject ruta = root.getJSONObject("route");
                         tvName.setText(ruta.getString("name"));
+                        tvDistance.setText(ruta.getString("distance") + " km");
                         item = new ItemRuta(ruta.getString("_id"),ruta.getString("name"),ruta.getJSONArray("coordinates"));
                         fragmentMapa.getMapAsync(onMapReadyCallback);
                     }
