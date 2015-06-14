@@ -43,7 +43,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CrearRutaViewActivity extends FragmentActivity implements OnMapReadyCallback, LocationListener {
+public class CrearRutaActivity extends FragmentActivity implements OnMapReadyCallback, LocationListener {
     private boolean iniciado = false;
     Button finalizarRuta;
     LocationListener locationListener;
@@ -53,7 +53,6 @@ public class CrearRutaViewActivity extends FragmentActivity implements OnMapRead
     private boolean canGetLocation = false;
     private ArrayList<HashMap<String, Double>> puntosRuta;
     private ArrayList<LatLng> points;
-    private float distance = 0;
     private HashMap<String, String> dataToSend;
     private ArrayList<JSONObject> coordinates;
     private EditText etNombreRuta;
@@ -85,7 +84,6 @@ public class CrearRutaViewActivity extends FragmentActivity implements OnMapRead
 
             @Override
             public void onClick(View v) {
-                // TODO Mandar Datos al Servidor
                 if (!iniciado) {
                     finalizarRuta.setText("Finalizar Ruta");
                     updateLocation(mapa.getMyLocation());
@@ -94,11 +92,10 @@ public class CrearRutaViewActivity extends FragmentActivity implements OnMapRead
                 } else {
                     finalizarRuta.setText("Iniciar Ruta");
                     locationManager.removeUpdates(locationListener);
-                    dataToSend.put("name", "Ruta Moto Isma");
                     String nombreRuta = etNombreRuta.getText().toString();
                     if (!nombreRuta.equals("")) {
                         dataToSend.put("name", nombreRuta);
-                        dataToSend.put("distance", String.valueOf(distance));
+                        dataToSend.put("distance", String.valueOf(getDistance()));
                         fillCoordinates();
                         iniciado = false;
                     }
@@ -216,7 +213,6 @@ public class CrearRutaViewActivity extends FragmentActivity implements OnMapRead
             polylineOptions.geodesic(true);
             Polyline poly = mapa.addPolyline(polylineOptions);
             poly.setPoints(points);
-
         } catch (Exception e) {
         }
     }
@@ -323,5 +319,21 @@ public class CrearRutaViewActivity extends FragmentActivity implements OnMapRead
                 }
             }
         }
+    }
+
+    public float getDistance() {
+        float dist = 0;
+        for (int i = 0; i < points.size() - 1; i++){
+            Location l1=new Location("One");
+            l1.setLatitude(points.get(i).latitude);
+            l1.setLongitude(points.get(i).longitude);
+
+            Location l2=new Location("Two");
+            l2.setLatitude(points.get(i + 1).latitude);
+            l2.setLongitude(points.get(i + 1).longitude);
+
+            dist += l1.distanceTo(l2);
+        }
+        return dist;
     }
 }

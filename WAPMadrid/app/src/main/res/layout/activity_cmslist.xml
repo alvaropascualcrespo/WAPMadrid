@@ -15,10 +15,25 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true" />
 
+
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txtSelectCMS"
+        android:id="@+id/txtSelectCMS"
+        android:textColor="@color/orange_wap"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"
+        android:gravity="center" />
+
     <ListView
         android:id="@+id/listaCMS"
+        android:layout_below="@+id/txtSelectCMS"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-                 />
-
+        android:divider="@null"
+        />
 </RelativeLayout>

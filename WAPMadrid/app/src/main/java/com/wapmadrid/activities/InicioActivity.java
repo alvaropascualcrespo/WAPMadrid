@@ -11,6 +11,8 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AbsListView;
@@ -28,6 +30,7 @@ import com.wapmadrid.fragments.HomeFragment;
 import com.wapmadrid.fragments.PerfilFragment;
 import com.wapmadrid.fragments.RutasListFragment;
 import com.wapmadrid.utilities.Constants;
+import com.wapmadrid.utilities.DataManager;
 
 public class InicioActivity extends FragmentActivity {
 
@@ -147,6 +150,13 @@ public class InicioActivity extends FragmentActivity {
     }
 
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.home, menu);
+        return true;
+    }
+
     @SuppressWarnings("deprecation")
     public void setContent(int index) {
         Fragment toHide = null;
@@ -180,12 +190,10 @@ public class InicioActivity extends FragmentActivity {
         if (index == 1) {
             ((RutasListFragment) toShow).fill();
         }
-        if (index == 2) {
-            ((CentroMedicoDescripcionFragment) toShow).fill();
-        }
         if (index == 3) {
             actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
             ((PerfilFragment) toShow).setTabs();
+            ((PerfilFragment) toShow).fill();
         }
 
     }
@@ -200,8 +208,21 @@ public class InicioActivity extends FragmentActivity {
                 else
                     drawerLayout.openDrawer(Gravity.LEFT);
                 break;
+            case R.id.logOut:
+                logOut();
+                break;
         }
         return true;
+    }
+
+    private void logOut() {
+        DataManager dm = new DataManager(this);
+        String[] cred = dm.getCred();
+        dm.logout();
+        //TODO Llamar a API
+        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(i);
     }
 
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
@@ -227,6 +248,9 @@ public class InicioActivity extends FragmentActivity {
             }
         }
     }
+
+
+
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {

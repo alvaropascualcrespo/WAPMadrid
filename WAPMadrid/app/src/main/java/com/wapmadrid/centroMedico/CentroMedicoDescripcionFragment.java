@@ -89,6 +89,8 @@ public class CentroMedicoDescripcionFragment extends Fragment implements OnMapCl
 		fragmentMapa = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.mapCMS);
 		fragmentMapa.getMapAsync(this);
 
+		fill();
+
         return v;
     }
 	

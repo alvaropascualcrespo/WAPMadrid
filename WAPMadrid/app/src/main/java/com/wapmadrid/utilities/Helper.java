@@ -119,4 +119,12 @@ public class Helper {
     public static String getCMSListUrl(String id) {
         return BASE_API_URL + "cms/list/" + id;
     }
+
+    public static String getLeaveGrupoUrl(String id) {
+        return BASE_API_URL + "groups/leave/" + id;
+    }
+
+    public static String getSendGrupoStatsUrl(String id) {
+        return BASE_API_URL + "groups/stats/" + id;
+    }
 }

@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -42,6 +43,7 @@ public class GrupoRutaFragment extends Fragment implements OnMapReadyCallback {
 
 	private SupportMapFragment fragmentMapa;
 	private String routeID;
+	private String routeDistance;
 	private TextView tvName;
 	private TextView tvDistance;
 	private ItemRuta item;
@@ -82,20 +84,22 @@ public class GrupoRutaFragment extends Fragment implements OnMapReadyCallback {
 					if (error.equals("0")) {
 						JSONObject ruta = root.getJSONObject("route");
 						tvName.setText(ruta.getString("name"));
-						tvDistance.setText(ruta.getString("distance") + " km");
+						routeDistance = ruta.getString("distance");
+						tvDistance.setText(routeDistance + " km");
 						item = new ItemRuta(ruta.getString("_id"),ruta.getString("name"),ruta.getJSONArray("coordinates"));
 						fragmentMapa.getMapAsync(onMapReadyCallback);
 					}
 				} catch (Exception e) {
-					e.printStackTrace();
+					String error_message = getResources().getString(R.string.connection_error);
+					Toast.makeText(getActivity().getApplicationContext(), error_message, Toast.LENGTH_SHORT).show();
 				}
 			}
 		};
 		Response.ErrorListener errorListener = new Response.ErrorListener() {
 			@Override
 			public void onErrorResponse(VolleyError error) {
-				// error
-				Log.e("Error.Response", error.toString());
+				String error_message = getResources().getString(R.string.connection_error);
+				Toast.makeText(getActivity().getApplicationContext(),error_message,Toast.LENGTH_SHORT).show();
 			}
 		};
 
@@ -113,20 +117,7 @@ public class GrupoRutaFragment extends Fragment implements OnMapReadyCallback {
 
 
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
 
-		//noinspection SimplifiableIfStatement
-		if (id == R.id.action_settings) {
-			return true;
-		}
-
-		return super.onOptionsItemSelected(item);
-	}
 
 	@Override
 	public void onMapReady(GoogleMap googleMap) {
@@ -147,4 +138,7 @@ public class GrupoRutaFragment extends Fragment implements OnMapReadyCallback {
 	}
 
 
+	public String getRouteDistance() {
+		return routeDistance;
+	}
 }

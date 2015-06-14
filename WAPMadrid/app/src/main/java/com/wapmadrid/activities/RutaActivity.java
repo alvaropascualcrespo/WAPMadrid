@@ -7,10 +7,12 @@ import com.wapmadrid.rutaIndividual.RutaMapFragment;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.view.MenuItem;
 
 public class RutaActivity extends FragmentActivity implements ActionBar.TabListener{
 
@@ -22,17 +24,10 @@ public class RutaActivity extends FragmentActivity implements ActionBar.TabListe
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_ruta);
-		String[] tabs = getResources().getStringArray(R.array.ruta_tabs);
 		final ActionBar actionBar = getActionBar();
-        actionBar.setIcon(R.drawable.ic_launcher);
-        actionBar.setHomeButtonEnabled(true);
-        actionBar.setDisplayHomeAsUpEnabled(true);
-		for (int i = 0; i</*tabs.length*/2; i++){
-	        actionBar.addTab(
-	                actionBar.newTab()
-	                        .setText(tabs[i])
-	                        .setTabListener(this));
-		}
+		actionBar.setIcon(R.drawable.action_bar_negro);
+		actionBar.setHomeButtonEnabled(true);
+		actionBar.setDisplayHomeAsUpEnabled(true);
 		FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction()
         	    .add(R.id.rutaLayout, fragments[0])
@@ -82,6 +77,19 @@ public class RutaActivity extends FragmentActivity implements ActionBar.TabListe
 	public void onTabUnselected(Tab arg0, FragmentTransaction arg1) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		int itemId = item.getItemId();
+		switch (itemId) {
+			case android.R.id.home:
+				Intent i = new Intent(this, InicioActivity.class);
+				i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+				startActivity(i);
+				break;
+		}
+		return true;
 	}
 	
 }

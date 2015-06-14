@@ -19,6 +19,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -116,15 +117,15 @@ public class MainActivity extends Activity {
 							startActivity(i);
 		            	}
 		            	else{
-							muestraError("Fallo en el token");
+							muestraError();
 		            	}
 		            }
 					else{
 						String error_message = respuesta.getString("error_message");
-						muestraError(error_message);									
+						Toast.makeText(getApplicationContext(),error_message, Toast.LENGTH_SHORT).show();
 					}
 	            } catch(JSONException e) {
-	            	muestraError("Error en la conexion. Inténtalo mas tarde.");
+					muestraError();
 	            }
 	        }
 	    };
@@ -132,7 +133,7 @@ public class MainActivity extends Activity {
 	    Response.ErrorListener errorListener = new Response.ErrorListener(){
 	         @Override
 	         public void onErrorResponse(VolleyError error){
-	             muestraError("Error de conexión");
+				 muestraError();
 	         }
 	    };	
 	    
@@ -150,18 +151,8 @@ public class MainActivity extends Activity {
 		
 	}
 
-	private void muestraError(String error){
-		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setMessage(error)
-		        .setTitle("Error en el Login")
-		        .setCancelable(false)
-		        .setNeutralButton("Aceptar",
-		                new DialogInterface.OnClickListener() {
-		                    public void onClick(DialogInterface dialog, int id) {
-		                        dialog.cancel();
-		                    }
-		                });
-		AlertDialog alert = builder.create();
-		alert.show();
+	private void muestraError(){
+		String error_message = getResources().getString(R.string.connection_error);
+		Toast.makeText(getApplicationContext(),error_message,Toast.LENGTH_SHORT).show();
 	}
 }

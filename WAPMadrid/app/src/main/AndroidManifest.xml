@@ -34,7 +34,7 @@
     <android:uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="18" />
-
+\
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -73,7 +73,7 @@
             android:name=".rutas.MapFragment"
             android:label="@string/title_activity_map_fragment" />
         <activity
-            android:name=".rutas.CrearRutaViewActivity"
+            android:name=".rutas.CrearRutaActivity"
             android:label="@string/title_activity_crear_ruta"
             android:parentActivityName=".activities.CapitanActivity" />
         <activity
@@ -153,8 +153,13 @@
         <activity
             android:name=".activities.CMSListActivity"
             android:label="@string/title_activity_cmslist"
-            android:theme="@style/Theme.PopUp">
+            android:theme="@style/Theme.PopUp" >
+        </activity>
+        <activity
+            android:name=".capitan.CaptainSelectMembersActivity"
+            android:label="@string/title_activity_captain_select_members" >
+            android:theme="@style/Theme.PopUp" >
         </activity>
     </application>
-\
+
 </manifest>

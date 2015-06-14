@@ -3,7 +3,6 @@ package com.wapmadrid.activities;
 import java.util.ArrayList;
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,19 +10,11 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
-import android.widget.Toast;
 
 import com.wapmadrid.R;
 import com.wapmadrid.adapters.AdapterItemLayoutCapitan;
 import com.wapmadrid.adapters.CapitanPageAdapter;
-import com.wapmadrid.adapters.GrupoPageAdapter;
-import com.wapmadrid.capitan.CederCapitaniaViewActivity;
-import com.wapmadrid.capitan.ComenzarRutaViewActivity;
-import com.wapmadrid.rutas.CrearRutaViewActivity;
-import com.wapmadrid.capitan.MensajesCapitanViewActivity;
 import com.wapmadrid.data.ItemLayoutCapitan;
 import com.wapmadrid.utilities.Constants;
 
@@ -45,6 +36,7 @@ public class CapitanActivity extends FragmentActivity {
 		final ActionBar actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		actionBar.setHomeButtonEnabled(true);
+		actionBar.setDisplayHomeAsUpEnabled(true);
 		actionBar.setIcon(R.drawable.action_bar_negro);
 
 		ActionBar.TabListener tabListener = new ActionBar.TabListener() {
@@ -103,10 +95,14 @@ public class CapitanActivity extends FragmentActivity {
 		switch (itemId) {
 			case android.R.id.home:
 				Intent i = new Intent(this, InicioActivity.class);
+				i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 				startActivity(i);
 				break;
 		}
 		return true;
 	}
-	
+
+	public String getRouteDistance() {
+		return capitanPageAdapter.getRouteDistance();
+	}
 }

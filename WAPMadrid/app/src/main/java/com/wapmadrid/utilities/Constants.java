@@ -13,6 +13,8 @@ public class Constants {
     public static final String GROUP_ID = "GROUP_ID";
     public static final String WALKER_ID = "WALKER_ID";
     public static final int RESULT_SELECTED_CMS = 3;
+    public static final String SELECTED_MEMBERS = "SELECTED_MEMBERS";
+    public static final int RESULT_SELECTED_MEMBERS = 4 ;
 
     public static String getSmoker(int smoker){
         switch (smoker){

@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.wapmadrid.R;
-import com.wapmadrid.grupo.GrupoCaracteristicasFragment;
+import com.wapmadrid.capitan.GrupoCapitanCaracteristicasFragment;
 import com.wapmadrid.grupo.GrupoMiembrosFragment;
 import com.wapmadrid.grupo.GrupoNotasFragment;
 import com.wapmadrid.grupo.GrupoRutaFragment;
@@ -15,7 +15,7 @@ import com.wapmadrid.utilities.Constants;
 
 public class CapitanPageAdapter extends FragmentStatePagerAdapter {
 
-	private Fragment[] fragments = new Fragment[]{ 	new GrupoCaracteristicasFragment(),
+	private Fragment[] fragments = new Fragment[]{ 	new GrupoCapitanCaracteristicasFragment(),
 			new GrupoRutaFragment(),
 			 new GrupoMiembrosFragment(),
 			new GrupoNotasFragment()};
@@ -46,4 +46,8 @@ public class CapitanPageAdapter extends FragmentStatePagerAdapter {
 		public CharSequence getPageTitle(int position) {
 			return grupo_navigation[position];
 		}
+
+	public String getRouteDistance() {
+		return ((GrupoRutaFragment) fragments[1]).getRouteDistance();
+	}
 }

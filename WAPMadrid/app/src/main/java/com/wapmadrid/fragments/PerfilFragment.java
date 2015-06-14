@@ -135,7 +135,7 @@ public class PerfilFragment extends Fragment implements ActionBar.TabListener {
                         ((MiPerfilInfoFragment) fragments[0]).setWalker(walker);
                         ((MiPerfilEstadoFragment) fragments[1]).setWalker(walker);
                         ((MiPerfilDietaFragment) fragments[2]).setWalker(walker);
-                        ((MiPerfilInfoFragment) fragments[3]).setWalker(walker);
+                        ((MiPerfilActividadFragment) fragments[3]).setWalker(walker);
                     } else {
                         //TODO
                     }

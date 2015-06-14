@@ -11,16 +11,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.wapmadrid.R;
-import com.wapmadrid.activities.NewGroupActivity;
 import com.wapmadrid.activities.RouteActivity;
 import com.wapmadrid.activities.RoutesListActivity;
 import com.wapmadrid.adapters.AdapterItemRuta;
-import com.wapmadrid.adapters.AdapterItemRutas;
-import com.wapmadrid.data.ItemGrupo;
 import com.wapmadrid.data.ItemRuta;
-import com.wapmadrid.data.ItemRutasList;
-import com.wapmadrid.rutas.CrearRutaViewActivity;
-import com.wapmadrid.utilities.Constants;
+import com.wapmadrid.rutas.CrearRutaActivity;
 import com.wapmadrid.utilities.DataManager;
 import com.wapmadrid.utilities.Helper;
 
@@ -78,7 +73,7 @@ public class RutasListFragment extends Fragment {
 			tvNewRoute.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					Intent i = new Intent(getActivity().getApplicationContext(), CrearRutaViewActivity.class);
+					Intent i = new Intent(getActivity().getApplicationContext(), CrearRutaActivity.class);
 					startActivity(i);
 				}
 			});
