@@ -17,6 +17,8 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.github.mikephil.charting.charts.CombinedChart;
@@ -30,6 +32,8 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
 import com.wapmadrid.R;
 import com.wapmadrid.activities.CapitanActivity;
+import com.wapmadrid.activities.NewGroupActivity;
+import com.wapmadrid.utilities.BitmapLRUCache;
 import com.wapmadrid.utilities.Constants;
 import com.wapmadrid.utilities.DataManager;
 import com.wapmadrid.utilities.Helper;
@@ -65,6 +69,14 @@ public class GrupoCapitanCaracteristicasFragment extends Fragment{
     private ArrayList<Float> stats_value;
     private ArrayList<String> stats_date;
     private HorizontalBarChart chartStatsGrupo;
+    private Button btnEditGroup;
+    private NetworkImageView imgGroup;
+    private String name;
+    private String schedule;
+    private String level;
+    private String ruta;
+    private String rutaID;
+    private String picture;
 
 
     @Override
@@ -80,7 +92,25 @@ public class GrupoCapitanCaracteristicasFragment extends Fragment{
         txtHorario = (TextView) v.findViewById(R.id.txtHorario);
         txtNivel = (TextView) v.findViewById(R.id.txtNivel);
         btnEmpezarRuta = (Button) v.findViewById(R.id.btnEmpezarRuta);
+        btnEditGroup = (Button) v.findViewById(R.id.btnEditGroup);
         chartStatsGrupo = (HorizontalBarChart) v.findViewById(R.id.chartStatsGrupo);
+        imgGroup = (NetworkImageView) v.findViewById(R.id.imgGroup);
+
+        btnEditGroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity().getApplicationContext(), NewGroupActivity.class);
+                i.putExtra(Constants.PARENT, Constants.PARENT_INFO);
+                i.putExtra("NombreGrupo",name);
+                i.putExtra("Picture",picture);
+                i.putExtra("Level",level);
+                i.putExtra("Schedule",schedule);
+                i.putExtra("Ruta",ruta);
+                i.putExtra("RutaID",rutaID);
+                i.putExtra(Constants.GROUP_ID, groupID);
+                startActivityForResult(i, Constants.RESULT_EDIT);
+            }
+        });
 
         dataToSend = new HashMap<>();
 
@@ -171,6 +201,9 @@ public class GrupoCapitanCaracteristicasFragment extends Fragment{
                 String distance = ((CapitanActivity) getActivity()).getRouteDistance();
                 dataToSend.put("distance", distance);
                 sendEndRoute();
+                getActivity().recreate();
+            } else if (requestCode == Constants.RESULT_EDIT){
+                getActivity().recreate();
             }
         }
     }
@@ -240,15 +273,15 @@ public class GrupoCapitanCaracteristicasFragment extends Fragment{
                     if (error.equals("0")) {
                         JSONObject group = root.getJSONObject("group");
                         boolean member = root.getBoolean("member");
-                      //  String picture = group.getString("image");
-                        String name = group.getString("name");
-                        String schedule = group.getString("schedule");
-                        String level = group.getString("level");
+                        name = group.getString("name");
+                        schedule = group.getString("schedule");
+                        level = group.getString("level");
                         JSONObject captain = group.getJSONObject("captain");
                         String captainName = captain.getString("displayName");
                         String captainEmail = captain.getString("email");
                         JSONObject auxRoute = group.getJSONObject("route");
-                        String ruta = auxRoute.getString("name");
+                        ruta = auxRoute.getString("name");
+                        rutaID = auxRoute.getString("_id");
                         String nombreRutaRes = getResources().getString(R.string.routeName);
                         String nombreCapitanRes = getResources().getString(R.string.captainName);
                         String emailRes = getResources().getString(R.string.emailCapitan);
@@ -273,7 +306,15 @@ public class GrupoCapitanCaracteristicasFragment extends Fragment{
                             stats_date.add("");
                             setData(stats_value, stats_date);
                         }
+                        RequestQueue requestQueueImagen = Volley.newRequestQueue(getActivity().getApplicationContext());
+                        ImageLoader imageLoader = new ImageLoader(requestQueueImagen, new BitmapLRUCache());
+                        if (group.has("image") && !"".equals(group.getString("image"))){
+                            picture = group.getString("image");
+                        } else {
+                            picture = Helper.getDefaultProfilePictureUrl();
+                        }
 
+                        imgGroup.setImageUrl(picture, imageLoader);
 
                     }
                 } catch (Exception e) {
@@ -300,6 +341,8 @@ public class GrupoCapitanCaracteristicasFragment extends Fragment{
         };
         requestQueue.add(request);
     }
+
+
 
     public String setDate(String date) {
         String aux = date.substring(0, 10);

@@ -24,6 +24,7 @@ import com.wapmadrid.utilities.Constants;
 import com.wapmadrid.utilities.DataManager;
 import com.wapmadrid.utilities.Helper;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -98,14 +99,18 @@ public class MiPerfilInfoFragment extends Fragment{
 			public void onClick(View v) {
 				Intent intent = new Intent(getActivity(), EditInfoActivity.class);
 				intent.putExtra("WALKER", walker);
-				getActivity().startActivityForResult(intent, Constants.RESULT_EDIT);
+				startActivityForResult(intent, Constants.RESULT_EDIT);
 			}
 		});
-
-
         return v;
     }
-	
 
-
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (resultCode == Activity.RESULT_OK){
+			if (requestCode == Constants.RESULT_EDIT){
+				getActivity().recreate();
+			}
+		}
+	}
 }

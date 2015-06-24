@@ -67,8 +67,7 @@ public class Helper {
     }
 
     public static String getDefaultProfilePictureUrl() {
-        // TODO Auto-generated method stub
-        return null;
+        return "http://www.proyectowap.tk/images/profiles/profile_default.png";
     }
 
     public static String getFriendsMessagesUrl() {
@@ -126,5 +125,13 @@ public class Helper {
 
     public static String getSendGrupoStatsUrl(String id) {
         return BASE_API_URL + "groups/stats/" + id;
+    }
+
+    public static String getUpdateGroupUrl(String id) {
+        return BASE_API_URL + "groups/update/" + id;
+    }
+
+    public static String getMessagesUrl(String id) {
+        return BASE_API_URL + "groups/messages/" + id;
     }
 }

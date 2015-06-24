@@ -4,6 +4,8 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
@@ -15,6 +17,7 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
 import com.wapmadrid.R;
+import com.wapmadrid.utilities.BitmapLRUCache;
 import com.wapmadrid.utilities.Constants;
 import com.wapmadrid.utilities.DataManager;
 import com.wapmadrid.utilities.Helper;
@@ -53,6 +56,7 @@ public class GrupoCaracteristicasFragment extends Fragment{
     private HorizontalBarChart chartStatsGrupo;
     private ArrayList<Float> stats_value;
     private ArrayList<String> stats_date;
+    private NetworkImageView imgGroup;
 
     @Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -68,6 +72,8 @@ public class GrupoCaracteristicasFragment extends Fragment{
         txtNivel = (TextView) v.findViewById(R.id.txtNivel);
         btnJoinRequest = (Button) v.findViewById(R.id.btnJoinRequest);
         chartStatsGrupo = (HorizontalBarChart) v.findViewById(R.id.chartStatsGrupo);
+        imgGroup = (NetworkImageView) v.findViewById(R.id.imgGroup);
+
 
         groupID = getArguments().getString(Constants.GROUP_ID);
 
@@ -147,7 +153,8 @@ public class GrupoCaracteristicasFragment extends Fragment{
                     if (error.equals("0")) {
                         JSONObject group = root.getJSONObject("group");
                         boolean member = root.getBoolean("member");
-                      //  String picture = group.getString("image");
+                        String picture;
+
                         String name = group.getString("name");
                         String schedule = group.getString("schedule");
                         String level = group.getString("level");
@@ -174,6 +181,17 @@ public class GrupoCaracteristicasFragment extends Fragment{
                         stats_date = new ArrayList<>();
                         JSONArray auxStats = group.getJSONArray("stats");
                         float totalDist = 0;
+                        RequestQueue requestQueueImagen = Volley.newRequestQueue(getActivity().getApplicationContext());
+                        ImageLoader imageLoader = new ImageLoader(requestQueueImagen, new BitmapLRUCache());
+                        if (group.has("image") && !"".equals(group.getString("image"))){
+                            picture = group.getString("image");
+                        } else {
+                            picture = Helper.getDefaultProfilePictureUrl();
+                        }
+
+                        imgGroup.setImageUrl(picture, imageLoader);
+
+
                         for (int i = 0; i < auxStats.length(); i++) {
                             JSONObject stats = auxStats.getJSONObject(i);
                             totalDist += Float.valueOf(stats.getString("distance"));

@@ -1,5 +1,7 @@
 package com.wapmadrid.activities;
 
+import android.app.ActionBar;
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -49,6 +51,10 @@ public class RouteActivity extends FragmentActivity  implements OnMapReadyCallba
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_route);
 
+        final ActionBar actionBar = getActionBar();
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setIcon(R.drawable.action_bar_negro);
         fragmentMapa = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapRutaActivity);
         tvName = (TextView) findViewById(R.id.tvName);
         tvDistance = (TextView) findViewById(R.id.tvDistance);
@@ -110,17 +116,15 @@ public class RouteActivity extends FragmentActivity  implements OnMapReadyCallba
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        int itemId = item.getItemId();
+        switch (itemId) {
+            case android.R.id.home:
+                Intent i = new Intent(this, InicioActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(i);
+                break;
         }
-
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 
     @Override

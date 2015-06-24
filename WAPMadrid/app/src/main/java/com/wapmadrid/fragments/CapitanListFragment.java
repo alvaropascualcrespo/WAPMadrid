@@ -97,6 +97,7 @@ public class CapitanListFragment extends Fragment {
                     JSONObject root = new JSONObject(response);
                     String error = root.getString("error");
                     if (error.equals("0")) {
+                        arraydir.clear();
                         JSONArray array = root.getJSONArray("groups");
                         for (int i = 0; i < array.length(); i++) {
                             JSONObject aux = array.getJSONObject(i);

@@ -15,6 +15,8 @@ public class Constants {
     public static final int RESULT_SELECTED_CMS = 3;
     public static final String SELECTED_MEMBERS = "SELECTED_MEMBERS";
     public static final int RESULT_SELECTED_MEMBERS = 4 ;
+    public static final String PARENT_INFO = "PARENT_INFO";
+    public static final String PARENT = "PARENT";
 
     public static String getSmoker(int smoker){
         switch (smoker){

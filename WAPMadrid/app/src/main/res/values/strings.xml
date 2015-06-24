@@ -183,6 +183,11 @@
         participado
     </string>
     <string name="aceptar">Aceptar</string>
+    <string name="fill_fields">Por favor rellena todos los campos</string>
+    <string name="diario">Por días</string>
+    <string name="mensual">Por meses</string>
+    <string name="anual">Por años</string>
+    <string name="seleccionar">Seleccionar Miembros</string>
 
 
 </resources>

@@ -195,6 +195,12 @@ public class InicioActivity extends FragmentActivity {
             ((PerfilFragment) toShow).setTabs();
             ((PerfilFragment) toShow).fill();
         }
+        if (index == 4) {
+            ((GrupoListFragment) toShow).fill();
+        }
+        if (index == 5) {
+            ((CapitanListFragment) toShow).fill();
+        }
 
     }
 
@@ -246,6 +252,7 @@ public class InicioActivity extends FragmentActivity {
                 setContent(2);
                 ((CentroMedicoDescripcionFragment) fragments[2]).fill();
             }
+            recreate();
         }
     }
 

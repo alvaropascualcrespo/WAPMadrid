@@ -9,6 +9,13 @@
     tools:context="com.wapmadrid.activities.NewGroupActivity"
     android:id="@+id/lyNewGroup">
 
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/imgGroup"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal" />
+
     <EditText
         style="@style/EditText.Orange"
         android:id="@+id/etNombreGrupo"

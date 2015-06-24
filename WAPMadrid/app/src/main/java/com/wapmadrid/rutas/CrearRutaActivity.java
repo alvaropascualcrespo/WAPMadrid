@@ -12,6 +12,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -32,6 +33,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.wapmadrid.R;
+import com.wapmadrid.activities.InicioActivity;
 import com.wapmadrid.utilities.DataManager;
 import com.wapmadrid.utilities.Helper;
 
@@ -66,6 +68,8 @@ public class CrearRutaActivity extends FragmentActivity implements OnMapReadyCal
         setContentView(R.layout.activity_capitan_crear_ruta);
         final ActionBar actionBar = getActionBar();
         actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setIcon(R.drawable.action_bar_negro);
         fragmentMapa = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapNuevaRuta);
         etNombreRuta = (EditText) findViewById(R.id.etNombreRuta);
         fragmentMapa.getMapAsync(this);
@@ -215,6 +219,19 @@ public class CrearRutaActivity extends FragmentActivity implements OnMapReadyCal
             poly.setPoints(points);
         } catch (Exception e) {
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemId = item.getItemId();
+        switch (itemId) {
+            case android.R.id.home:
+                Intent i = new Intent(this, InicioActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(i);
+                break;
+        }
+        return true;
     }
 
     public Location getLocation() {

@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.wapmadrid"
-    android:versionCode="2"
-    android:versionName="1.0.1" >
+    android:versionCode="4"
+    android:versionName="1.0.3" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -157,7 +157,7 @@
         </activity>
         <activity
             android:name=".capitan.CaptainSelectMembersActivity"
-            android:label="@string/title_activity_captain_select_members" >
+            android:label="@string/seleccionar"
             android:theme="@style/Theme.PopUp" >
         </activity>
     </application>

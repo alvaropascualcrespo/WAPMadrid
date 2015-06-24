@@ -18,11 +18,23 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="15dp"
         android:background="@drawable/button_enter"
         style="@style/TextView.Black"
         android:textSize="18sp"
+        android:layout_marginRight="18dp"
+        android:layout_marginLeft="18dp"
         android:text="@string/aceptar" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="18dp"
+        android:layout_marginLeft="18dp"
+        android:text="@string/title_activity_captain_select_members"
+        style="@style/EditText.Orange"
+        android:id="@+id/textView2"
+        android:layout_gravity="center_horizontal" />
 
     <GridView
         android:id="@+id/gridAmigos"

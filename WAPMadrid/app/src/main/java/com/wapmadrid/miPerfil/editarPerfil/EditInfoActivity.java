@@ -4,8 +4,11 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -31,6 +34,7 @@ import com.wapmadrid.utilities.Helper;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -45,6 +49,12 @@ public class EditInfoActivity extends Activity {
     private Button btnEnviarInfo;
     HashMap<String,String> dataToSend;
     private EditText etCity;
+
+    private static final int RESULT_CROP = 3;
+
+    private static int RESULT_LOAD_IMAGE = 1;
+
+    String encodedImage = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +92,17 @@ public class EditInfoActivity extends Activity {
         if (!telephone.equals("")){
             etTelephone.setHint(telephone);
         }
+
+        imgAmigo.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(
+                        Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(i, RESULT_LOAD_IMAGE);
+
+            }
+        });
 
         RequestQueue requestQueueImagen = Volley.newRequestQueue(getApplicationContext());
         ImageLoader imageLoader = new ImageLoader(requestQueueImagen, new BitmapLRUCache());
@@ -191,4 +212,50 @@ public class EditInfoActivity extends Activity {
         //register_error.setText(string);
     }
 
+    private void crop(Uri photoUri) {
+        Intent intent = new Intent("com.android.camera.action.CROP");
+        intent.setData(photoUri);
+        intent.putExtra("outputX", 200);
+        intent.putExtra("outputY", 200);
+        intent.putExtra("aspectX", 1);
+        intent.putExtra("aspectY", 1);
+        intent.putExtra("scale", true);
+        intent.putExtra("return-data", true);
+        startActivityForResult(intent, RESULT_CROP);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == RESULT_LOAD_IMAGE && resultCode == Activity.RESULT_OK && data != null) {
+            Uri selectedImage = data.getData();
+            if (selectedImage != null){
+                crop(selectedImage);
+            }
+        } else if (requestCode == RESULT_CROP && resultCode == Activity.RESULT_OK && data != null){
+
+            Bundle extras = data.getExtras();
+
+            if (extras != null) {
+                Bitmap bm = extras.getParcelable("data");
+
+
+
+                imgAmigo.setImageBitmap(bm);
+
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+
+                bm.compress(Bitmap.CompressFormat.JPEG,40,baos);
+
+
+                // bitmap object
+
+                byte[] byteImage_photo = baos.toByteArray();
+
+                //generate base64 string of image
+
+                encodedImage = Base64.encodeToString(byteImage_photo, Base64.DEFAULT);
+                dataToSend.put("profileImage", encodedImage);
+            }
+        }
+    }
 }

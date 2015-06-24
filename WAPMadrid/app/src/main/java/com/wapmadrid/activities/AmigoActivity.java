@@ -52,7 +52,7 @@ public class AmigoActivity extends FragmentActivity implements ActionBar.TabList
         walkerID = getIntent().getStringExtra(Constants.WALKER_ID);
         String[] tabs = getResources().getStringArray(R.array.amigo_tabs);
         final ActionBar actionBar = getActionBar();
-        //actionBar.setIcon(R.drawable.ic_launcher);
+        actionBar.setIcon(R.drawable.action_bar_negro);
         actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
