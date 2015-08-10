@@ -2,7 +2,7 @@ package com.wapmadrid.utilities;
 
 public class Helper {
 
-    public final static String BASE_API_URL = "http://www.proyectowap.tk:3100/api/";
+    public final static String BASE_API_URL = "http://wapmadrid.madridsalud.es:3100/api/";
 
     public static String getDefaultRutaPictureUrl() {
         return "http://www.proyectowap.tk/images/profiles/profile_default.png";

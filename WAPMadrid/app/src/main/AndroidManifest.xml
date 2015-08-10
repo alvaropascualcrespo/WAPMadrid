@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.wapmadrid"
-    android:versionCode="4"
-    android:versionName="1.0.3" >
+    android:versionCode="7"
+    android:versionName="1.0.6" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -142,7 +142,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCM3UEdvLRYH_Jx10VGjofBymjNUU9Wtws" />
+            android:value="AIzaSyBsHBPkEOW3mQo847pMtSuYoXKvh8W8dC8" />
 
         <uses-library android:name="com.google.android.maps" />
 

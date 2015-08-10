@@ -10,11 +10,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
 import com.wapmadrid.R;
 import com.wapmadrid.miPerfil.cuestionario.CuestionarioActivity;
 import com.wapmadrid.modelos.Walker;
@@ -32,7 +36,7 @@ public class MiPerfilDietaFragment  extends Fragment {
 
 
     private Walker walker;
-    private BarChart chartDieta;
+    private LineChart chartDieta;
     private Button btnCuestionario;
     // private BarGraph chartIMC;
 
@@ -42,7 +46,7 @@ public class MiPerfilDietaFragment  extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.perfil_dieta_fragment, container, false);
 
-        chartDieta = (BarChart) v.findViewById(R.id.chartDieta);
+        chartDieta = (LineChart) v.findViewById(R.id.chartDieta);
         btnCuestionario = (Button) v.findViewById(R.id.btnCuestionario);
 
         btnCuestionario.setOnClickListener(new View.OnClickListener() {
@@ -54,8 +58,8 @@ public class MiPerfilDietaFragment  extends Fragment {
         });
 
 
-        chartDieta.setDrawBarShadow(false);
-        chartDieta.setDrawValueAboveBar(true);
+     //   chartDieta.setDrawBarShadow(false);
+     //   chartDieta.setDrawValueAboveBar(true);
         chartDieta.setDescription("");
         chartDieta.setMaxVisibleValueCount(60);
         chartDieta.setPinchZoom(false);
@@ -71,21 +75,22 @@ public class MiPerfilDietaFragment  extends Fragment {
     }
 
     private void setData(ArrayList<String> diet_value, ArrayList<String> diet_date) {
-        ArrayList<BarEntry> imcVals = new ArrayList<BarEntry>();
+        ArrayList<Entry> imcVals = new ArrayList<Entry>();
 
         for (int i = 0; i < diet_value.size(); i++) {
-            imcVals.add(new BarEntry(Float.valueOf(diet_value.get(i)), i));
+            imcVals.add(new Entry(Float.valueOf(diet_value.get(i)), i));
         }
 
-        BarDataSet setIMC = new BarDataSet(imcVals, "Dieta Mediterranea");
-        setIMC.setBarSpacePercent(35f);
+        LineDataSet setIMC = new LineDataSet(imcVals, "Dieta Mediterranea");
+       // setIMC.setBarSpacePercent(35f);
         setIMC.setColor(getResources().getColor(R.color.orange_wap));
-        ArrayList<BarDataSet> dataSets = new ArrayList<BarDataSet>();
+        ArrayList<LineDataSet> dataSets = new ArrayList<LineDataSet>();
         dataSets.add(setIMC);
 
-        BarData data = new BarData(diet_date, dataSets);
+        LineData data = new LineData (diet_date, dataSets);
         data.setValueTextSize(10f);
 
+        chartDieta.animateY(2500);
         chartDieta.setData(data);
         chartDieta.invalidate();
     }

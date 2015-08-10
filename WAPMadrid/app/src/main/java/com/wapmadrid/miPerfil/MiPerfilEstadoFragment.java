@@ -12,11 +12,15 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
 import com.wapmadrid.miPerfil.editarPerfil.EditInfoActivity;
 import com.wapmadrid.miPerfil.editarPerfil.EditStatusActivity;
 import com.wapmadrid.modelos.Walker;
@@ -35,7 +39,7 @@ public class MiPerfilEstadoFragment extends Fragment {
 
 
     private Walker walker;
-    private BarChart chartIMC;
+    private LineChart chartIMC;
     private TextView txtAltura;
     private TextView txtPeso;
     private TextView txtFumador;
@@ -47,7 +51,7 @@ public class MiPerfilEstadoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.perfil_status_fragment, container, false);
 
-        chartIMC = (BarChart) v.findViewById(R.id.chartIMC);
+        chartIMC = (LineChart) v.findViewById(R.id.chartIMC);
         txtAltura = (TextView) v.findViewById(R.id.txtAltura);
         txtPeso = (TextView) v.findViewById(R.id.txtPeso);
         txtFumador = (TextView) v.findViewById(R.id.txtFumador);
@@ -57,15 +61,14 @@ public class MiPerfilEstadoFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), EditStatusActivity.class);
-                intent.putExtra("WALKER",walker);
+                intent.putExtra("WALKER", walker);
                 getActivity().startActivityForResult(intent, Constants.RESULT_EDIT);
             }
         });
 
 
 
-        chartIMC.setDrawBarShadow(false);
-        chartIMC.setDrawValueAboveBar(true);
+
         chartIMC.setDescription("");
         chartIMC.setMaxVisibleValueCount(60);
         chartIMC.setPinchZoom(false);
@@ -120,21 +123,21 @@ public class MiPerfilEstadoFragment extends Fragment {
     }
 
     private void setData(ArrayList<String> weight_imc, ArrayList<String> weight_value, ArrayList<String> weight_date) {
-        ArrayList<BarEntry> imcVals = new ArrayList<BarEntry>();
+        ArrayList<Entry> imcVals = new ArrayList<Entry>();
 
         for (int i = 0; i < weight_imc.size(); i++) {
-            imcVals.add(new BarEntry(Float.valueOf(weight_imc.get(i)), i));
+            imcVals.add(new Entry(Float.valueOf(weight_imc.get(i)), i));
         }
 
-        BarDataSet setIMC = new BarDataSet(imcVals, "IMC");
-        setIMC.setBarSpacePercent(35f);
+        LineDataSet setIMC = new LineDataSet(imcVals, "IMC");
         setIMC.setColor(getResources().getColor(R.color.orange_wap));
-        ArrayList<BarDataSet> dataSets = new ArrayList<BarDataSet>();
+        ArrayList<LineDataSet> dataSets = new ArrayList<LineDataSet>();
         dataSets.add(setIMC);
 
-        BarData data = new BarData(weight_date, dataSets);
+        LineData data = new LineData(weight_date, dataSets);
         data.setValueTextSize(10f);
 
+        chartIMC.animateY(2500);
         chartIMC.setData(data);
         chartIMC.invalidate();
     }

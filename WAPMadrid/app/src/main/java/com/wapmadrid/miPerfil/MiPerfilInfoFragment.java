@@ -82,6 +82,7 @@ public class MiPerfilInfoFragment extends Fragment{
         pgAmigoView = (ProgressBar)v.findViewById(R.id.pgAmigoView);
         txtCiudad = (TextView)v.findViewById(R.id.txtCiudad);
         txtSobreMi = (TextView)v.findViewById(R.id.txtSobreMi);
+		txtSobreMi.setVisibility(View.GONE);
         txtNombreyApellidos = (TextView)v.findViewById(R.id.txtNombreyApellidos);
 		txtEmail = (TextView)v.findViewById(R.id.txtEmail);
 		txtPhone = (TextView)v.findViewById(R.id.txtPhone);

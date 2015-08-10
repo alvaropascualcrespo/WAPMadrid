@@ -24,7 +24,7 @@
     <string name="title_activity_map_fragment">MapaFragment</string>
     <string name="title_activity_rutas_fragment">RutasFragment</string>
     <string name="title_activity_rutasList_fragment">RutasListFragment</string>
-    <string name="title_activity_centro_medico_fragment">CentroMedicoFragment</string>
+    <string name="title_activity_centro_medico_fragment">CentroSaludFragment</string>
     <string name="title_activity_crear_ruta">Crear Ruta</string>
     <string name="title_activity_ceder_capitania">Ceder Capitania</string>
     <string name="title_activity_comenzar_ruta">Comenzar Ruta</string>
@@ -39,7 +39,7 @@
     <string-array name="drawer_options">
         <item>Inicio</item>
         <item>Rutas</item>
-        <item>Centro Medico</item>
+        <item>Centro de Salud</item>
         <item>Perfil</item>
         <item>Grupos</item>
         <item>Capitán</item>
@@ -188,6 +188,8 @@
     <string name="mensual">Por meses</string>
     <string name="anual">Por años</string>
     <string name="seleccionar">Seleccionar Miembros</string>
+    <string name="enlace_wap">www.wapmadrid.madridsalud.es</string>
+    <string name="enlace_madridSalud">www.madridsalud.es</string>
 
 
 </resources>

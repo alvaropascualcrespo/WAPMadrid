@@ -242,7 +242,7 @@ public class InicioActivity extends FragmentActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Activity.RESULT_OK) {
-            if (requestCode == Constants.RESULT_EDIT) {
+           /* if (requestCode == Constants.RESULT_EDIT) {
                 setContent(3);
                 ((PerfilFragment) fragments[3]).fill();
             } else if (requestCode == Constants.NUEVO_GRUPO) {
@@ -251,7 +251,7 @@ public class InicioActivity extends FragmentActivity {
             } else if (requestCode == Constants.RESULT_SELECTED_CMS){
                 setContent(2);
                 ((CentroMedicoDescripcionFragment) fragments[2]).fill();
-            }
+            }*/
             recreate();
         }
     }

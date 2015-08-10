@@ -89,7 +89,8 @@ public class RegistroActivity extends Activity {
 					nombre = etRegistroNombre.getText().toString();
 					apellidos = etRegistroApellidos.getText().toString();
 					String anyo = ((Integer)(etRegistroFechaNacimiento.getYear())).toString();
-					String mes = ((Integer)(etRegistroFechaNacimiento.getMonth())).toString();
+					Integer month = (Integer) (etRegistroFechaNacimiento.getMonth()) + 1;
+					String mes = month.toString();
 					String dia = ((Integer)(etRegistroFechaNacimiento.getDayOfMonth())).toString();
 					fechaNacimiento = anyo + "-" + mes + "-" + dia;
 					email = etEmail.getText().toString();
@@ -209,8 +210,12 @@ private boolean checkFields() {
 		            		setErrorMsg("Fallo en el token");
 		            	}
 					}else{
+
 						String error_message = respuesta.getString("error_message");
-						setErrorMsg(error_message);
+						if (error_message.contains("email"))
+							setErrorMsg("El email que has introducido ya existe");
+						else
+							setErrorMsg(error_message);
 					}
 	            } catch(JSONException e) {}
 	        }

@@ -109,7 +109,6 @@ public class CentroMedicoDescripcionFragment extends Fragment implements OnMapCl
 	            // response
 	        	Log.e("Response", response);
 	            try {
-	            	pgCMDescripcion.setVisibility(View.GONE);
 		            respuesta = new JSONObject(response);
 		            String error = respuesta.getString("error");
 
